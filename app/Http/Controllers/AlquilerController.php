@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Models\Alquilers;
 use App\Models\Customer;
 use App\Models\lgenals;
+
 class AlquilerController extends Controller
 {
     public function store(){

@@ -12,7 +12,6 @@ use App\Models\Alquilers;
 use PhpParser\Node\Expr\AssignOp\Concat;
 use App\Http\Controllers\CustomerRequest;
 
-
 class ScreensController extends Controller
 {
     /**
@@ -37,7 +36,7 @@ class ScreensController extends Controller
     public function Lgeneral()
     {
         //$table = "load_reading";
-        $Lgenals = Lgenal::all();
+        $Lgenals = Lgenal::orderBy('date', 'desc')->get();
         return view("screens.Lgeneral", compact("Lgenals"));
     }
 
@@ -46,7 +45,7 @@ class ScreensController extends Controller
     public function show($id)
     {
         $clienteL = alquilers::findOrFail($id);
-        $load = lgenals::all();
+        $load = lgenals::orderBy('date', 'desc')->get();
         return view("layouts.LCustomer", compact("clienteL", "load"));
     }
 

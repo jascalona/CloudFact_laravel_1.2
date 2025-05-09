@@ -374,6 +374,12 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                                         aria-describedby="basic-addon1" readonly value="{{ $clienteL->rif }}" readonly>
                                                     </div>
 
+                                                    <div class="form-text mt-4" id="basic-addon4">Tipo de Cambio</div>
+                                                    <div class="input-group mb-3">
+                                                        <input type="text" class="form" placeholder="Por ejemplo: Paralelo"
+                                                            aria-label="Username" aria-describedby="basic-addon1"  value="{{ $clienteL->tipo_cambio }}">
+                                                    </div>
+
                                                 </div>
 
                                                 <!--form auto completado-->

@@ -355,7 +355,7 @@
 
                                                 <div class="alquiler">
 
-                                                <div class="form-text mt-4" id="basic-addon4">Tipo de Cambio</div>
+                                                    <div class="form-text mt-4" id="basic-addon4">Tipo de Cambio</div>
                                                     <div class="input-group mb-3">
                                                         <input type="text" class="form" placeholder="Por ejemplo: Paralelo"
                                                             aria-label="Username" aria-describedby="basic-addon1"  value="">
