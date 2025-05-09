@@ -296,7 +296,6 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
 
                                                 <!--vista digitalizacion-->
                                                 <div class="tab-pane" id="simple-tabpanel-1" role="tabpanel" aria-labelledby="simple-tab-1">
-                                                    
                                                     <h6>En Desarrollo</h6>
                                                 </div>
                                                 <!--vista digitalizacion-->
@@ -440,15 +439,6 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
 
                                 <div class="col-md-6 mb-md-0 mb-4">
                                     <h4 class="mb-4"><strong>Concepto o Descripción</strong></h4>
-                                    
-                                    <div class="content-fact">
-                                        <div class="mb-3 row">
-                                        <label for="staticEmail" class="col-sm- col-form-label">Volumen a Facturar B/N Bs</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control-plaintext" id="staticEmail" value="">
-                                        </div>
-                                        </div>
-                                    </div>
 
                                     <div class="content-fact">
                                         <div class="mb-3 row">
@@ -459,14 +449,6 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                         </div>
                                     </div>
 
-                                    <div class="content-fact">
-                                        <div class="mb-3 row">
-                                        <label for="staticEmail" class="col-sm- col-form-label">Volumen a Facturar Color Bs</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control-plaintext" id="staticEmail" value="">
-                                        </div>
-                                        </div>
-                                    </div>
 
                                     <div class="content-fact">
                                         <div class="mb-3 row">
@@ -483,14 +465,6 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                 <div class="col-md-6 mb-md-0 mb-4">
                                     <h4 class="mb-4"><strong>Montos a Facturar</strong></h4>
                                     
-                                    <div class="content-fact">
-                                        <div class="mb-3 row">
-                                        <label for="staticEmail" class="col-sm- col-form-label">Monto B/N Bs</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control-plaintext" id="staticEmail" value="">
-                                        </div>
-                                        </div>
-                                    </div>
 
                                     <div class="content-fact">
                                         <div class="mb-3 row">
@@ -501,15 +475,7 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                         </div>
                                     </div>
 
-                                    <div class="content-fact">
-                                        <div class="mb-3 row">
-                                        <label for="staticEmail" class="col-sm- col-form-label">Monto Color Bs</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control-plaintext" id="staticEmail" value="">
-                                        </div>
-                                        </div>
-                                    </div>
-
+                                 
                                     <div class="content-fact">
                                         <div class="mb-3 row">
                                         <label for="staticEmail" class="col-sm- col-form-label">Monto Color USD</label>
@@ -530,18 +496,6 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                     <div class="content-fact">
                                         <div class="mb-3 row">
                                         <label for="staticEmail" class="col-sm- col-form-label">Monto Cargo minimo</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control-plaintext" id="staticEmail" value="">
-                                        </div>
-                                        </div>
-                                    </div>
-
-
-                                    <h4 class="mb-4"><strong>Base Imponible Bs</strong></h4>
-                                    
-                                    <div class="content-fact">
-                                        <div class="mb-3 row">
-                                        <label for="staticEmail" class="col-sm- col-form-label">Monto Bs</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control-plaintext" id="staticEmail" value="">
                                         </div>
