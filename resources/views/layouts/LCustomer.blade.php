@@ -92,6 +92,7 @@
                         </p>
                     </div>
                 </div>
+            </div>
 
                 <div class="container-fluid py-2">
                     @csrf
@@ -404,6 +405,7 @@
                                                 <th>Serial</th>
                                                 <th>Modelo</th>
                                                 <th>Localidad</th>
+                                                <th>Mes</th>
                                                 <th>Date</th>
                                                 <th>Cont. Anterior B/N</th>
                                                 <th>Cont. Actual B/N</th>
@@ -429,6 +431,7 @@
                                                     <td>{{ $row->serial }}</td>
                                                     <td>{{ $row->model }}</td>
                                                     <td>{{ $row->location }}</td>
+                                                    <td>{{ $row->mes }}</td>
                                                     <td>{{ $row->date }}</td>
                                                     <td>{{ $row->cont_ante_bn }}</td>
                                                     <td>{{ $row->cont_actu_bn }}</td>

@@ -90,10 +90,11 @@
                         </p>
                     </div>
                 </div>
+            </div>
 
 
                 <!--SECTION GENERAL-->
-                <div class="container-fluid py-2 mb-6">
+                <div class="container-fluid py-2 mb-">
                     <div class="row">
                         <div class="col-lg-8">
                             <div class="row">
@@ -237,7 +238,7 @@
                     </div>
                 </div>
                 <!--SECTION GENERAL-->
-    
+
 
 
                 <div class="main p-5">
@@ -278,6 +279,7 @@
                                                 <th>Serial</th>
                                                 <th>Modelo</th>
                                                 <th>Localidad</th>
+                                                <th>Mes</th>
                                                 <th>Date</th>
                                                 <th>Cont. Anterior B/N</th>
                                                 <th>Cont. Actual B/N</th>
@@ -307,6 +309,7 @@
                                                     <td>{{ $row_Lgeneal->serial }}</td>
                                                     <td>{{ $row_Lgeneal->model }}</td>
                                                     <td>{{ $row_Lgeneal->location }}</td>
+                                                    <td>{{ $row_Lgeneal->mes }}</td>
                                                     <td>{{ $row_Lgeneal->date }}</td>
                                                     <td>{{ $row_Lgeneal->cont_ante_bn }}</td>
                                                     <td>{{ $row_Lgeneal->cont_actu_bn }}</td>

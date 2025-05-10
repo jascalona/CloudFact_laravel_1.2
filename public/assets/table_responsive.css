@@ -43,10 +43,6 @@
     scroll-behavior: smooth;
 }
 
-.content-table::-webkit-scrollbar {
-    display: none;
-}
-
 /*TABLE PARK*/
 
 

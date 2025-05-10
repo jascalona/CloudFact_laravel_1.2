@@ -40,6 +40,8 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
     <!--STYLES-->
 
 </head>
+
+<!--TABLE LECTURAS PRINT-->
 <script>
     $(document).ready(function () {
         $('#myTable').DataTable(
@@ -51,6 +53,22 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
         );
     });
 </script>
+<!--TABLE LECTURAS PRINT-->
+
+
+<!--TABLE LECTURAS SCAN-->
+<script>
+    $(document).ready(function () {
+        $('#myTable_scan').DataTable(
+            {
+                "language": {
+                    "url": "cdn.datatables.net/plug-ins/1.13.1/i18n/es-ES.json"
+                }
+            }
+        );
+    });
+</script>
+<!--TABLE LECTURAS SCAN-->
 
 <body>
 
@@ -257,11 +275,14 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                                 <!--vista printer-->
                                                 <div class="tab-pane active" id="simple-tabpanel-0" role="tabpanel" aria-labelledby="simple-tab-0">
                                                     
+                                                <div class="content-table">
+                                                <h4 class="mb-4">Lecturas Copiado</h4>
                                                     <table id="myTable" class="display">
                                                         <thead>
                                                             <tr>
                                                                 <th>Serial</th>
                                                                 <th>Modelo</th>
+                                                                <th>Mes</th>
                                                                 <th>Fecha</th>
                                                                 <th>Cont. Anterior B/N</th>
                                                                 <th>Cont. Actual B/N</th>
@@ -278,6 +299,7 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                                             <tr>
                                                                 <td>{{ $row_load->serial }}</td>
                                                                 <td>{{ $row_load->model }}</td>
+                                                                <td>{{ $row_load->mes }}</td>
                                                                 <td>{{ $row_load->date }}</td>
                                                                 <td>{{ $row_load->cont_ante_bn }}</td>
                                                                 <td>{{ $row_load->cont_actu_bn }}</td>
@@ -289,6 +311,7 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                                             @endforeach
                                                         </tbody>
                                                     </table>
+                                                </div>
                                                     
                                                 </div>
                                                 <!--vista printer-->
@@ -296,7 +319,46 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
 
                                                 <!--vista digitalizacion-->
                                                 <div class="tab-pane" id="simple-tabpanel-1" role="tabpanel" aria-labelledby="simple-tab-1">
-                                                    <h6>En Desarrollo</h6>
+                                                    
+                                                    <div class="content-table">
+                                                        <h4 class="mb-4">Lecturas Digitalización</h4>
+
+
+                                                        <table id="myTable_scan" class="display">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Serial</th>
+                                                                    <th>Modelo</th>
+                                                                    <th>Mes</th>
+                                                                    <th>Fecha</th>
+                                                                    <th>Cont. Ant. ScanImages</th>
+                                                                    <th>Cont. Act. ScanImages</th>
+                                                                    <th>Volum ScanImages</th>
+                                                                    <th>Cont. Ante. ScanJobs</th>
+                                                                    <th>Cont. Actu. ScanJobs</th>
+                                                                    <th>Volum ScanJobs</th>
+                                                                </tr>
+                                                            </thead>
+
+                                                            <tbody>
+                                                                @foreach ($load as $row_load_scan)
+
+                                                                <tr>
+                                                                    <td>{{ $row_load_scan->serial }}</td>
+                                                                    <td>{{ $row_load_scan->model }}</td>
+                                                                    <td>{{ $row_load_scan->mes }}</td>
+                                                                    <td>{{ $row_load_scan->date }}</td>
+                                                                    <td>{{ $row_load_scan->cont_ante_scan_images }}</td>
+                                                                    <td>{{ $row_load_scan->cont_actu_scan_images }}</td>
+                                                                    <td>{{ $row_load_scan->volum_scan_images }}</td>
+                                                                    <td>{{ $row_load_scan->cont_ante_scan_jobs }}</td>
+                                                                    <td>{{ $row_load_scan->cont_actu_scan_jobs }}</td>
+                                                                    <td>{{ $row_load_scan->volum_scan_jobs }}</td>
+                                                                </tr>
+                                                                @endforeach
+                                                            </tbody>
+                                                        </table>
+                                                    </div>                                                
                                                 </div>
                                                 <!--vista digitalizacion-->
 
