@@ -40,6 +40,9 @@ Route::post('install', [App\Http\Controllers\ParkController::class,'store'])->na
  /**ruta lecturas */
  Route::get('/lead', [App\Http\Controllers\ScreensController::class,'lead'])->name('.lead');
 
+ /**edicion de lecturas */
+Route::get('LoadEdit{edit}', [App\Http\Controllers\LoadEditController::class,'edit'])->name('LoadEdit.edit');
+
 
 /**RUTAS PARA LA IMPORTACION DE LECTURAS */
 Route::get('Lgeneral', [App\Http\Controllers\ImportLoadController::class,'form'])->name('');
