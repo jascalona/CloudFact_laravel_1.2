@@ -17,15 +17,26 @@ return new class extends Migration
             $table->string('serial');
             $table->string('model');
             $table->string('location');
+            $table->string('mes');
             $table->date('date');
             $table->integer('cont_ante_bn');
             $table->integer('cont_actu_bn');
             $table->integer('volum_bn');
+            $table->integer('AMCV_bn');
             $table->integer('cont_ante_color');
             $table->integer('cont_actu_color');
             $table->integer('volum_color');
-            $table->integer('scanImages');
-            $table->integer('scanJobs');
+            $table->integer('AMCV_color');
+
+            /**SERVICES SCAN FOR DEVELOP */
+            $table->integer('cont_ante_scan_images');
+            $table->integer('cont_actu_scan_images');
+            $table->integer('volum_scan_images');
+
+            $table->integer('cont_ante_scan_jobs');
+            $table->integer('cont_actu_scan_jobs');
+            $table->integer('volum_scan_jobs');
+
             $table->timestamps();        
         });
     }

@@ -41,13 +41,10 @@ Route::post('install', [App\Http\Controllers\ParkController::class,'store'])->na
  Route::get('/lead', [App\Http\Controllers\ScreensController::class,'lead'])->name('.lead');
 
 
+/**RUTAS PARA LA IMPORTACION DE LECTURAS */
+Route::get('Lgeneral', [App\Http\Controllers\ImportLoadController::class,'form'])->name('');
 
-
-/**ruta for ImportCSV */
-Route::get('Lgeneral', [App\Http\Controllers\ImportController::class,'form'])->name('form');
-
-Route::post('Lgeneral',[App\Http\Controllers\ImportController::class, 'import'])->name('import');
-
+Route::post('Lgeneral', [App\Http\Controllers\ImportLoadController::class,'import'])->name('');
 
 
  /**ruta lectura general */
