@@ -503,30 +503,78 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
 
                                 <hr>
 
-                                <div class="viw-i d-flex mt-5">
 
-                                <div class="col-md-6 mb-md-0 mb-4">
-                                    <h4 class="mb-4"><strong>Concepto o Descripción</strong></h4>
+                                <div class="viw-i d-flex mt-5" id="volumP">
+                                    <div class="col-md-6 mb-md-0 mb-4">
+
+                                    <h4 class="mb-4"><strong>Mes a Facturar</strong></h4>
+                                    <select class="form-select form-select-sm mb-3 w-80" aria-label=".form-select-sm example">
+                                        <option selected></option>
+                                        @foreach ($row_mes as $mes )
+                                            <option value="1">{{$mes->mes}}</option>
+                                        @endforeach
+                                    </select>
+
+                                    <h4 class="mt-4 mb-4"><strong>Concepto o Descripción</strong></h4>
+
+                                    <!--Calculo Automatico-->
+                                    <div style="display: none;" class="volum_bn">
+                                        {{ $VOLUM_BN = 0 }}
+                                        @foreach ($load as $dato)
+                                            {{ $VOLUM_BN += $dato->volum_bn }}
+                                        @endforeach           
+                                    </div>                   
+                                    
+                                    <div style="display: none;" class="volum_color">
+                                        {{ $VOLUM_COLOR = 0 }}
+                                        @foreach ($load as $dato)
+                                            {{ $VOLUM_COLOR += $dato->volum_color }}
+                                        @endforeach           
+                                    </div>                         
+                                    <!--Calculo Automatico-->
+
 
                                     <div class="content-fact">
                                         <div class="mb-3 row">
-                                        <label for="staticEmail" class="col-sm- col-form-label">Volumen a Facturar B/N USD</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control-plaintext" id="staticEmail" value="">
-                                        </div>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            <div class="d-flex align-items-center">
+                                                <i style="font-size: 45px; margin-left: 12px;" class='bx bxs-circle'></i>   
+                                            <div class="ms-3">
+                                                <p class="fw-bold mb-1">Volumen a Facturar B/N</p>
+                                                <input type="text" class="form-control-plaintext" id="staticEmail" value="{{ $VOLUM_BN }}">
+                                            </div>
+                                            </div>
+                                            <span class="badge rounded-pill badge-success">Active</span>
+                                        </li>
                                         </div>
                                     </div>
 
 
                                     <div class="content-fact">
                                         <div class="mb-3 row">
-                                        <label for="staticEmail" class="col-sm- col-form-label">Volumen a Facturar Color USD</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control-plaintext" id="staticEmail" value="">
-                                        </div>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            <div class="d-flex align-items-center">
+                                                <i style="font-size: 45px; margin-left: 12px; color:#0feae3;" class='bx bxs-circle'></i>   
+                                            <div class="ms-3">
+                                                <p class="fw-bold mb-1">Volumen a Facturar Color</p>
+                                                <input type="text" class="form-control-plaintext" id="staticEmail" value="{{$VOLUM_COLOR}}">
+                                            </div>
+                                            </div>
+                                            <span class="badge rounded-pill badge-success">Active</span>
+                                        </li>
                                         </div>
                                     </div>
 
+                                    <h4 class="mb-4 mt-6"><strong>Cargo Minimo</strong></h4>
+                                    
+                                    <div class="content-fact">
+                                        <div class="mb-3 row">
+                                        <label for="staticEmail" class="col-sm- col-form-label">Monto Cargo minimo</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control-plaintext" id="staticEmail" value="{{ $clienteL->PCM }}">
+                                        </div>
+                                        </div>
+                                    </div>
 
                                 </div>
 
@@ -553,24 +601,9 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                         </div>
                                     </div>
 
+                                    <div class="col-md-12 mb-md-0 mt-4 mb-4">
 
-                                </div>
-
-                            </div>
-
-                            <div class="col-md-12 mb-md-0 mt-4 mb-4">
-                                    <h4 class="mb-4"><strong>Cargo Minimo</strong></h4>
-                                    
-                                    <div class="content-fact">
-                                        <div class="mb-3 row">
-                                        <label for="staticEmail" class="col-sm- col-form-label">Monto Cargo minimo</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control-plaintext" id="staticEmail" value="">
-                                        </div>
-                                        </div>
-                                    </div>
-
-                                    <h4 class="mb-4"><strong>Base Imponible USD</strong></h4>
+                                    <h4 class="mb-4 mt-6"><strong>Base Imponible USD</strong></h4>
                                     
                                     <div class="content-fact">
                                         <div class="mb-3 row">
@@ -581,9 +614,16 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                         </div>
                                     </div>
 
-                                    
+                                    </div>
+
 
                                 </div>
+
+                                </div>
+
+
+
+
 
                         </div>
                         <!--vista 02-->

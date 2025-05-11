@@ -13,8 +13,12 @@ class OrdenController extends Controller
     {
         $clienteL = alquilers::findOrFail($id);
         $load = lgenals::orderBy('date', 'desc')->get();
+
+        /**Select mes */
+        $row_mes = lgenals::select('mes')->distinct()->get();
         
-        return view("screens.orden", compact("clienteL", "load"));
+
+        return view("screens.orden", compact("clienteL", "load", "row_mes"));
     }
 
 

@@ -120,7 +120,7 @@
 
                                         <div class="form-group">
                                                 <input type="text" class="form-control bg-transparent border-white p-4"
-                                                   value="{{ $editLoad->rif }}" placeholder="RIF"  name="rif"/>
+                                                   value="{{ $editLoad->rif }}" placeholder="RIF"  require name="rif"/>
                                             </div>
                                             <br>
 
