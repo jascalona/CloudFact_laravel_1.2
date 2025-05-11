@@ -508,12 +508,17 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                     <div class="col-md-6 mb-md-0 mb-4">
 
                                     <h4 class="mb-4"><strong>Mes a Facturar</strong></h4>
-                                    <select class="form-select form-select-sm mb-3 w-80" aria-label=".form-select-sm example">
-                                        <option selected></option>
-                                        @foreach ($row_mes as $mes )
-                                            <option value="1">{{$mes->mes}}</option>
-                                        @endforeach
-                                    </select>
+                                    <form action="{{ route('Orden.calculo') }}" method="get">
+                                        @csrf
+                                        <select name="date" class="form-select form-select-sm mb-3 w-80" aria-label=".form-select-sm example">
+                                            <option selected></option>
+                                            @foreach ($row_mes as $mes )
+                                                <option value="{{ $mes->mes }}">{{$mes->mes}}</option>
+                                            @endforeach
+                                        </select>
+
+                                        <button type="submit" name="calculo" value="submit" class="btn btn-dark">Aplicar</button>
+                                    </form>
 
                                     <h4 class="mt-4 mb-4"><strong>Concepto o Descripción</strong></h4>
 
@@ -540,7 +545,7 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                             <div class="d-flex align-items-center">
                                                 <i style="font-size: 45px; margin-left: 12px;" class='bx bxs-circle'></i>   
                                             <div class="ms-3">
-                                                <p class="fw-bold mb-1">Volumen a Facturar B/N</p>
+                                                <p class="fw-bold mb-1">Volumen Diferencial B/N</p>
                                                 <input type="text" class="form-control-plaintext" id="staticEmail" value="{{ $VOLUM_BN }}">
                                             </div>
                                             </div>
@@ -556,7 +561,7 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                             <div class="d-flex align-items-center">
                                                 <i style="font-size: 45px; margin-left: 12px; color:#0feae3;" class='bx bxs-circle'></i>   
                                             <div class="ms-3">
-                                                <p class="fw-bold mb-1">Volumen a Facturar Color</p>
+                                                <p class="fw-bold mb-1">Volumen a Diferencial Color</p>
                                                 <input type="text" class="form-control-plaintext" id="staticEmail" value="{{$VOLUM_COLOR}}">
                                             </div>
                                             </div>

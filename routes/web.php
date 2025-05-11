@@ -100,3 +100,6 @@ Route::get('edit_alquiler{edit}', [App\Http\Controllers\AlquilerController::clas
 
 /**ruta para generar las ordenes */
 Route::get('Orden{edit}', [App\Http\Controllers\OrdenController::class,'edit'])->name('orden.edit');
+
+/**calculo */
+Route::get('Orden', [App\Http\Controllers\CalculoController::class,'calculo'])->name('Orden.calculo');
