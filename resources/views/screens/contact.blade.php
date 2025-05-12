@@ -91,10 +91,14 @@
                 </div>
 
                 @if ($message_e = Session::get('success'))
-                    <div class="alert alert-success" role="alert">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <h5 class="alert-heading"><i class='bx bx-check'></i> Proceso completado con Exito!</h5>
                         {{ $message_e }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i
+                                class='bx bx-x'></i></button>
                     </div>
                 @endif
+
 
                 <!--section create bill-->
                 <div class="col-md-12 mb-lg-0 mb-4">

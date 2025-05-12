@@ -29284,3 +29284,9 @@ pre[class*=language-] {
 .group-check input{
   position: absolute;
 }
+
+
+.alert{
+  width: 65%;
+  margin: 0 auto;
+}

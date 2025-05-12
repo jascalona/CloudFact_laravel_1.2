@@ -92,11 +92,14 @@
 
                 <!--section create contact-->
                 @if ($message_e = Session::get('warning'))
-                <div class="alert alert-warning" role="alert">
-                    {{ $message_e }}
-                </div>
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <h5 class="alert-heading"><i class='bx bx-error-circle'></i> Alerta!</h5>
+                        {{ $message_e }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i
+                                class='bx bx-x'></i></button>
+                    </div>
                 @endif
-      
+
                 <div class="col-md-12 mb-lg-0 mb-4">
                     <div class="card mt-4">
                         <div class="card-header pb-0 p-3">

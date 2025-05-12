@@ -95,49 +95,53 @@
                     </div>
                 </div>
 
-
                 @if ($message_e = Session::get('warning'))
-                <div class="alert alert-warning" role="alert">
-                    {{ $message_e }}
-                </div>
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <h5 class="alert-heading"><i class='bx bx-error-circle'></i> Alerta!</h5>
+                        {{ $message_e }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i
+                                class='bx bx-x'></i></button>
+                    </div>
                 @endif
 
                 <!-- Reservation Start -->
                 <div class="container-fluid my-5">
-                    <div  class="container park-edition">
+                    <div class="container park-edition">
                         <div class="reservation position-relative overlay-top overlay-bottom">
                             <div class="row align-items-center">
                                 <div class="col-lg-6 my-5 my-lg-0">
                                     <div class="p-5 edit-left">
                                         <div class="mb-4">
-                                            <h6 style="font-weight: 800; font-size: 45px;" class="display-3 ">Detalles del Equipo</h6>
+                                            <h6 style="font-weight: 800; font-size: 45px;" class="display-3 ">Detalles del
+                                                Equipo</h6>
                                             <br>
                                         </div>
                                         <form class="mb-5" action="{{ route('Upark.update', $device->id) }}" method="post">
-                                        @method('put')
-                                        @csrf
+                                            @method('put')
+                                            @csrf
 
-                                        <div class="form-group">
+                                            <div class="form-group">
                                                 <input type="text" class="form-control bg-transparent border-white p-4"
-                                                   value="{{ $device->rif }}" placeholder="RIF"  name="rif"/>
+                                                    value="{{ $device->rif }}" placeholder="RIF" name="rif" />
                                             </div>
                                             <br>
 
                                             <div class="form-group">
                                                 <input type="text" class="form-control bg-transparent border-white p-4"
-                                                   value="{{ $device->serial }}" placeholder="Serial"  name="serial"/>
+                                                    value="{{ $device->serial }}" placeholder="Serial" name="serial" />
                                             </div>
                                             <br>
 
                                             <div class="form-group">
                                                 <input type="text" class="form-control bg-transparent border-white p-4"
-                                                    placeholder="Modelo" value="{{ $device->model }}"  name="model" />
+                                                    placeholder="Modelo" value="{{ $device->model }}" name="model" />
                                             </div>
                                             <br>
 
                                             <div class="form-group">
                                                 <input type="text" class="form-control bg-transparent border-white p-4"
-                                                    placeholder="Localidad" value="{{ $device->location }}" name="location" />
+                                                    placeholder="Localidad" value="{{ $device->location }}"
+                                                    name="location" />
                                             </div>
                                             <br>
 
@@ -149,19 +153,21 @@
 
                                             <div class="form-group">
                                                 <input type="text" class="form-control bg-transparent border-white p-4"
-                                                    placeholder="Estado" value="{{ $device->estado }}"  name="estado" />
+                                                    placeholder="Estado" value="{{ $device->estado }}" name="estado" />
                                             </div>
                                             <br>
 
                                             <div class="form-group">
                                                 <input type="date" class="form-control bg-transparent border-white p-4"
-                                                    placeholder="Fecha de Instalacion" value="{{ $device->date_insta }}"  name="date_insta" />
+                                                    placeholder="Fecha de Instalacion" value="{{ $device->date_insta }}"
+                                                    name="date_insta" />
                                             </div>
                                             <br>
 
                                             <div>
-                                                <button name="edit_park" class="btn btn-dark btn-block font-weight-bold py-3"
-                                                    value="submit" type="submit">Guardar</button>
+                                                <button name="edit_park"
+                                                    class="btn btn-dark btn-block font-weight-bold py-3" value="submit"
+                                                    type="submit">Guardar</button>
                                             </div>
 
                                     </div>
@@ -170,47 +176,54 @@
                                     <div class="text-center p-5 park-edit-ii">
                                         <h1 class="text-dark mb-4 mt-5">{{ $device->cliente }}</h1>
 
-                                            <div class="form-group">
-                                                <input type="text" class="form-control bg-transparent text-dark border-dark p-4"
-                                                    placeholder="Persona de Contacto" value="{{ $device->p_contact }}" name="p_contact" />
-                                            </div>
-                                            <br>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control bg-transparent text-dark border-dark p-4"
+                                                placeholder="Persona de Contacto" value="{{ $device->p_contact }}"
+                                                name="p_contact" />
+                                        </div>
+                                        <br>
 
-                                            <div class="form-group">
-                                                <input type="text" class="form-control bg-transparent text-dark border-dark p-4"
-                                                    placeholder="Email de Contacto" value="{{ $device->p_email }}"  name="p_email" />
-                                            </div>
-                                            <br>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control bg-transparent text-dark border-dark p-4"
+                                                placeholder="Email de Contacto" value="{{ $device->p_email }}"
+                                                name="p_email" />
+                                        </div>
+                                        <br>
 
-                                            <div class="form-group">
-                                                <input type="text" class="form-control bg-transparent text-dark border-dark p-4"
-                                                    placeholder="Numero de Contacto" value="{{ $device->p_movil }}"  name="p_movil" />
-                                            </div>
-                                            <br>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control bg-transparent text-dark border-dark p-4"
+                                                placeholder="Numero de Contacto" value="{{ $device->p_movil }}"
+                                                name="p_movil" />
+                                        </div>
+                                        <br>
 
-                                            <div class="form-group">
-                                                <input type="text" class="form-control bg-transparent text-dark border-dark p-4"
-                                                    placeholder="Status" value="{{ $device->n_port }}"  name="n_port" />
-                                            </div>
-                                            <br>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control bg-transparent text-dark border-dark p-4"
+                                                placeholder="Status" value="{{ $device->n_port }}" name="n_port" />
+                                        </div>
+                                        <br>
 
-                                            <div class="form-group">
-                                                <input type="number" class="form-control bg-transparent text-dark border-dark p-4"
-                                                    placeholder="Contador Inicial B/N" value="{{ $device->cont_insta_bn }}"  name="cont_insta_bn" />
-                                            </div>
-                                            <br>
+                                        <div class="form-group">
+                                            <input type="number"
+                                                class="form-control bg-transparent text-dark border-dark p-4"
+                                                placeholder="Contador Inicial B/N" value="{{ $device->cont_insta_bn }}"
+                                                name="cont_insta_bn" />
+                                        </div>
+                                        <br>
 
-                                            <div class="form-group">
-                                                <input type="number" class="form-control bg-transparent text-dark border-dark p-4"
-                                                    placeholder="Contador Inicial Color" value="cont_insta_color"  name="cont_insta_color" />
-                                            </div>
-                                            <br>
+                                        <div class="form-group">
+                                            <input type="number"
+                                                class="form-control bg-transparent text-dark border-dark p-4"
+                                                placeholder="Contador Inicial Color" value="cont_insta_color"
+                                                name="cont_insta_color" />
+                                        </div>
+                                        <br>
 
-                                            <div class="form-group">
-                                                <input type="text" class="form-control bg-transparent text-dark border-dark p-4"
-                                                    placeholder="Observaciones" {{ $device->obser }}  name="obser" />
-                                            </div>
-                                            <br>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control bg-transparent text-dark border-dark p-4"
+                                                placeholder="Observaciones" {{ $device->obser }} name="obser" />
+                                        </div>
+                                        <br>
 
                                         </form>
                                     </div>

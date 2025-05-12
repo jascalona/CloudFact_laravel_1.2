@@ -93,143 +93,139 @@
             </div>
 
 
-                <!--SECTION GENERAL-->
-                <div class="container-fluid py-2 mb-">
-                    <div class="row">
-                        <div class="col-lg-8">
-                            <div class="row">
+            <!--SECTION GENERAL-->
+            <div class="container-fluid py-2 mb-">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="row">
 
-                                <div class="col-md-12 mb-lg-0 mb-4">
-                                    <div class="card">
-                                        <div class="card-header pb-0 p-3">
-                                            <div class="row">
-                                                <div class="col-6 d-flex align-items-center">
-                                                    <h4 class="mb-0">Informe Detallado Global</h4>
-                                                </div>
-
-
-                                                <div class="col-6 mb-2 text-end">
-                                                    <div class="advanced">
-
-                                                        <!-- Button modal Activation-->
-                                                        <button type="button" class="btn btn-dark text-center"
-                                                            data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                            <i style="" class='bx bx-cog'></i>
-                                                        </button>
-                                                        <!-- Button modal Activation-->
-
-                                                        <!-- Modal -->
-                                                        <div class="modal fade text-start" id="exampleModal" tabindex="-1"
-                                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                            <div class="modal-dialog">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h1 class="modal-title fs-5" id="exampleModalLabel">
-                                                                            <strong>Opciones Avanzadas</strong>
-                                                                        </h1>
-                                                                        <button type="button" class="btn-close"
-                                                                            data-bs-dismiss="modal"
-                                                                            aria-label="Close"></button>
-                                                                    </div>
+                            <div class="col-md-12 mb-lg-0 mb-4">
+                                <div class="card">
+                                    <div class="card-header pb-0 p-3">
+                                        <div class="row">
+                                            <div class="col-6 d-flex align-items-center">
+                                                <h4 class="mb-0">Informe Detallado Global</h4>
+                                            </div>
 
 
-                                                                    <div class="modal-body">
+                                            <div class="col-6 mb-2 text-end">
+                                                <div class="advanced">
 
-                                                                        <h4>Descargar Plantillas</h4>
-                                                                        <p>Aquí puede descargar la Plantilla de Importación
-                                                                        </p>
-                                                                        <a href="" data-bs-toggle="tooltip"
-                                                                            title="Tooltip">Descargar</a>
+                                                    <!-- Button modal Activation-->
+                                                    <button type="button" class="btn btn-dark text-center"
+                                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                        <i style="" class='bx bx-cog'></i>
+                                                    </button>
+                                                    <!-- Button modal Activation-->
 
-
-                                                                        <hr>
-
-                                                                        <h4>Importar .CSV</h4>
-                                                                        <p>Realice la carga de lecturas através de un CSV.
-                                                                        </p>
-
-                                                                        <form action="" method="post"
-                                                                            enctype="multipart/form-data">
-                                                                            @csrf
-                                                                            <div class="file-input text-center">
-                                                                                <input type="file" accept=".csv" name="file"
-                                                                                    id="file-input" class="form-control"
-                                                                                    required />
-                                                                                <label class="file-input__label"
-                                                                                    for="file-input">
-                                                                            </div>
+                                                    <!-- Modal -->
+                                                    <div class="modal fade text-start" id="exampleModal" tabindex="-1"
+                                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">
+                                                                        <strong>Opciones Avanzadas</strong>
+                                                                    </h1>
+                                                                    <button type="button" class="btn-close"
+                                                                        data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
 
 
-                                                                            <div class="text-start mt-2">
-                                                                                <button type="submit" name="subir"
-                                                                                    id="btn_load"
-                                                                                    onclick="load_reading_general();"
-                                                                                    class="btn btn-dark"
-                                                                                    value="submit">Cargar
-                                                                                    .CSV</button>
-                                                                            </div>
-                                                                        </form>
+                                                                <div class="modal-body">
 
-                                                                        <hr>
+                                                                    <h4>Descargar Plantillas</h4>
+                                                                    <p>Aquí puede descargar la Plantilla de Importación
+                                                                    </p>
+                                                                    <a href="" data-bs-toggle="tooltip"
+                                                                        title="Tooltip">Descargar</a>
 
-                                                                        <h4>Carga Manual</h4>
-                                                                        <p>Realice la carda de lecturas manual</p>
-                                                                        <a href="../modelos/vistas/form_manual.php"
-                                                                            data-bs-toggle="tooltip"
-                                                                            title="Tooltip">Realizar Carga</a>
 
-                                                                        <hr>
-                                                                        <h4>Exportar .XLS</h4>
-                                                                        <p>Exportar Lecturas Globales</p>
+                                                                    <hr>
 
-                                                                        <div class="text-start mt-4">
-                                                                            <form action="" method="POST">
-                                                                                <a href="../CONTROLLER/Export_data.php"
-                                                                                    name="export" id="export"
-                                                                                    class="btn btn-dark"
-                                                                                    value="Submit">Exportar .XLS</a>
-                                                                            </form>
+                                                                    <h4>Importar .CSV</h4>
+                                                                    <p>Realice la carga de lecturas através de un CSV.
+                                                                    </p>
+
+                                                                    <form action="" method="post"
+                                                                        enctype="multipart/form-data">
+                                                                        @csrf
+                                                                        <div class="file-input text-center">
+                                                                            <input type="file" accept=".csv" name="file"
+                                                                                id="file-input" class="form-control"
+                                                                                required />
+                                                                            <label class="file-input__label"
+                                                                                for="file-input">
                                                                         </div>
 
 
+                                                                        <div class="text-start mt-2">
+                                                                            <button type="submit" name="subir" id="btn_load"
+                                                                                onclick="load_reading_general();"
+                                                                                class="btn btn-dark" value="submit">Cargar
+                                                                                .CSV</button>
+                                                                        </div>
+                                                                    </form>
+
+                                                                    <hr>
+
+                                                                    <h4>Carga Manual</h4>
+                                                                    <p>Realice la carda de lecturas manual</p>
+                                                                    <a href="../modelos/vistas/form_manual.php"
+                                                                        data-bs-toggle="tooltip" title="Tooltip">Realizar
+                                                                        Carga</a>
+
+                                                                    <hr>
+                                                                    <h4>Exportar .XLS</h4>
+                                                                    <p>Exportar Lecturas Globales</p>
+
+                                                                    <div class="text-start mt-4">
+                                                                        <form action="" method="POST">
+                                                                            <a href="../CONTROLLER/Export_data.php"
+                                                                                name="export" id="export"
+                                                                                class="btn btn-dark" value="Submit">Exportar
+                                                                                .XLS</a>
+                                                                        </form>
                                                                     </div>
 
 
-                                                                    <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-secondary"
-                                                                            data-bs-dismiss="modal">Cerrar</button>
-                                                                    </div>
+                                                                </div>
+
+
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-bs-dismiss="modal">Cerrar</button>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <!-- Modal -->
-
                                                     </div>
-
+                                                    <!-- Modal -->
 
                                                 </div>
 
 
-
                                             </div>
+
+
+
                                         </div>
-                                        <div class="card-body p-3">
-                                            <div class="row">
-                                                <div class="col-md-6 mb-md-0 mb-4">
-                                                    <div
-                                                        class="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row">
-                                                        <img class="w-10 me-3 mb-0" src="{{ asset('images/xdv.png') }}"
-                                                            alt="logo">
-                                                        <h6 class="mb-0">
-                                                            Total de CLientes: 52
-                                                        </h6>
-                                                        <i style="font-size: 20px"
-                                                            class="bx bx-group ms-auto text-dark cursor-pointer"
-                                                            data-bs-toggle="tooltip" data-bs-placement="top"></i>
-                                                    </div>
+                                    </div>
+                                    <div class="card-body p-3">
+                                        <div class="row">
+                                            <div class="col-md-6 mb-md-0 mb-4">
+                                                <div
+                                                    class="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row">
+                                                    <img class="w-10 me-3 mb-0" src="{{ asset('images/xdv.png') }}"
+                                                        alt="logo">
+                                                    <h6 class="mb-0">
+                                                        Total de CLientes: 52
+                                                    </h6>
+                                                    <i style="font-size: 20px"
+                                                        class="bx bx-group ms-auto text-dark cursor-pointer"
+                                                        data-bs-toggle="tooltip" data-bs-placement="top"></i>
                                                 </div>
-
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -237,106 +233,110 @@
                         </div>
                     </div>
                 </div>
-                <!--SECTION GENERAL-->
+            </div>
+            <!--SECTION GENERAL-->
 
 
 
-                <div class="main p-5">
+            <div class="main p-5">
 
-                    @if (session('success'))
-                        <div class="alert alert-success" role="aler">
-                            {{ session('success') }}
-                        </div>
-                    @endif
+                @if ($message_e = Session::get('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <h5 class="alert-heading"><i class='bx bx-check'></i> Proceso completado con Exito!</h5>
+                        {{ $message_e }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i
+                                class='bx bx-x'></i></button>
+                    </div>
+                @endif
 
+                <!--TABLE ORDEN-->
+                <div class="col-md-15 mb-lg-0 mb-4">
+                    <div class="card mt-4">
+                        <div class="card-header pb-0 p-3">
+                            <div class="row">
+                                <div class="col-6 d-flex align-items-center">
+                                    <h4 class="mb-0">Customer's: <small>Lead</small></h4>
+                                </div>
 
-                    <!--TABLE ORDEN-->
-                    <div class="col-md-15 mb-lg-0 mb-4">
-                        <div class="card mt-4">
-                            <div class="card-header pb-0 p-3">
-                                <div class="row">
-                                    <div class="col-6 d-flex align-items-center">
-                                        <h4 class="mb-0">Customer's: <small>Lead</small></h4>
-                                    </div>
-
-                                    <div class="icons-pages col-6 text-end mb-3">
-                                        <button id="scroll-button-left"><i class='bx bx-chevron-left'></i></button>
-                                        <button id="scroll-button-right"><i class='bx bx-chevron-right'></i></button>
-                                    </div>
+                                <div class="icons-pages col-6 text-end mb-3">
+                                    <button id="scroll-button-left"><i class='bx bx-chevron-left'></i></button>
+                                    <button id="scroll-button-right"><i class='bx bx-chevron-right'></i></button>
                                 </div>
                             </div>
+                        </div>
 
-                            <!--TABLE ORDEN-->
-                            <div class="main p-5">
+                        <!--TABLE ORDEN-->
+                        <div class="main p-5">
 
-                                <div class="content-table">
-                                    <table id="myTable" class="display">
-                                        <thead>
-                                            <tr style="font-size: 13px;">
-                                                <th class="text-center">Opciones</th>
-                                                <th>Cliente</th>
-                                                <th>RIF</th>
-                                                <th>Serial</th>
-                                                <th>Modelo</th>
-                                                <th>Localidad</th>
-                                                <th>Mes</th>
-                                                <th>Date</th>
-                                                <th>Cont. Anterior B/N</th>
-                                                <th>Cont. Actual B/N</th>
-                                                <th>Volum. B/N</th>
-                                                <th>AMCV_bn</th>
-                                                <th>Cont. Anterior Color</th>
-                                                <th>Cont. Actual Color</th>
-                                                <th>Volum. Color</th>
-                                                <th>AMCV_color</th>
-                                                <th>Cont. Anterior ScanImages</th>
-                                                <th>Cont. Actual ScanImages</th>
-                                                <th>Volum. Scan Images</th>
-                                                <th>Cont. Anterior ScanJobs</th>
-                                                <th>Cont. Actual ScanJobs</th>
-                                                <th>Volum. Scan Jobs</th>
+                            <div class="content-table">
+                                <table id="myTable" class="display">
+                                    <thead>
+                                        <tr style="font-size: 13px;">
+                                            <th class="text-center">Opciones</th>
+                                            <th>Cliente</th>
+                                            <th>RIF</th>
+                                            <th>Serial</th>
+                                            <th>Modelo</th>
+                                            <th>Localidad</th>
+                                            <th>Mes</th>
+                                            <th>Date</th>
+                                            <th>Cont. Anterior B/N</th>
+                                            <th>Cont. Actual B/N</th>
+                                            <th>Volum. B/N</th>
+                                            <th>AMCV_bn</th>
+                                            <th>Cont. Anterior Color</th>
+                                            <th>Cont. Actual Color</th>
+                                            <th>Volum. Color</th>
+                                            <th>AMCV_color</th>
+                                            <th>Cont. Anterior ScanImages</th>
+                                            <th>Cont. Actual ScanImages</th>
+                                            <th>Volum. Scan Images</th>
+                                            <th>Cont. Anterior ScanJobs</th>
+                                            <th>Cont. Actual ScanJobs</th>
+                                            <th>Volum. Scan Jobs</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($Lgenals as $row_Lgeneal)
+                                            <tr style="font-size: 12px;">
+                                                <td class="text-center">
+                                                    <a href="{{ route('LoadEdit.edit', $row_Lgeneal->id) }}"
+                                                        class="btn btn-warning"><i class='bx bxs-edit-alt'></i></a>
+                                                </td>
+                                                <td>{{ $row_Lgeneal->cliente }}</td>
+                                                <td>{{ $row_Lgeneal->rif }}</td>
+                                                <td>{{ $row_Lgeneal->serial }}</td>
+                                                <td>{{ $row_Lgeneal->model }}</td>
+                                                <td>{{ $row_Lgeneal->location }}</td>
+                                                <td>{{ $row_Lgeneal->mes }}</td>
+                                                <td>{{ $row_Lgeneal->date }}</td>
+                                                <td>{{ $row_Lgeneal->cont_ante_bn }}</td>
+                                                <td>{{ $row_Lgeneal->cont_actu_bn }}</td>
+                                                <td>{{ $row_Lgeneal->volum_bn }}</td>
+                                                <td>{{ $row_Lgeneal->AMCV_bn }}</td>
+                                                <td>{{ $row_Lgeneal->cont_ante_color }}</td>
+                                                <td>{{ $row_Lgeneal->cont_actu_color }}</td>
+                                                <td>{{ $row_Lgeneal->volum_color }}</td>
+                                                <td>{{ $row_Lgeneal->AMCV_color }}</td>
+                                                <td>{{ $row_Lgeneal->cont_ante_scan_images }}</td>
+                                                <td>{{ $row_Lgeneal->cont_actu_scan_images }}</td>
+                                                <td>{{ $row_Lgeneal->volum_scan_images }}</td>
+                                                <td>{{ $row_Lgeneal->cont_ante_scan_jobs }}</td>
+                                                <td>{{ $row_Lgeneal->cont_actu_scan_jobs }}</td>
+                                                <td>{{ $row_Lgeneal->volum_scan_jobs }}</td>
+
                                             </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($Lgenals as $row_Lgeneal)
-                                                <tr style="font-size: 12px;">
-                                                    <td class="text-center">
-                                                        <a href="{{ route('LoadEdit.edit', $row_Lgeneal->id) }}" class="btn btn-warning"><i class='bx bxs-edit-alt'></i></a>
-                                                    </td>
-                                                    <td>{{ $row_Lgeneal->cliente }}</td>
-                                                    <td>{{ $row_Lgeneal->rif }}</td>
-                                                    <td>{{ $row_Lgeneal->serial }}</td>
-                                                    <td>{{ $row_Lgeneal->model }}</td>
-                                                    <td>{{ $row_Lgeneal->location }}</td>
-                                                    <td>{{ $row_Lgeneal->mes }}</td>
-                                                    <td>{{ $row_Lgeneal->date }}</td>
-                                                    <td>{{ $row_Lgeneal->cont_ante_bn }}</td>
-                                                    <td>{{ $row_Lgeneal->cont_actu_bn }}</td>
-                                                    <td>{{ $row_Lgeneal->volum_bn }}</td>
-                                                    <td>{{ $row_Lgeneal->AMCV_bn }}</td>
-                                                    <td>{{ $row_Lgeneal->cont_ante_color }}</td>
-                                                    <td>{{ $row_Lgeneal->cont_actu_color }}</td>
-                                                    <td>{{ $row_Lgeneal->volum_color }}</td>
-                                                    <td>{{ $row_Lgeneal->AMCV_color }}</td>
-                                                    <td>{{ $row_Lgeneal->cont_ante_scan_images }}</td>
-                                                    <td>{{ $row_Lgeneal->cont_actu_scan_images }}</td>
-                                                    <td>{{ $row_Lgeneal->volum_scan_images }}</td>
-                                                    <td>{{ $row_Lgeneal->cont_ante_scan_jobs }}</td>
-                                                    <td>{{ $row_Lgeneal->cont_actu_scan_jobs }}</td>
-                                                    <td>{{ $row_Lgeneal->volum_scan_jobs }}</td>
+                                        @endforeach
 
-                                                </tr>
-                                            @endforeach
-
-                                        </tbody>
-                                    </table>
-                                </div>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
-                    <!--TABLE ORDEN-->
-
                 </div>
+                <!--TABLE ORDEN-->
+
+            </div>
 
 
 

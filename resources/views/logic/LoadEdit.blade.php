@@ -97,133 +97,143 @@
             </div>
 
 
-                @if ($message_e = Session::get('warning'))
-                <div class="alert alert-warning" role="alert">
+            @if ($message_e = Session::get('warning'))
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <h5 class="alert-heading"><i class='bx bx-error-circle'></i> Alerta!</h5>
                     {{ $message_e }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i
+                            class='bx bx-x'></i></button>
                 </div>
-                @endif
+            @endif
 
-                <!-- Reservation Start -->
-                <div class="container-fluid my-5">
-                    <div  class="container park-edition">
-                        <div class="reservation position-relative overlay-top overlay-bottom">
-                            <div class="row align-items-center">
-                                <div class="col-lg-6 my-5 my-lg-0">
-                                    <div class="p-5 edit-left">
-                                        <div class="mb-4">
-                                            <h6 style="font-weight: 800; font-size: 45px;" class="display-3 text-center">Detalles de Lectura</h6>
-                                            <br>
-                                        </div>
-                                        <form class="mb-5" action="" method="post">
+            <!-- Reservation Start -->
+            <div class="container-fluid my-5">
+                <div class="container park-edition">
+                    <div class="reservation position-relative overlay-top overlay-bottom">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6 my-5 my-lg-0">
+                                <div class="p-5 edit-left">
+                                    <div class="mb-4">
+                                        <h6 style="font-weight: 800; font-size: 45px;" class="display-3 text-center">
+                                            Detalles de Lectura</h6>
+                                        <br>
+                                    </div>
+                                    <form class="mb-5" action="" method="post">
                                         @method('put')
                                         @csrf
 
                                         <div class="form-group">
-                                                <input type="text" class="form-control bg-transparent border-white p-4"
-                                                   value="{{ $editLoad->rif }}" placeholder="RIF"  require name="rif"/>
-                                            </div>
-                                            <br>
+                                            <input type="text" class="form-control bg-transparent border-white p-4"
+                                                value="{{ $editLoad->rif }}" placeholder="RIF" require name="rif" />
+                                        </div>
+                                        <br>
 
-                                            <div class="form-group">
-                                                <input type="text" class="form-control bg-transparent border-white p-4"
-                                                   value="{{ $editLoad->serial }}" placeholder="Serial"  name="serial"/>
-                                            </div>
-                                            <br>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control bg-transparent border-white p-4"
+                                                value="{{ $editLoad->serial }}" placeholder="Serial" name="serial" />
+                                        </div>
+                                        <br>
 
-                                            <div class="form-group">
-                                                <input type="text" class="form-control bg-transparent border-white p-4"
-                                                    placeholder="Modelo" value="{{ $editLoad->model }}"  name="model" />
-                                            </div>
-                                            <br>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control bg-transparent border-white p-4"
+                                                placeholder="Modelo" value="{{ $editLoad->model }}" name="model" />
+                                        </div>
+                                        <br>
 
-                                            <div class="form-group">
-                                                <input type="text" class="form-control bg-transparent border-white p-4"
-                                                    placeholder="Localidad" value="{{ $editLoad->location }}" name="location" />
-                                            </div>
-                                            <br>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control bg-transparent border-white p-4"
+                                                placeholder="Localidad" value="{{ $editLoad->location }}" name="location" />
+                                        </div>
+                                        <br>
 
-                                            <div class="form-group">
-                                                <input type="text" class="form-control bg-transparent border-white p-4"
-                                                    placeholder="Mes" value="{{ $editLoad->mes }}" name="mes" />
-                                            </div>
-                                            <br>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control bg-transparent border-white p-4"
+                                                placeholder="Mes" value="{{ $editLoad->mes }}" name="mes" />
+                                        </div>
+                                        <br>
 
-                                            <div class="form-group">
-                                                <input type="date" class="form-control bg-transparent border-white p-4"
-                                                    placeholder="Fecha de Carga" value="{{ $editLoad->date }}" name="date" />
-                                            </div>
-                                            <br>
+                                        <div class="form-group">
+                                            <input type="date" class="form-control bg-transparent border-white p-4"
+                                                placeholder="Fecha de Carga" value="{{ $editLoad->date }}" name="date" />
+                                        </div>
+                                        <br>
 
-                                          
 
-                                            <div class="form-group">
-                                                <input type="date" class="form-control bg-transparent border-white p-4"
-                                                    placeholder="Fecha de Instalacion" value="{{ $editLoad->date }}"  name="date_insta" />
-                                            </div>
-                                            <br>
 
-                                            <div>
-                                                <button name="edit_load" class="btn btn-dark btn-block font-weight-bold py-3"
-                                                    value="submit" type="submit">Guardar</button>
-                                            </div>
+                                        <div class="form-group">
+                                            <input type="date" class="form-control bg-transparent border-white p-4"
+                                                placeholder="Fecha de Instalacion" value="{{ $editLoad->date }}"
+                                                name="date_insta" />
+                                        </div>
+                                        <br>
 
-                                    </div>
+                                        <div>
+                                            <button name="edit_load" class="btn btn-dark btn-block font-weight-bold py-3"
+                                                value="submit" type="submit">Guardar</button>
+                                        </div>
+
                                 </div>
-                                <div class="col-lg-6">
-                                    <div class="text- p-5 park-edit-ii">
-                                        <h1 class="text-dark mb-4 mt-5">{{ $editLoad->cliente }}</h1>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="text- p-5 park-edit-ii">
+                                    <h1 class="text-dark mb-4 mt-5">{{ $editLoad->cliente }}</h1>
 
-                                            <div class="form-group">
-                                                <label class="text-dark" for="">Contador Anterior B/N</label>
-                                                <input type="number" class="form-control bg-transparent border-dark p-4"
-                                                    placeholder="Contador Anterior B/N" value="{{ $editLoad->cont_ante_bn }}"  name="cont_ante_bn" />
-                                            </div>
-                                            <br>
-
-                                            <div class="form-group">
-                                                <label class="text-dark" for="">Contador Actual B/N</label>
-                                                <input type="number" class="form-control bg-transparent border-dark p-4"
-                                                    placeholder="Contador Actual B/N" value="{{ $editLoad->cont_actu_bn }}"  name="cont_actu_bn" />
-                                            </div>
-                                            <br>
-
-                                            <div class="form-group">
-                                                <label class="text-dark" for="">Volumen B/N</label>
-                                                <input type="number" class="form-control bg-transparent border-dark p-4"
-                                                    placeholder="Volumen B/N" value="{{ $editLoad->volum_bn }}"  name="volum_bn" />
-                                            </div>
-                                            <br>
-
-
-                                            <div class="form-group">
-                                                <label class="text-dark" for="">Contador Anterior Color</label>
-                                                <input type="number" class="form-control bg-transparent border-dark p-4"
-                                                    placeholder="Contador Anterior Color" value="{{ $editLoad->cont_ante_color }}"  name="cont_ante_color" />
-                                            </div>
-                                            <br>
-
-                                            <div class="form-group">
-                                                <label class="text-dark" for="">Contador Actual Color</label>
-                                                <input type="number" class="form-control bg-transparent border-dark p-4"
-                                                    placeholder="Contador Actual Color" value="{{ $editLoad->cont_actu_bn }}"  name="cont_actu_color" />
-                                            </div>
-                                            <br>
-
-                                            <div class="form-group">
-                                                <label class="text-dark" for="">Volumen Color</label>
-                                                <input type="number" class="form-control bg-transparent border-dark p-4"
-                                                    placeholder="Volumen Color" value="{{ $editLoad->volum_color }}"  name="volum_color" />
-                                            </div>
-                                            <br>   
-
-                                        </form>
+                                    <div class="form-group">
+                                        <label class="text-dark" for="">Contador Anterior B/N</label>
+                                        <input type="number" class="form-control bg-transparent border-dark p-4"
+                                            placeholder="Contador Anterior B/N" value="{{ $editLoad->cont_ante_bn }}"
+                                            name="cont_ante_bn" />
                                     </div>
+                                    <br>
+
+                                    <div class="form-group">
+                                        <label class="text-dark" for="">Contador Actual B/N</label>
+                                        <input type="number" class="form-control bg-transparent border-dark p-4"
+                                            placeholder="Contador Actual B/N" value="{{ $editLoad->cont_actu_bn }}"
+                                            name="cont_actu_bn" />
+                                    </div>
+                                    <br>
+
+                                    <div class="form-group">
+                                        <label class="text-dark" for="">Volumen B/N</label>
+                                        <input type="number" class="form-control bg-transparent border-dark p-4"
+                                            placeholder="Volumen B/N" value="{{ $editLoad->volum_bn }}" name="volum_bn" />
+                                    </div>
+                                    <br>
+
+
+                                    <div class="form-group">
+                                        <label class="text-dark" for="">Contador Anterior Color</label>
+                                        <input type="number" class="form-control bg-transparent border-dark p-4"
+                                            placeholder="Contador Anterior Color" value="{{ $editLoad->cont_ante_color }}"
+                                            name="cont_ante_color" />
+                                    </div>
+                                    <br>
+
+                                    <div class="form-group">
+                                        <label class="text-dark" for="">Contador Actual Color</label>
+                                        <input type="number" class="form-control bg-transparent border-dark p-4"
+                                            placeholder="Contador Actual Color" value="{{ $editLoad->cont_actu_bn }}"
+                                            name="cont_actu_color" />
+                                    </div>
+                                    <br>
+
+                                    <div class="form-group">
+                                        <label class="text-dark" for="">Volumen Color</label>
+                                        <input type="number" class="form-control bg-transparent border-dark p-4"
+                                            placeholder="Volumen Color" value="{{ $editLoad->volum_color }}"
+                                            name="volum_color" />
+                                    </div>
+                                    <br>
+
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Reservation End -->
+            </div>
+            <!-- Reservation End -->
 
 
             </div>
