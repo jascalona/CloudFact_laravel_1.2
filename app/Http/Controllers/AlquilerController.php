@@ -96,8 +96,10 @@ class AlquilerController extends Controller
 
 
                 $contrato->save();
+            
+                /**retrno en caso de realizar la carga */
+                return redirect()->route('contract')->with('success','El Contrato fue creado con Exito!');
 
-                echo '<script>alert("Su registro fue cargado con exito!!!")</script>';
 
             } else {
                 return redirect()->route('Alquiler.store', )->with('warning', 'Los Campos primarios no pueden quedar vacios. ¡Por favor inserte los datos solicitados!');

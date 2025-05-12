@@ -273,16 +273,16 @@
                                                                         Minimo
                                                                     </div>
                                                                     <div class="input-group mb-3">
-                                                                        <input type="number" class="form"
-                                                                            placeholder="1.000,84" aria-label="Username"
+                                                                        <input type="text" class="form"
+                                                                            placeholder="1000.84" aria-label="Username"
                                                                             aria-describedby="basic-addon1" value=""
                                                                             name="PCM">
                                                                     </div>
 
                                                                     <div class="form-text" id="basic-addon4">Label</div>
                                                                     <div class="input-group mb-3">
-                                                                        <input type="number" class="form"
-                                                                            placeholder="450,00" aria-label="Username"
+                                                                        <input type="text" class="form"
+                                                                            placeholder="450.00" aria-label="Username"
                                                                             aria-describedby="basic-addon1" value=""
                                                                             name="label">
                                                                     </div>
@@ -337,28 +337,28 @@
                                                     <select class="form-select bb form-select-sm mb- mt-3"
                                                         aria-label="Large select example" name="tipo_c">
                                                         <option selected></option>
-                                                        <option value="1">FSMA</option>
-                                                        <option value="2">Renta - TCO</option>
-                                                        <option value="3">Renta - Plataforma</option>
-                                                        <option value="2">Copiado minimo</option>
-                                                        <option value="2">SMA</option>
-                                                        <option value="2">Mixto (FSMA + Renta)</option>
+                                                        <option value="FSMA">FSMA</option>
+                                                        <option value="Renta - TCO">Renta - TCO</option>
+                                                        <option value="Renta - Plataforma">Renta - Plataforma</option>
+                                                        <option value="Copiado minimo">Copiado minimo</option>
+                                                        <option value="SMA">SMA</option>
+                                                        <option value="Mixto (FSMA + Renta)">Mixto (FSMA + Renta)</option>
                                                     </select>
 
                                                     <div class="form-text mt-4" id="basic-addon4">Vendedor Eje.</div>
                                                     <select class="form-select bb form-select-sm mb-3 mt-3"
                                                         aria-label="Large select example" name="vendedor">
                                                         <option selected></option>
-                                                        <option value="1">Jose Escalona</option>
-                                                        <option value="2">Jose Abraham</option>
+                                                        <option value="Jose Escalona">Jose Escalona</option>
+                                                        <option value="Abraham Blanco">Abraham Blanco</option>
                                                     </select>
 
                                                     <div class="form-text mt-4" id="basic-addon4">Administrador</div>
                                                     <select class="form-select bb form-select-sm mb-3 mt-3"
                                                         aria-label="Large select example" name="administrador_01">
                                                         <option selected></option>
-                                                        <option value="1">Jose Escalona</option>
-                                                        <option value="2">Jose Abraham</option>
+                                                        <option value="Jose Escalona">Jose Escalona</option>
+                                                        <option value="Abraham Blanco">Abraham Blanco</option>
                                                     </select>
 
                                                 </div>
@@ -390,8 +390,8 @@
                                                     <select class="form-select bb form-select-sm mb-4 mt-3 w-50"
                                                         aria-label="Large select example" name="moneda">
                                                         <option selected></option>
-                                                        <option value="1">Bolivares</option>
-                                                        <option value="2">Dolares</option>
+                                                        <option value="Bolivares">Bolivares</option>
+                                                        <option value="Dolares">Dolares</option>
                                                     </select>
 
                                                     <div class="alquiler">
@@ -522,10 +522,10 @@
                                                     <select class="form-select bb form-select-sm mb-3 mt-3"
                                                         aria-label="Large select example" name="indexacion_frecuencia">
                                                         <option selected></option>
-                                                        <option value="1">Mensual</option>
-                                                        <option value="2">Trimestre</option>
-                                                        <option value="2">Semestre</option>
-                                                        <option value="2">Anual</option>
+                                                        <option value="Mensual">Mensual</option>
+                                                        <option value="Trimestre">Trimestre</option>
+                                                        <option value="Semestre">Semestre</option>
+                                                        <option value="Anual">Anual</option>
                                                     </select>
 
 
