@@ -232,7 +232,7 @@
                                                                         B/N
                                                                     </div>
                                                                     <div class="input-group mb-3">
-                                                                        <input type="number" step="0.01" class="form"
+                                                                        <input type="text" class="form"
                                                                             placeholder="0.00" aria-label="Username"
                                                                             aria-describedby="basic-addon1" value="0.00"
                                                                             name="P_CLICK_BN_USD">
@@ -244,7 +244,7 @@
                                                                         Color
                                                                     </div>
                                                                     <div class="input-group mb-3">
-                                                                        <input type="number" step="0.01" class="form"
+                                                                        <input type="text" class="form"
                                                                             placeholder="0.00" aria-label="Username"
                                                                             aria-describedby="basic-addon1" value="0.00"
                                                                             name="P_CLICK_COLOR_USD">
@@ -310,7 +310,7 @@
 
                                                     <div class="input-group mb-4">
                                                         <div class="form-text" id="basic-addon4">RIF - Cliente</div>
-                                                        <input type="text" class="form-" name="rif"
+                                                        <input type="text" class="form-"
                                                             placeholder="Por ejemplo, J000000006" id="rif"
                                                             aria-label="Username" aria-describedby="basic-addon1" readonly
                                                             value="" name="rif">
@@ -504,8 +504,8 @@
                                                         <div class="form-text" id="basic-addon4">Indexacion Mutuo Acuerdo
                                                         </div>
                                                         <input type="text" class="form-" name="indexacion_mutuo"
-                                                            placeholder="Dedinir con el cliente" id="rif"
-                                                            aria-label="Username" aria-describedby="basic-addon1" readonly
+                                                            placeholder="Dedinir con el cliente" 
+                                                            aria-label="Username" aria-describedby="basic-addon1" 
                                                             value="">
                                                     </div>
 
