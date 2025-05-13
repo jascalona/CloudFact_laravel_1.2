@@ -145,11 +145,11 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                 const montoColor = parseFloat(MontoColor.value);
                 const cargo = parseFloat(CargoM.value);
 
-                if (isNaN(montoBn) || isNaN(montoColor)) || isNaN(cargo){
+                if (isNaN(montoBn) || isNaN(montoColor) || isNaN(cargo) ) {
                     Totalidad.value = ''; // Limpiar el resultado si alguno de los valores no es un número
                 
                 } else {
-                    const resultado = montoBn  + montoColor + cargo;
+                    const resultado = cargo +  montoBn  + montoColor  ;
                     Totalidad.value = resultado;
                 }
             }
