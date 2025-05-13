@@ -595,19 +595,6 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                 <div class="viw-i d-flex mt-5" id="volumP">
                                     <div class="col-md-6 mb-md-0 mb-4">
 
-                                    <h4 class="mb-4"><strong>Mes a Facturar</strong></h4>
-                                    <form action="{{ route('Orden.calculo') }}" method="get">
-                                        @csrf
-                                        <select name="date" class="form-select form-select-sm mb-3 w-80" aria-label=".form-select-sm example">
-                                            <option selected></option>
-                                            @foreach ($row_mes as $mes )
-                                                <option value="{{ $mes->mes }}">{{$mes->mes}}</option>
-                                            @endforeach
-                                        </select>
-
-                                        <button type="submit" name="calculo" value="submit" class="btn btn-dark">Aplicar</button>
-                                    </form>
-
                                     <h4 class="mt-4 mb-4"><strong>Concepto o Descripción</strong></h4>
 
                                     <!--Calculo Automatico-->
@@ -637,7 +624,6 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                                 <input type="number" class="form-control-plaintext" id="volumBn" value="{{ $VOLUM_BN }}">
                                             </div>
                                             </div>
-                                            <span class="badge rounded-pill badge-success">Active</span>
                                         </li>
                                         </div>
                                     </div>
@@ -653,13 +639,41 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                                 <input type="text" class="form-control-plaintext" id="volumColor" value="{{$VOLUM_COLOR}}">
                                             </div>
                                             </div>
-                                            <span class="badge rounded-pill badge-success">Active</span>
+                                        </li>
+                                        </div>
+                                    </div>
+
+                                    <h4 class="mb-4 mt-6"><strong>Copiado Minimo Contratado</strong></h4>
+                                    <div class="content-fact">
+                                        <div class="mb-3 row">
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            <div class="d-flex align-items-center">
+                                                <i style="font-size: 45px; margin-left: 12px;" class='bx bxs-circle'></i>   
+                                            <div class="ms-3">
+                                                <p class="fw-bold mb-1">Copiado Minimo B/N</p>
+                                                <input type="number" class="form-control-plaintext w-100" id="" value="{{ $clienteL->copi_minimo_bn }}">
+                                            </div>
+                                            </div>
+                                        </li>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="content-fact">
+                                        <div class="mb-3 row">
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            <div class="d-flex align-items-center">
+                                                <i style="font-size: 45px; margin-left: 12px; color:#0feae3;" class='bx bxs-circle'></i>   
+                                            <div class="ms-3">
+                                                <p class="fw-bold mb-1">Copiado Minimo Color</p>
+                                                <input type="text" class="form-control-plaintext" id="" value="{{ $clienteL->copi_minimo_color }}">
+                                            </div>
+                                            </div>
                                         </li>
                                         </div>
                                     </div>
 
                                     <h4 class="mb-4 mt-6"><strong>Cargo Minimo</strong></h4>
-                                    
                                     <div class="content-fact">
                                         <div class="mb-3 row">
                                         <label for="staticEmail" class="col-sm- col-form-label">Monto Cargo minimo</label>
@@ -671,10 +685,23 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
 
                                 </div>
 
-                                <div class="col-md-6 mb-md-0 mb-4">
-                                    <h4 class="mb-4 mt-9"><strong>Montos a Facturar</strong></h4>
-    
+                                <div class="col-md-6 mb-md-0 mb-">
 
+                                    <h4 class="mb-4 mt-6"><strong>Mes a Facturar</strong></h4>
+                                    <form action="{{ route('Orden.calculo') }}" method="get">
+                                        @csrf
+                                        <select name="date" class="form-select form-select-sm mb-3 w-50" aria-label=".form-select-sm example">
+                                            <option selected></option>
+                                            @foreach ($row_mes as $mes )
+                                                <option value="{{ $mes->mes }}">{{$mes->mes}}</option>
+                                            @endforeach
+                                        </select>
+
+                                        <button type="submit" name="calculo" value="submit" class="btn btn-dark">Aplicar</button>
+                                    </form>
+
+
+                                    <h4 class="mb-4 mt-3"><strong>Montos a Facturar</strong></h4>
                                     <div class="content-fact">
                                         <div class="mb-3 row">
                                         <label for="staticEmail" class="col-sm- col-form-label">Monto B/N USD</label>
@@ -694,10 +721,7 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                         </div>
                                     </div>
 
-                                    <div class="col-md-12 mb-md-0 mt-4 mb-4">
-
                                     <h4 class="mb-4 mt-6"><strong>Base Imponible USD</strong></h4>
-                                    
                                     <div class="content-fact">
                                         <div class="mb-3 row">
                                         <label for="staticEmail" class="col-sm- col-form-label">Monto USD</label>
@@ -706,9 +730,6 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                         </div>
                                         </div>
                                     </div>
-
-                                    </div>
-
 
                                 </div>
 
