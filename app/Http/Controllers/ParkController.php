@@ -15,7 +15,7 @@ class ParkController extends Controller
    {
       //Nuevas Instancia
       if (!empty($_POST['new_device'])) {
-        if (!empty($_POST['rif']) and !empty($_POST['serial']) and !empty($_POST['model']) and !empty($_POST['location']) 
+        if (!empty($_POST['rif']) and !empty($_POST['serial']) and !empty($_POST['model']) and !empty($_POST['n_contract']) and !empty($_POST['location']) 
         and !empty($_POST['city']) and !empty($_POST['estado']) and !empty($_POST['p_contact']) and !empty($_POST['p_email']) 
         and !empty($_POST['p_movil']) and !empty($_POST['date_insta']) and !empty($_POST['n_port']) and !empty($_POST['cont_insta_bn']) 
         and !empty($_POST['cont_insta_color']) ) {
@@ -27,6 +27,7 @@ class ParkController extends Controller
            $install->rif = $request->post('rif');
            $install->serial = $request->post('serial');
            $install->model = $request->post('model');
+           $install->n_contract = $request->post('n_contract');
            $install->location = $request->post('location');
            $install->city = $request->post('city');
            $install->estado = $request->post('estado');
@@ -71,7 +72,7 @@ class ParkController extends Controller
       if (!empty($_POST['edit_park'])) {
 
          if (
-            !empty($_POST['rif']) and !empty($_POST['serial']) and !empty($_POST['model']) and !empty($_POST['location'])
+            !empty($_POST['rif']) and !empty($_POST['serial']) and !empty($_POST['model']) and !empty($_POST['n_contract']) and !empty($_POST['location'])
             and !empty($_POST['city']) and !empty($_POST['estado']) and !empty($_POST['date_insta'])
          ) {
 
@@ -80,6 +81,7 @@ class ParkController extends Controller
             $device->rif = $request->rif;
             $device->serial = $request->serial;
             $device->model = $request->model;
+            $device->n_contract = $request->n_contract;
             $device->location = $request->location;
             $device->city = $request->city;
             $device->estado = $request->estado;

@@ -153,9 +153,16 @@
 
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Modelo</label>
+                                <input name="n_contract" type="text" class="form-control" id="exampleFormControlInput1"
+                                    placeholder="Numero de Contrato">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Numero de Contrato</label>
                                 <input name="model" type="text" class="form-control" id="exampleFormControlInput1"
                                     placeholder="Modelo del Equipo">
                             </div>
+
 
                             <div class="mb-3">
                                 <label for="exampleFormControlTextarea1" class="form-label">Direccion Exacta</label>
