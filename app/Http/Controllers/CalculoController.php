@@ -15,9 +15,9 @@ class CalculoController extends Controller
 
                 $datevar = $_GET['date'];
 
-            $datecon = lgenals::where('date', $datevar);
+                $datecon = lgenals::where('date', $datevar);
 
-            return view("orden", compact('datecon'));
+                return view("orden", compact('datecon'));
 
             } else {
                 echo '<script>alert("Debe seleccionar al menos un mes")</script>';
@@ -29,4 +29,5 @@ class CalculoController extends Controller
         }
 
     }
+
 }

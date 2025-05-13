@@ -61,13 +61,6 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="{{ route('bill') }}">
-                        <i class='bx bx-file'></i>
-                        <span class="nav-link-text ms-1">Facturación</span>
-                    </a>
-                </li>
-
-                <li class="nav-item">
                     <a class="nav-link text-dark" href="{{ route('contact') }}">
                         <i class='bx bxs-user-account'></i>
                         <span class="nav-link-text ms-1">Contacto</span>

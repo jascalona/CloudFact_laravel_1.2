@@ -21,6 +21,7 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
     <title>CloudFact-Contact</title>
 
     <!--STYLES-->
+    <script src="{{ asset('js/calculator.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('assets/table_responsive.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/setting.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/style.css') }}">
@@ -38,7 +39,7 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
     <script type="text/javascript" charset="utf8"
         src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
     <!--STYLES-->
-
+    
 </head>
 
 <!--TABLE LECTURAS PRINT-->
@@ -69,6 +70,93 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
     });
 </script>
 <!--TABLE LECTURAS SCAN-->
+
+<!--CALCULATOR MONTO BN-->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const PrecioBn = document.getElementById('precioBn');
+        const VolumBn = document.getElementById('volumBn');
+        const montoBn = document.getElementById('montoBn');
+
+            // Agrega un evento input a ambos input
+            PrecioBn.addEventListener('input', actualizarResultado);
+            VolumBn.addEventListener('input', actualizarResultado);
+
+            function actualizarResultado() {
+                const preci = parseFloat(PrecioBn.value);
+                const volum = parseFloat(VolumBn.value);
+
+                if (isNaN(preci) || isNaN(volum)) {
+                    montoBn.value = ''; // Limpiar el resultado si alguno de los valores no es un número
+                
+                } else {
+                    const resultado = volum  * preci;
+                    montoBn.value = resultado;
+                }
+            }
+    });    
+</script>
+<!--CALCULATOR MONTO BN-->
+
+<!--CALCULATOR MONTO COLOR-->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const PrecioColor = document.getElementById('precioColor');
+        const VolumColor = document.getElementById('volumColor');
+        const montoColor = document.getElementById('montoColor');
+
+            // Agrega un evento input a ambos input
+            PrecioColor.addEventListener('input', actualizarResultado);
+            VolumColor.addEventListener('input', actualizarResultado);
+
+            function actualizarResultado() {
+                const preci = parseFloat(PrecioColor.value);
+                const volum = parseFloat(VolumColor.value);
+
+                if (isNaN(preci) || isNaN(volum)) {
+                    montoColor.value = ''; // Limpiar el resultado si alguno de los valores no es un número
+                
+                } else {
+                    const resultado = volum  * preci;
+                    montoColor.value = resultado;
+                }
+            }
+    });    
+</script>
+<!--CALCULATOR MONTO COLOR-->
+
+
+<!--CALCULATOR MONTO TOTAL-->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const MontoBn = document.getElementById('montoBn');
+        const MontoColor = document.getElementById('montoColor');
+        const CargoM = document.getElementById('cargoM')
+
+        const Totalidad = document.getElementById('total')
+
+            // Agrega Eventos a los input
+            MontoBn.addEventListener('input', actualizarResultado);
+            MontoColor.addEventListener('input', actualizarResultado);
+            CargoM.addEventListener('input', actualizarResultado);
+
+            function actualizarResultado() {
+                const montoBn = parseFloat(MontoBn.value);
+                const montoColor = parseFloat(MontoColor.value);
+                const cargo = parseFloat(CargoM.value);
+
+                if (isNaN(montoBn) || isNaN(montoColor)) || isNaN(cargo){
+                    Totalidad.value = ''; // Limpiar el resultado si alguno de los valores no es un número
+                
+                } else {
+                    const resultado = montoBn  + montoColor + cargo;
+                    Totalidad.value = resultado;
+                }
+            }
+    });    
+</script>
+<!--CALCULATOR MONTO COLOR-->
+
 
 <body>
 
@@ -481,14 +569,14 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                                 <div class="form-text" id="basic-addon4">Precio global por click B/N USD</div>
                                                     <div class="input-group mb-3">
                                                         <input type="number" step="0.01" class="form"
-                                                        placeholder="0.00" aria-label="Username"
+                                                        placeholder="0.00" aria-label="Username" id="precioBn"
                                                         aria-describedby="basic-addon1" value="{{ $clienteL->P_CLICK_BN_USD }}" readonly>
                                                     </div>
 
                                                     <div class="form-text" id="basic-addon4">Precio global por click Color USD</div>
                                                     <div class="input-group mb-3">
                                                         <input type="number" step="0.01" class="form"
-                                                        placeholder="0.00" aria-label="Username"
+                                                        placeholder="0.00" aria-label="Username" id="precioColor"
                                                         aria-describedby="basic-addon1" value="{{ $clienteL->P_CLICK_COLOR_USD }}" readonly>
                                                     </div>
 
@@ -546,7 +634,7 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                                 <i style="font-size: 45px; margin-left: 12px;" class='bx bxs-circle'></i>   
                                             <div class="ms-3">
                                                 <p class="fw-bold mb-1">Volumen Diferencial B/N</p>
-                                                <input type="text" class="form-control-plaintext" id="staticEmail" value="{{ $VOLUM_BN }}">
+                                                <input type="number" class="form-control-plaintext" id="volumBn" value="{{ $VOLUM_BN }}">
                                             </div>
                                             </div>
                                             <span class="badge rounded-pill badge-success">Active</span>
@@ -562,7 +650,7 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                                 <i style="font-size: 45px; margin-left: 12px; color:#0feae3;" class='bx bxs-circle'></i>   
                                             <div class="ms-3">
                                                 <p class="fw-bold mb-1">Volumen a Diferencial Color</p>
-                                                <input type="text" class="form-control-plaintext" id="staticEmail" value="{{$VOLUM_COLOR}}">
+                                                <input type="text" class="form-control-plaintext" id="volumColor" value="{{$VOLUM_COLOR}}">
                                             </div>
                                             </div>
                                             <span class="badge rounded-pill badge-success">Active</span>
@@ -576,7 +664,7 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                         <div class="mb-3 row">
                                         <label for="staticEmail" class="col-sm- col-form-label">Monto Cargo minimo</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control-plaintext" id="staticEmail" value="{{ $clienteL->PCM }}">
+                                            <input type="text" class="form-control-plaintext" id="cargoM" value="{{ $clienteL->PCM }}">
                                         </div>
                                         </div>
                                     </div>
@@ -584,14 +672,14 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                 </div>
 
                                 <div class="col-md-6 mb-md-0 mb-4">
-                                    <h4 class="mb-4"><strong>Montos a Facturar</strong></h4>
-                                    
+                                    <h4 class="mb-4 mt-9"><strong>Montos a Facturar</strong></h4>
+    
 
                                     <div class="content-fact">
                                         <div class="mb-3 row">
                                         <label for="staticEmail" class="col-sm- col-form-label">Monto B/N USD</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control-plaintext" id="staticEmail" value="">
+                                            <input type="text" class="form-control-plaintext" id="montoBn" value="">
                                         </div>
                                         </div>
                                     </div>
@@ -601,7 +689,7 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                         <div class="mb-3 row">
                                         <label for="staticEmail" class="col-sm- col-form-label">Monto Color USD</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control-plaintext" id="staticEmail" value="">
+                                            <input type="text" class="form-control-plaintext" id="montoColor" value="">
                                         </div>
                                         </div>
                                     </div>
@@ -614,7 +702,7 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                         <div class="mb-3 row">
                                         <label for="staticEmail" class="col-sm- col-form-label">Monto USD</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control-plaintext" id="staticEmail" value="">
+                                            <input type="text" class="form-control-plaintext" id="total" value="">
                                         </div>
                                         </div>
                                     </div>
@@ -625,8 +713,6 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                 </div>
 
                                 </div>
-
-
 
 
 

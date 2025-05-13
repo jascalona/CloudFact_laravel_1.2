@@ -1,107 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculadora en Tiempo Real</title>
 </head>
+
 <body>
 
+
+
+    <input type="number" id="num1" placeholder="Número 1">
+    <input type="number" id="num2" placeholder="Número 2">
+    <input type="text" id="resultado" readonly placeholder="Resultado">
+    
     <script>
-        function admin(obj) {
-    if (obj.checked) {
+        document.addEventListener('DOMContentLoaded', function () {
+            const num1Input = document.getElementById('num1');
+            const num2Input = document.getElementById('num2');
+            const resultadoInput = document.getElementById('resultado');
 
-        document.getElementById('InputAdministrador').style.display = "";
-    } else {
+            // Agrega un evento input a ambos input
+            num1Input.addEventListener('input', actualizarResultado);
+            num2Input.addEventListener('input', actualizarResultado);
 
-        document.getElementById('InputAdministrador').style.display = "none";
-    }
-}
+            function actualizarResultado() {
+                const num1 = parseFloat(num1Input.value);
+                const num2 = parseFloat(num2Input.value);
 
-function asesor(obj) {
-    if (obj.checked) {
-
-        document.getElementById('InputAsesor').style.display = "";
-    } else {
-
-        document.getElementById('InputAsesor').style.display = "none";
-    }
-}
-
-
-function operador(obj) {
-    if (obj.checked) {
-
-        document.getElementById('InputOperador').style.display = "";
-    } else {
-
-        document.getElementById('InputOperador').style.display = "none";
-    }
-}
-
-
-function analista(obj) {
-    if (obj.checked) {
-
-        document.getElementById('InputAnalista').style.display = "";
-    } else {
-
-        document.getElementById('InputAnalista').style.display = "none";
-    }
-}
-
-function supervisor(obj) {
-    if (obj.checked) {
-
-        document.getElementById('InputSupervisor').style.display = "";
-    } else {
-
-        document.getElementById('InputSupervisor').style.display = "none";
-    }
-}
-
+                if (isNaN(num1) || isNaN(num2)) {
+                    resultadoInput.value = ''; // Limpiar el resultado si alguno de los valores no es un número
+                } else {
+                    const resultado = num1 * num2;
+                    resultadoInput.value = resultado;
+                }
+            }
+        });    
     </script>
 
-
-
-
-      ````````````````````````````````````````<h4 class="mt-5 mb-4"><strong>Labores</strong></h4>
-
-
-                                                    </div>
-
-                                                            <!--inputs show-->
-                                                    <div style="display: none;" id="InputAsesor" class="input-hidden">
-                                                        <div class="form-text mt-4">Candidad Asesor</div>
-                                                        <div class="input-group mb-3">
-                                                            <input type="Number" class="form"
-                                                                placeholder="Unidades Administrador" aria-label="Username"
-                                                                aria-describedby="basic-addon1" value="" name="n_asesor">
-                                                        </div>
-                                                    </div>
-                                                    <!--inputs show-->
-
-                                                    <!--inputs show-->
-                                                    <div style="display: none;" id="InputOperador" class="input-hidden">
-                                                        <div class="form-text mt-4">Candidad Operador</div>
-                                                        <div class="input-group mb-3">
-                                                            <input type="Number" class="form"
-                                                                placeholder="Unidades Operador" aria-label="Username"
-                                                                aria-describedby="basic-addon1" value="" name="n_operador">
-                                                        </div>
-                                                    </div>
-                                                    <!--inputs show-->
-
-
-                                                    <!--inputs show-->
-                                                    <div style="display: none;" id="InputAnalista" class="input-hidden">
-                                                        <div class="form-text mt-4">Candidad Analista</div>
-                                                        <div class="input-group mb-3">
-                                                            <input type="Number" class="form"
-                                                                placeholder="Unidades Analista" aria-label="Username"
-                                                                aria-describedby="basic-addon1" value="" name="n_analista">
-                                                        </div>
-                                                    </div>
-    
 </body>
+
 </html>

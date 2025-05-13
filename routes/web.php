@@ -60,12 +60,6 @@ Route::resource('Lgenals', App\Http\Controllers\ScreensController::class)->names
 Route::get('/LCustomer{show}', [App\Http\Controllers\ScreensController::class,'show'])->name('LCustomer');
 
 
-
-/**ruta bill */
-Route::get('/bill', [App\Http\Controllers\ScreensController::class,'bill'])->name('bill');
-
-
-
 /**ruta contact */
 Route::get('/contact', [App\Http\Controllers\ScreensController::class,'contact'])->name('contact');
 
@@ -108,3 +102,4 @@ Route::get('Orden{edit}', [App\Http\Controllers\OrdenController::class,'edit'])-
 
 /**calculo */
 Route::get('Orden', [App\Http\Controllers\CalculoController::class,'calculo'])->name('Orden.calculo');
+
