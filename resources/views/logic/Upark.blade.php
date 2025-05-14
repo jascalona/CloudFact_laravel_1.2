@@ -112,7 +112,8 @@
                                 <div class="col-lg-6 my-5 my-lg-0">
                                     <div class="p-5 edit-left">
                                         <div class="mb-4">
-                                            <h6 style="font-weight: 800; font-size: 45px;" class="display-3 ">Detalles del
+                                            <h6 style="font-weight: 600; font-size: 40px;" class="display-3 text-center">
+                                                Detalles del
                                                 Equipo</h6>
                                             <br>
                                         </div>
@@ -120,47 +121,68 @@
                                             @method('put')
                                             @csrf
 
+                                            <label for="recipient-name" class="col-form-label text-white">Rif</label>
                                             <div class="form-group">
                                                 <input type="text" class="form-control bg-transparent border-white p-4"
                                                     value="{{ $device->rif }}" placeholder="RIF" name="rif" />
                                             </div>
-                                            <br>
 
+                                            <label for="recipient-name" class="col-form-label text-white">Serial</label>
                                             <div class="form-group">
                                                 <input type="text" class="form-control bg-transparent border-white p-4"
                                                     value="{{ $device->serial }}" placeholder="Serial" name="serial" />
                                             </div>
-                                            <br>
 
+
+                                            <label for="recipient-name" class="col-form-label text-white">Modelo</label>
                                             <div class="form-group">
                                                 <input type="text" class="form-control bg-transparent border-white p-4"
                                                     placeholder="Modelo" value="{{ $device->model }}" name="model" />
                                             </div>
-                                            <br>
 
+
+                                            <label for="recipient-name" class="col-form-label text-white">N# Contrato</label>
+                                            <select class="form-select form-select-lg mb-3"
+                                                aria-label="Large select example" name="n_contract">
+                                                <option selected>{{ $device->n_contract }}</option>
+                                                @foreach ($AlquilerContrato as $contract)
+                                                    <option value="{{ $contract->n_contract }}">{{ $contract->n_contract }}</option>
+                                                @endforeach
+                                            </select>
+
+                                            <label for="recipient-name" class="col-form-label text-white">Estado del
+                                                Equipo</label>
+                                            
+                                                
+                                            <label for="recipient-name" class="col-form-label text-white">Estado del Equipo</label>
+                                            <select class="form-select form-select-lg mb-3"
+                                                aria-label="Large select example" name="activo">
+                                                <option selected>{{ $device->activo }}</option>
+                                                <option value="Si">Si</option>
+                                                <option value="No">No</option>
+                                            </select>
+
+
+
+                                            <label for="recipient-name" class="col-form-label text-white">Localidad</label>
                                             <div class="form-group">
                                                 <input type="text" class="form-control bg-transparent border-white p-4"
                                                     placeholder="Localidad" value="{{ $device->location }}"
                                                     name="location" />
                                             </div>
-                                            <br>
 
+
+                                            <label for="recipient-name" class="col-form-label text-white">Ciudad</label>
                                             <div class="form-group">
                                                 <input type="text" class="form-control bg-transparent border-white p-4"
                                                     placeholder="Ciudad" value="{{ $device->city }}" name="city" />
                                             </div>
-                                            <br>
 
+
+                                            <label for="recipient-name" class="col-form-label text-white">Estado</label>
                                             <div class="form-group">
                                                 <input type="text" class="form-control bg-transparent border-white p-4"
                                                     placeholder="Estado" value="{{ $device->estado }}" name="estado" />
-                                            </div>
-                                            <br>
-
-                                            <div class="form-group">
-                                                <input type="date" class="form-control bg-transparent border-white p-4"
-                                                    placeholder="Fecha de Instalacion" value="{{ $device->date_insta }}"
-                                                    name="date_insta" />
                                             </div>
                                             <br>
 
@@ -173,57 +195,74 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
-                                    <div class="text-center p-5 park-edit-ii">
-                                        <h1 class="text-dark mb-4 mt-5">{{ $device->cliente }}</h1>
+                                    <div class="p-5 park-edit-ii">
+                                        <h1 class="text-dark text-center mb-4 mt-5">{{ $device->cliente }}</h1>
 
+                                        <label for="recipient-name" class="col-form-label text-white">Fecha de
+                                            Instalación</label>
+                                        <div class="form-group">
+                                            <input type="date" class="form-control bg-transparent border-dark p-4"
+                                                placeholder="Fecha de Instalacion" value="{{ $device->date_insta }}"
+                                                name="date_insta" />
+                                        </div>
+
+                                        <label for="recipient-name" class="col-form-label text-dark">Persona de
+                                            Contacto</label>
                                         <div class="form-group">
                                             <input type="text" class="form-control bg-transparent text-dark border-dark p-4"
                                                 placeholder="Persona de Contacto" value="{{ $device->p_contact }}"
                                                 name="p_contact" />
                                         </div>
-                                        <br>
 
+
+                                        <label for="recipient-name" class="col-form-label text-dark">Email</label>
                                         <div class="form-group">
                                             <input type="text" class="form-control bg-transparent text-dark border-dark p-4"
                                                 placeholder="Email de Contacto" value="{{ $device->p_email }}"
                                                 name="p_email" />
                                         </div>
-                                        <br>
 
+
+                                        <label for="recipient-name" class="col-form-label text-dark">Movil</label>
                                         <div class="form-group">
                                             <input type="text" class="form-control bg-transparent text-dark border-dark p-4"
                                                 placeholder="Numero de Contacto" value="{{ $device->p_movil }}"
                                                 name="p_movil" />
                                         </div>
-                                        <br>
 
+
+                                        <label for="recipient-name" class="col-form-label text-dark">Status</label>
                                         <div class="form-group">
                                             <input type="text" class="form-control bg-transparent text-dark border-dark p-4"
                                                 placeholder="Status" value="{{ $device->n_port }}" name="n_port" />
                                         </div>
-                                        <br>
 
+
+                                        <label for="recipient-name" class="col-form-label text-dark">Contador Inicial
+                                            B/N</label>
                                         <div class="form-group">
                                             <input type="number"
                                                 class="form-control bg-transparent text-dark border-dark p-4"
                                                 placeholder="Contador Inicial B/N" value="{{ $device->cont_insta_bn }}"
                                                 name="cont_insta_bn" />
                                         </div>
-                                        <br>
 
+
+                                        <label for="recipient-name" class="col-form-label text-dark">Contador Inicial
+                                            Color</label>
                                         <div class="form-group">
                                             <input type="number"
                                                 class="form-control bg-transparent text-dark border-dark p-4"
                                                 placeholder="Contador Inicial Color" value="cont_insta_color"
                                                 name="cont_insta_color" />
                                         </div>
-                                        <br>
 
+
+                                        <label for="recipient-name" class="col-form-label text-dark">Observaciones</label>
                                         <div class="form-group">
                                             <input type="text" class="form-control bg-transparent text-dark border-dark p-4"
                                                 placeholder="Observaciones" {{ $device->obser }} name="obser" />
                                         </div>
-                                        <br>
 
                                         </form>
                                     </div>

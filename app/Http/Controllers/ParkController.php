@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Alquilers;
 use App\Models\Park;
 use Illuminate\Http\Request;
 use App\Models\Customer;
@@ -17,12 +18,12 @@ class ParkController extends Controller
       if (!empty($_POST['new_device'])) {
         if (!empty($_POST['rif']) and !empty($_POST['serial']) and !empty($_POST['model']) and !empty($_POST['n_contract']) and !empty($_POST['location']) 
         and !empty($_POST['city']) and !empty($_POST['estado']) and !empty($_POST['p_contact']) and !empty($_POST['p_email']) 
-        and !empty($_POST['p_movil']) and !empty($_POST['date_insta']) and !empty($_POST['n_port']) and !empty($_POST['cont_insta_bn']) 
-        and !empty($_POST['cont_insta_color']) ) {
-         
+        and !empty($_POST['p_movil']) and !empty($_POST['date_insta']) and !empty($_POST['n_port']) ) {
+
            /**INstancia de modelo */
            $install = new Park();
 
+           
            $install->cliente = $request->post('cliente');
            $install->rif = $request->post('rif');
            $install->serial = $request->post('serial');
@@ -62,7 +63,9 @@ class ParkController extends Controller
    public function edit($id)
    {
       $device = parks::findOrFail($id);
-      return view("logic.Upark", compact("device"));
+      $AlquilerContrato = Alquilers::all();
+
+      return view("logic.Upark", compact("device", "AlquilerContrato"));
    }
 
 
@@ -82,7 +85,6 @@ class ParkController extends Controller
             $device->rif = $request->rif;
             $device->serial = $request->serial;
             $device->model = $request->model;
-            $device->activo = $request->activo;
             $device->activo = $request->activo;
             $device->n_contract = $request->n_contract;
             $device->location = $request->location;

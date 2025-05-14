@@ -119,7 +119,6 @@
 
                             <div class="mb-3">
                                 <label for="recipient-name" class="col-form-label">Cliente</label>
-
                                 <select id="customer" class="form-select form-select-lg mb-3"
                                     aria-label="Large select example" name="cliente" required>
                                     <option>Seleccione un Cliente</option>
@@ -170,13 +169,13 @@
                             </div>
 
                             <div style="display: flex; align-items: center;" class="form-check ">
-                                <input class="form-check- w-auto" type="radio" name="radioDefault" name="activo"
-                                    id="radioDefault1">
+                                <input class="form-check- w-auto" type="radio" name="activo"
+                                    id="radioDefault1" value="Si" >
                                 <label class="form-check-label mt-2" for="radioDefault1">Si</label>
                             </div>
                             <div style="display: flex; align-items: center;" class="form-check">
-                                <input class="form-check- w-auto" type="radio" name="radioDefault" name="activo"
-                                    id="radioDefault2" checked>
+                                <input class="form-check- w-auto" type="radio" name="activo"
+                                    id="radioDefault2" value="No" >
                                 <label class="form-check-label mt-2" for="radioDefault2">No</label>
                             </div>
 
