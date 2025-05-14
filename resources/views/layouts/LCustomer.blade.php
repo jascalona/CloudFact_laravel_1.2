@@ -94,378 +94,382 @@
                 </div>
             </div>
 
-                <div class="container-fluid py-2">
-                    @csrf
-                    <div class="row">
-                        <div class="col-lg-8">
-                            <div class="row">
+            @if ($message_e = Session::get('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <h5 class="alert-heading"><i class='bx bx-check'></i> Proceso completado con Exito!</h5>
+                    {{ $message_e }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i
+                            class='bx bx-x'></i></button>
+                </div>
+            @endif
 
-                                <div class="col-xl-6 mb-xl-0 mb-4">
-                                    <div class="card bg-transparent shadow-xl">
-                                        <div class="overflow-hidden position-relative border-radius-xl">
-                                            <span class="mask bg-gradient-dark opacity-10"></span>
-                                            <div class="card-body position-relative z-index-1 p-3">
-                                                <i class='bx bxs-user text-white'></i>
-                                                <h5 class="text-white mt-4 mb-5 pb-2">
-                                                    {{$clienteL->cliente}}
-                                                </h5>
+            <div class="container-fluid py-2">
+                @csrf
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="row">
+
+                            <div class="col-xl-6 mb-xl-0 mb-4">
+                                <div class="card bg-transparent shadow-xl">
+                                    <div class="overflow-hidden position-relative border-radius-xl">
+                                        <span class="mask bg-gradient-dark opacity-10"></span>
+                                        <div class="card-body position-relative z-index-1 p-3 text-white">
+                                             <h4><strong>{{$clienteL->cliente}}</strong></h4>
+                                            <h5 class="text-white mt-4 mb-5 pb-2">
+                                                #{{$clienteL->n_contract}}
+                                            </h5>
+                                            <div class="d-flex">
                                                 <div class="d-flex">
-                                                    <div class="d-flex">
-                                                        <div class="me-4">
-                                                            <p class="text-white text-sm opacity-8 mb-0">RIF</p>
-                                                            <h6 class="text-white mb-0">{{$clienteL->rif}} </h6>
-                                                        </div>
-                                                        <div>
-                                                            <p class="text-white text-sm opacity-8 mb-0">Tipo de Contrato
-                                                            </p>
-                                                            <h6 class="text-white mb-0">{{$clienteL->tipo_c}}</h6>
-                                                        </div>
+                                                    <div class="me-4">
+                                                        <p class="text-white text-sm opacity-8 mb-0">RIF</p>
+                                                        <h6 class="text-white mb-0">{{$clienteL->rif}} </h6>
                                                     </div>
-                                                    <div class="ms-auto w-10 d-flex align-items-end justify-content-end">
-                                                        <img class="w-60 mt-2" src="{{ asset('images/x.png') }}" alt="logo">
+                                                    <div>
+                                                        <p class="text-white text-sm opacity-8 mb-0">Tipo de Contrato
+                                                        </p>
+                                                        <h6 class="text-white mb-0">{{$clienteL->tipo_c}}</h6>
                                                     </div>
+                                                </div>
+                                                <div class="ms-auto w-10 d-flex align-items-end justify-content-end">
+                                                    <img class="w-60 mt-2" src="{{ asset('images/x.png') }}" alt="logo">
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
-                                <!--PRECIO SCAN-->
-                                <div class="col-xl-6">
-                                    <div class="row">
-                                        <div class="col-md-6 col-6">
-                                            <div class="card">
-                                                <div class="card-header mx-4 p-3 text-center">
-                                                    <div
-                                                        class="icon icon-shape icon-lg bg-gradient-dark shadow text-center border-radius-lg">
-                                                        <i class='bx bx-coin-stack'></i>
-                                                    </div>
-                                                </div>
-                                                <div class="card-body pt-0 p-3 text-center">
-                                                    <h6 class="text-center mb-0">Precio Bs</h6>
-                                                    <span class="text-xs">Precio por Click Bs.</span>
-                                                    <hr class="horizontal dark my-3">
-                                                    <h5 class="mb-0">$0</h5>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-6 col-6">
-                                            <div class="card">
-                                                <div class="card-header mx-4 p-3 text-center">
-                                                    <div
-                                                        class="icon icon-shape icon-lg bg-gradient-dark shadow text-center border-radius-lg">
-                                                        <i class='bx bx-dollar'></i>
-                                                    </div>
-                                                </div>
-                                                <div class="card-body pt-0 p-3 text-center">
-                                                    <h6 class="text-center mb-0">Precio $</h6>
-                                                    <span class="text-xs">Precio por Click USD.</span>
-                                                    <hr class="horizontal dark my-3">
-                                                    <h5 class="mb-0">$0</h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--PRECIO SCAN-->
-
                             </div>
 
+                            <!--PRECIO SCAN-->
+                            <div class="col-xl-6">
+                                <div class="row">
+                                    <div class="col-md-6 col-6">
+                                        <div class="card">
+                                            <div class="card-header mx-4 p-3 text-center">
+                                                <div
+                                                    class="icon icon-shape icon-lg bg-gradient-dark shadow text-center border-radius-lg">
+                                                    <i class='bx bx-coin-stack'></i>
+                                                </div>
+                                            </div>
+                                            <div class="card-body pt-0 p-3 text-center">
+                                                <h6 class="text-center mb-0">Precio Bs</h6>
+                                                <span class="text-xs">Precio por Click Bs.</span>
+                                                <hr class="horizontal dark my-3">
+                                                <h5 class="mb-0">$0</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 col-6">
+                                        <div class="card">
+                                            <div class="card-header mx-4 p-3 text-center">
+                                                <div
+                                                    class="icon icon-shape icon-lg bg-gradient-dark shadow text-center border-radius-lg">
+                                                    <i class='bx bx-dollar'></i>
+                                                </div>
+                                            </div>
+                                            <div class="card-body pt-0 p-3 text-center">
+                                                <h6 class="text-center mb-0">Precio $</h6>
+                                                <span class="text-xs">Precio por Click USD.</span>
+                                                <hr class="horizontal dark my-3">
+                                                <h5 class="mb-0">$0</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--PRECIO SCAN-->
+
+                        </div>
+
+                        <!--GRAFICOS-->
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 mt-4 mb-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h6 class="mb-0 ">Carga de Contadores</h6>
+                                        <p class="text-sm ">Rendimiento Mensual</p>
+                                        <div class="pe-2">
+                                            <div class="chart">
+                                                <canvas id="chart-bars" class="chart-canvas" height="170"></canvas>
+                                            </div>
+                                        </div>
+                                        <hr class="dark horizontal">
+                                        <div class="d-flex ">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 mt-4 mb-4">
+                                <div class="card ">
+                                    <div class="card-body">
+                                        <h6 class="mb-0 ">Facturación</h6>
+                                        <p class="text-sm ">Registro de cotización mensual. </p>
+                                        <div class="pe-2">
+                                            <div class="chart">
+                                                <canvas id="chart-line" class="chart-canvas" height="170"></canvas>
+                                            </div>
+                                        </div>
+                                        <hr class="dark horizontal">
+                                        <div class="d-flex ">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <!--GRAFICOS-->
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 mt-4 mb-4">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h6 class="mb-0 ">Carga de Contadores</h6>
-                                            <p class="text-sm ">Rendimiento Mensual</p>
-                                            <div class="pe-2">
-                                                <div class="chart">
-                                                    <canvas id="chart-bars" class="chart-canvas" height="170"></canvas>
-                                                </div>
-                                            </div>
-                                            <hr class="dark horizontal">
-                                            <div class="d-flex ">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <div class="col-lg-6 col-md-6 mt-4 mb-4">
-                                    <div class="card ">
-                                        <div class="card-body">
-                                            <h6 class="mb-0 ">Facturación</h6>
-                                            <p class="text-sm ">Registro de cotización mensual. </p>
-                                            <div class="pe-2">
-                                                <div class="chart">
-                                                    <canvas id="chart-line" class="chart-canvas" height="170"></canvas>
-                                                </div>
-                                            </div>
-                                            <hr class="dark horizontal">
-                                            <div class="d-flex ">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--GRAFICOS-->
-
-
-                            </div>
 
                         </div>
-
-                        <!--RESUMEN FACTURACION-->
-                        <div class="col-lg-4">
-                            <div class="card h-100">
-                                <div class="card-header pb-0 p-3">
-                                    <div class="row">
-
-                                        <div class="card-body p-3 pb-0">
-
-                                            <ul class="nav nav-fill nav-tabs" role="tablist">
-                                                <li class="nav-item" role="presentation">
-                                                    <a class="nav-link active" id="fill-tab-0" data-bs-toggle="tab"
-                                                        href="#fill-tabpanel-0" role="tab" aria-controls="fill-tabpanel-0"
-                                                        aria-selected="true">Resumen de factura</a>
-                                                </li>
-                                                <li class="nav-item" role="presentation">
-                                                    <a class="nav-link" id="fill-tab-1" data-bs-toggle="tab"
-                                                        href="#fill-tabpanel-1" role="tab" aria-controls="fill-tabpanel-1"
-                                                        aria-selected="false">Orden</a>
-                                                </li>
-
-                                            </ul>
-
-                                        </div>
-                                    </div>
-
-
-                                    <div class="tab-content pt-5" id="tab-content">
-                                        <div class="tab-pane active" id="fill-tabpanel-0" role="tabpanel"
-                                            aria-labelledby="fill-tab-0">
-                                            <ul class="list-group">
-                                                <li
-                                                    class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                                                    <div class="d-flex flex-column">
-                                                        <h6 class="mb-1 text-dark font-weight-bold text-sm">March, 01, 2020
-                                                        </h6>
-                                                        <span class="text-xs">#MS-415646</span>
-                                                    </div>
-                                                    <div class="d-flex align-items-center text-sm">
-                                                        $180
-                                                        <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4">
-                                                            <i class='bx bxs-file-pdf'></i> PDF</button>
-                                                    </div>
-                                                </li>
-
-                                            </ul>
-                                        </div>
-
-                                        <div class="tab-pane" id="fill-tabpanel-1" role="tabpanel"
-                                            aria-labelledby="fill-tab-1">
-
-                                            <div class="col-12 text-end mb-3">
-                                                <a href="{{ route('orden.edit', $clienteL->id) }}" type="submit" value="submit" name="btn-load"
-                                                    class="btn bg-gradient-dark mb-0" href="javascript:;"><i
-                                                        class='bx bxs-save'></i>&nbsp;&nbsp;Nueva Orden</a>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--RESUMEN FACTURACION-->
-
-                        <!--CARD FOR PRECIO-->
-                        <div class="col-xl-3 col-sm-6 mb-xl-0 mt-5 mb-4">
-                            <div class="card">
-                                <div class="card-header p-2 ps-3">
-                                    <div class="d-flex justify-content-between">
-                                        <div>
-                                            <p class="text-sm mb-0 text-capitalize">Precion B/N $</p>
-                                            <h4 class="mb-0">{{ $clienteL->P_CLICK_BN_USD }}</h4>
-                                        </div>
-                                        <div
-                                            class="icon icon-md icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-lg">
-                                            <i class='bx bxs-color-fill'></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr class="dark horizontal my-0">
-                                <div class="card-footer p-2 ps-3">
-                                    <p class="mb-0 text-sm"><small>Precio por Click B/N USD.</small></p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-xl-3 col-sm-6 mb-xl-0 mt-5 mb-4">
-                            <div class="card">
-                                <div class="card-header p-2 ps-3">
-                                    <div class="d-flex justify-content-between">
-                                        <div>
-                                            <p class="text-sm mb-0 text-capitalize">Precion B/N Bs</p>
-                                            <h4 class="mb-0">{{ $clienteL->P_CLICK_BN_BS }}</h4>
-                                        </div>
-                                        <div
-                                            class="icon icon-md icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-lg">
-                                            <i class='bx bxs-color-fill'></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr class="dark horizontal my-0">
-                                <div class="card-footer p-2 ps-3">
-                                    <p class="mb-0 text-sm"><small>Precio por Click B/N Bs.</small></p>
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-xl-3 col-sm-6 mb-xl-0 mt-5 mb-4">
-                            <div class="card">
-                                <div class="card-header p-2 ps-3">
-                                    <div class="d-flex justify-content-between">
-                                        <div>
-                                            <p class="text-sm mb-0 text-capitalize">Precio Color $</p>
-                                            <h4 class="mb-0">{{ $clienteL->P_CLICK_COLOR_USD }}</h4>
-                                        </div>
-                                        <div
-                                            class="icon icon-md icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-lg">
-                                            <i class='bx bxs-color-fill' style='color:#0ae089'></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr class="dark horizontal my-0">
-                                <div class="card-footer p-2 ps-3">
-                                    <p class="mb-0 text-sm"><small>Precio por Click Color USD.</small></p>
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-xl-3 col-sm-6 mt-5">
-                            <div class="card">
-                                <div class="card-header p-2 ps-3">
-                                    <div class="d-flex justify-content-between">
-                                        <div>
-                                            <p class="text-sm mb-0 text-capitalize">Precio Color Bs</p>
-                                            <h4 class="mb-0">{{ $clienteL->P_CLICK_COLOR_BS }}</h4>
-                                        </div>
-                                        <div
-                                            class="icon icon-md icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-lg">
-                                            <i class='bx bxs-color-fill' style='color:#0ae089'></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr class="dark horizontal my-0">
-                                <div class="card-footer p-2 ps-3">
-                                    <p class="mb-0 text-sm"><small>Precio por Click Color Bs.</small></p>
-
-                                </div>
-                            </div>
-                        </div>
-                        <!--CARD FOR PRECIO-->
-
 
                     </div>
 
-
-                    @if (session('success'))
-                        <div class="alert alert-success" role="aler">
-                            {{ session('success') }}
-                        </div>
-                    @endif
-
-                    <!--TABLE ORDEN-->
-                    <div class="col-md-15 mb-lg-0 mb-4">
-                        <div class="card mt-4">
+                    <!--RESUMEN FACTURACION-->
+                    <div class="col-lg-4">
+                        <div class="card h-100">
                             <div class="card-header pb-0 p-3">
                                 <div class="row">
-                                    <div class="col-6 d-flex align-items-center">
-                                        <h4 class="mb-0">Customer's: <small>Lead</small></h4>
+
+                                    <div class="card-body p-3 pb-0">
+
+                                        <ul class="nav nav-fill nav-tabs" role="tablist">
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link active" id="fill-tab-0" data-bs-toggle="tab"
+                                                    href="#fill-tabpanel-0" role="tab" aria-controls="fill-tabpanel-0"
+                                                    aria-selected="true">Resumen de factura</a>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <a class="nav-link" id="fill-tab-1" data-bs-toggle="tab"
+                                                    href="#fill-tabpanel-1" role="tab" aria-controls="fill-tabpanel-1"
+                                                    aria-selected="false">Orden</a>
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="tab-content pt-5" id="tab-content">
+                                    <div class="tab-pane active" id="fill-tabpanel-0" role="tabpanel"
+                                        aria-labelledby="fill-tab-0">
+                                        
+                                        @foreach ($ordens as $ListOrden)
+
+                                        <ul class="list-group">
+                                            <li
+                                                class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                                                <div class="d-flex flex-column">
+                                                    <h6 class="mb-1 text-dark font-weight-bold text-sm">{{ $ListOrden->mes }}</h6>
+                                                    <span class="text-xs"># {{ $ListOrden->n_contract }}</span>
+                                                </div>
+                                                <div class="d-flex align-items-center text-sm">
+                                                    {{ $ListOrden->base_imponible }} $
+                                                    <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4">
+                                                        <i class='bx bxs-file-pdf'></i> PDF</button>
+                                                </div>
+                                            </li>
+                                        </ul>
+
+                                        @endforeach
                                     </div>
 
-                                    <div class="icons-pages col-6 text-end mb-3">
-                                        <button id="scroll-button-left"><i class='bx bx-chevron-left'></i></button>
-                                        <button id="scroll-button-right"><i class='bx bx-chevron-right'></i></button>
+                                    <div class="tab-pane" id="fill-tabpanel-1" role="tabpanel" aria-labelledby="fill-tab-1">
+
+                                        <div class="col-12 text-end mb-3">
+                                            <a href="{{ route('orden.edit', $clienteL->id) }}" type="submit" value="submit"
+                                                name="btn-load" class="btn bg-gradient-dark mb-0" href="javascript:;"><i
+                                                    class='bx bxs-save'></i>&nbsp;&nbsp;Nueva Orden</a>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
-
-
-                            <!--TABLE ORDEN-->
-                            <div class="main p-5">
-
-                                <div class="content-table">
-                                    <table id="myTable" class="display">
-                                        <thead>
-                                            <tr style="font-size: 13px;">
-                                                <th>Cliente</th>
-                                                <th>RIF</th>
-                                                <th>Serial</th>
-                                                <th>Modelo</th>
-                                                <th>N# Contrato</th>
-                                                <th>Activo</th>
-                                                <th>Localidad</th>
-                                                <th>Mes</th>
-                                                <th>Date</th>
-                                                <th>Cont. Anterior B/N</th>
-                                                <th>Cont. Actual B/N</th>
-                                                <th>Volum. B/N</th>
-                                                <th>AMCV_bn</th>
-                                                <th>Cont. Anterior Color</th>
-                                                <th>Cont. Actual Color</th>
-                                                <th>Volum. Color</th>
-                                                <th>AMCV_color</th>
-                                                <th>Cont. Anterior ScanImages</th>
-                                                <th>Cont. Actual ScanImages</th>
-                                                <th>Volum. Scan Images</th>
-                                                <th>Cont. Anterior ScanJobs</th>
-                                                <th>Cont. Actual ScanJobs</th>
-                                                <th>Volum. Scan Jobs</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($load as $row)
-                                                <tr style="font-size: 12px;">
-                                                    <td>{{ $row->cliente }}</td>
-                                                    <td>{{ $row->rif }}</td>
-                                                    <td>{{ $row->serial }}</td>
-                                                    <td>{{ $row->model }}</td>
-                                                    <td>{{ $row->n_contract }}</td>
-                                                    <td>{{ $row->activo }}</td>
-                                                    <td>{{ $row->location }}</td>
-                                                    <td>{{ $row->mes }}</td>
-                                                    <td>{{ $row->date }}</td>
-                                                    <td>{{ $row->cont_ante_bn }}</td>
-                                                    <td>{{ $row->cont_actu_bn }}</td>
-                                                    <td>{{ $row->volum_bn }}</td>
-                                                    <td>{{ $row->AMCV_bn }}</td>
-                                                    <td>{{ $row->cont_ante_color }}</td>
-                                                    <td>{{ $row->cont_actu_color }}</td>
-                                                    <td>{{ $row->volum_color }}</td>
-                                                    <td>{{ $row->AMCV_color }}</td>
-                                                    <td>{{ $row->cont_ante_scan_images }}</td>
-                                                    <td>{{ $row->cont_actu_scan_images }}</td>
-                                                    <td>{{ $row->volum_scan_images }}</td>
-                                                    <td>{{ $row->cont_ante_scan_jobs }}</td>
-                                                    <td>{{ $row->cont_actu_scan_jobs }}</td>
-                                                    <td>{{ $row->volum_scan_jobs }}</td>
-
-                                                </tr>
-                                            @endforeach
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
-                    <!--TABLE ORDEN-->
+                    <!--RESUMEN FACTURACION-->
+
+                    <!--CARD FOR PRECIO-->
+                    <div class="col-xl-3 col-sm-6 mb-xl-0 mt-5 mb-4">
+                        <div class="card">
+                            <div class="card-header p-2 ps-3">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <p class="text-sm mb-0 text-capitalize">Precion B/N $</p>
+                                        <h4 class="mb-0">{{ $clienteL->P_CLICK_BN_USD }}</h4>
+                                    </div>
+                                    <div
+                                        class="icon icon-md icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-lg">
+                                        <i class='bx bxs-color-fill'></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="dark horizontal my-0">
+                            <div class="card-footer p-2 ps-3">
+                                <p class="mb-0 text-sm"><small>Precio por Click B/N USD.</small></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-sm-6 mb-xl-0 mt-5 mb-4">
+                        <div class="card">
+                            <div class="card-header p-2 ps-3">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <p class="text-sm mb-0 text-capitalize">Precion B/N Bs</p>
+                                        <h4 class="mb-0">{{ $clienteL->P_CLICK_BN_BS }}</h4>
+                                    </div>
+                                    <div
+                                        class="icon icon-md icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-lg">
+                                        <i class='bx bxs-color-fill'></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="dark horizontal my-0">
+                            <div class="card-footer p-2 ps-3">
+                                <p class="mb-0 text-sm"><small>Precio por Click B/N Bs.</small></p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-sm-6 mb-xl-0 mt-5 mb-4">
+                        <div class="card">
+                            <div class="card-header p-2 ps-3">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <p class="text-sm mb-0 text-capitalize">Precio Color $</p>
+                                        <h4 class="mb-0">{{ $clienteL->P_CLICK_COLOR_USD }}</h4>
+                                    </div>
+                                    <div
+                                        class="icon icon-md icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-lg">
+                                        <i class='bx bxs-color-fill' style='color:#0ae089'></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="dark horizontal my-0">
+                            <div class="card-footer p-2 ps-3">
+                                <p class="mb-0 text-sm"><small>Precio por Click Color USD.</small></p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-sm-6 mt-5">
+                        <div class="card">
+                            <div class="card-header p-2 ps-3">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <p class="text-sm mb-0 text-capitalize">Precio Color Bs</p>
+                                        <h4 class="mb-0">{{ $clienteL->P_CLICK_COLOR_BS }}</h4>
+                                    </div>
+                                    <div
+                                        class="icon icon-md icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-lg">
+                                        <i class='bx bxs-color-fill' style='color:#0ae089'></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="dark horizontal my-0">
+                            <div class="card-footer p-2 ps-3">
+                                <p class="mb-0 text-sm"><small>Precio por Click Color Bs.</small></p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--CARD FOR PRECIO-->
 
 
                 </div>
+
+                <!--TABLE ORDEN-->
+                <div class="col-md-15 mb-lg-0 mb-4">
+                    <div class="card mt-4">
+                        <div class="card-header pb-0 p-3">
+                            <div class="row">
+                                <div class="col-6 d-flex align-items-center">
+                                    <h4 class="mb-0">Customer's: <small>Lead</small></h4>
+                                </div>
+
+                                <div class="icons-pages col-6 text-end mb-3">
+                                    <button id="scroll-button-left"><i class='bx bx-chevron-left'></i></button>
+                                    <button id="scroll-button-right"><i class='bx bx-chevron-right'></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!--TABLE ORDEN-->
+                        <div class="main p-5">
+
+                            <div class="content-table">
+                                <table id="myTable" class="display">
+                                    <thead>
+                                        <tr style="font-size: 13px;">
+                                            <th>Cliente</th>
+                                            <th>RIF</th>
+                                            <th>Serial</th>
+                                            <th>Modelo</th>
+                                            <th>N# Contrato</th>
+                                            <th>Activo</th>
+                                            <th>Localidad</th>
+                                            <th>Mes</th>
+                                            <th>Date</th>
+                                            <th>Cont. Anterior B/N</th>
+                                            <th>Cont. Actual B/N</th>
+                                            <th>Volum. B/N</th>
+                                            <th>AMCV_bn</th>
+                                            <th>Cont. Anterior Color</th>
+                                            <th>Cont. Actual Color</th>
+                                            <th>Volum. Color</th>
+                                            <th>AMCV_color</th>
+                                            <th>Cont. Anterior ScanImages</th>
+                                            <th>Cont. Actual ScanImages</th>
+                                            <th>Volum. Scan Images</th>
+                                            <th>Cont. Anterior ScanJobs</th>
+                                            <th>Cont. Actual ScanJobs</th>
+                                            <th>Volum. Scan Jobs</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($load as $row)
+                                            <tr style="font-size: 12px;">
+                                                <td>{{ $row->cliente }}</td>
+                                                <td>{{ $row->rif }}</td>
+                                                <td>{{ $row->serial }}</td>
+                                                <td>{{ $row->model }}</td>
+                                                <td>{{ $row->n_contract }}</td>
+                                                <td>{{ $row->activo }}</td>
+                                                <td>{{ $row->location }}</td>
+                                                <td>{{ $row->mes }}</td>
+                                                <td>{{ $row->date }}</td>
+                                                <td>{{ $row->cont_ante_bn }}</td>
+                                                <td>{{ $row->cont_actu_bn }}</td>
+                                                <td>{{ $row->volum_bn }}</td>
+                                                <td>{{ $row->AMCV_bn }}</td>
+                                                <td>{{ $row->cont_ante_color }}</td>
+                                                <td>{{ $row->cont_actu_color }}</td>
+                                                <td>{{ $row->volum_color }}</td>
+                                                <td>{{ $row->AMCV_color }}</td>
+                                                <td>{{ $row->cont_ante_scan_images }}</td>
+                                                <td>{{ $row->cont_actu_scan_images }}</td>
+                                                <td>{{ $row->volum_scan_images }}</td>
+                                                <td>{{ $row->cont_ante_scan_jobs }}</td>
+                                                <td>{{ $row->cont_actu_scan_jobs }}</td>
+                                                <td>{{ $row->volum_scan_jobs }}</td>
+
+                                            </tr>
+                                        @endforeach
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!--TABLE ORDEN-->
+
+
+            </div>
 
             </div>
             </div>

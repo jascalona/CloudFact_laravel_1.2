@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Ordens;
 use App\Models\Customer;
 use App\Models\Park;
 use App\Models\Lgenal;
@@ -45,8 +46,12 @@ class ScreensController extends Controller
     public function show($id)
     {
         $clienteL = alquilers::findOrFail($id);
+        
+        /**Hay que relacionar connumero de contrato */
         $load = lgenals::orderBy('date', 'desc')->get();
-        return view("layouts.LCustomer", compact("clienteL", "load"));
+        $ordens = Ordens::all();
+
+        return view("layouts.LCustomer", compact("clienteL", "load", "ordens"));
     }
 
 

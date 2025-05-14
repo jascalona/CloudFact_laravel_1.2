@@ -104,5 +104,5 @@ Route::get('Orden{edit}', [App\Http\Controllers\OrdenController::class,'edit'])-
 Route::get('Orden', [App\Http\Controllers\CalculoController::class,'calculo'])->name('Orden.calculo');
 
 /**Create Orden */
-Route::post('Orden', [App\Http\Controllers\OrdenController::class,'create'])->name('orden.create');
+Route::post('Orden/{id}', [App\Http\Controllers\OrdenController::class,'create'])->name('orden.create');
 

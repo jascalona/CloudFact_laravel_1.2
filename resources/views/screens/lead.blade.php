@@ -145,8 +145,8 @@
                                 </div>
                                 <hr class="dark horizontal my-0">
                                 <div class="card-footer p-2 ps-3">
-                                    <p class="mb-0 text-sm">Equipos: <span
-                                            class="text-success font-weight-bolder">{{ $row->cant_device }} </span></p>
+                                    <p class="mb-0 text-sm">Contrato: #<span
+                                            class="text-success font-weight-bolder">{{ $row->n_contract }} </span></p>
                                     <span><a href="{{ route('LCustomer', $row->id) }}">Detalles</a></span>
                                 </div>
                             </div>

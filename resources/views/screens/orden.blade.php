@@ -217,6 +217,16 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                 <div class="card-body p-3">
                     <div class="row new-contact card-lectura bg-white">
 
+
+                        @if ($message_e = Session::get('warning'))
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <h5 class="alert-heading"><i class='bx bx-error-circle'></i> Alerta!</h5>
+                                {{ $message_e }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class='bx bx-x'></i></button>
+                        </div>
+                        @endif
+
+
                         <div class="viw-header">
                             <div class="logo">
                                 <img src="{{ asset('images/cloud-regular-120.png') }}" alt="">
@@ -228,10 +238,10 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
 
 
                         <div class="input-group mt-5 mb-4">
-                            <div class="form-text" id="basic-addon4">Numero de Factura:</div>
+                            <div class="form-text" id="basic-addon4">Nombre del Contrato:</div>
                             <input style="font-size: 38px" type="text" class="form-"
                                 placeholder="Por ejemplo: 0916" aria-label="Username"
-                                aria-describedby="basic-addon1" value="">
+                                aria-describedby="basic-addon1" name="name_c" value="{{ $clienteL->name_c }}">
                         </div>
 
 
@@ -282,7 +292,7 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                                     <div class="form-text mt-4" id="basic-addon4">Ciudad</div>
                                                     <div class="input-group mb-3">
                                                         <input type="text" class="form" placeholder="Por ejemplo: Caracas"
-                                                        aria-label="Username" aria-describedby="basic-addon1" value="{{ $clienteL->city }}" readonly>
+                                                        aria-label="Username" aria-describedby="basic-addon1" readonly value="{{ $clienteL->city }}" >
                                                     </div>
                                                     
                                                     <div class="input-group mb-4">
@@ -489,8 +499,14 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                             <div class="tab-pane" id="disabled-tabpanel-1" role="tabpanel" aria-labelledby="disabled-tab-1">
                                 <h4 class="mb-4"><strong>Información Detallada</strong></h4>
 
-                            <form action="" method="post">
+                            <form action="{{ route('orden.create', $clienteL->id) }}" method="POST">
                                 @csrf
+
+                                <div style="display: none;" class="input-group mt-5 mb-4">
+                                    <input type="hidden" class="form-"
+                                        placeholder="Por ejemplo: 0916" aria-label="Username"
+                                        aria-describedby="basic-addon1" name="name_c" value="{{ $clienteL->name_c }}">
+                                </div>
 
                                 <!--vsita 012se debe ajustar el responsivo-->
                                   <!--vsita 01 se debe ajustar el responsivo-->
@@ -504,7 +520,7 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                                 <div class="form-text" id="basic-addon4">Cliente</div>
                                                 <div class="input-group mb-3">
                                                         <input type="text" class="form" placeholder="Cliente"
-                                                            aria-label="Username" aria-describedby="basic-addon1" value="{{ $clienteL->cliente }}">
+                                                            aria-label="Username" aria-describedby="basic-addon1" name="cliente" value="{{ $clienteL->cliente }}">
                                                 </div>
 
                                                 <div class="">
@@ -512,26 +528,26 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                                     <div class="form-text mt-4" id="basic-addon4">Direccion Fiscal</div>
                                                     <div class="input-group mb-3">
                                                         <input type="text" class="form" placeholder="Por ejemplo: Av Eugenio Mendoza Edif Torre La Castellana P8 Ofc 8 - La Castellana"
-                                                            aria-label="Username" aria-describedby="basic-addon1" value="{{ $clienteL->direct_f }}" readonly>
+                                                            aria-label="Username" aria-describedby="basic-addon1" name="direct_f" value="{{ $clienteL->direct_f }}" readonly>
                                                     </div>
 
                                                     <div class="form-text mt-4" id="basic-addon4">Ciudad</div>
                                                     <div class="input-group mb-3">
                                                         <input type="text" class="form" placeholder="Por ejemplo: Caracas"
-                                                        aria-label="Username" aria-describedby="basic-addon1" value="{{ $clienteL->city }}" readonly>
+                                                        aria-label="Username" aria-describedby="basic-addon1" name="city" value="{{ $clienteL->city }}" readonly>
                                                     </div>
                                                     
                                                     <div class="input-group mb-4">
                                                     <div class="form-text" id="basic-addon4">RIF - Cliente</div>
                                                     <input type="text" class="form-" name="rif"
                                                         placeholder="Por ejemplo, J000000006" id="rif" aria-label="Username"
-                                                        aria-describedby="basic-addon1" readonly value="{{ $clienteL->rif }}" readonly>
+                                                        aria-describedby="basic-addon1" readonly name="rif" value="{{ $clienteL->rif }}" readonly>
                                                     </div>
 
                                                     <div class="form-text mt-4" id="basic-addon4">Tipo de Cambio</div>
                                                     <div class="input-group mb-3">
                                                         <input type="text" class="form" placeholder="Por ejemplo: Paralelo"
-                                                            aria-label="Username" aria-describedby="basic-addon1"  value="{{ $clienteL->tipo_cambio }}">
+                                                            aria-label="Username" aria-describedby="basic-addon1" name="tipo_cambio" value="{{ $clienteL->tipo_cambio }}">
                                                     </div>
 
                                                 </div>
@@ -551,20 +567,20 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                                 <div class="form-text" id="basic-addon4">Numero de Contrado</div>
                                                 <div class="input-group mb-3">
                                                     <input type="text" class="form" placeholder="Por ejemplo: 056JE22K"
-                                                        aria-label="Username" aria-describedby="basic-addon1" value="{{ $clienteL->n_contract }}" readonly>
+                                                        aria-label="Username" aria-describedby="basic-addon1" name="n_contract" value="{{ $clienteL->n_contract }}" readonly>
                                                 </div>
 
                                                 <div class="form-text" id="basic-addon4">Emision de Factura</div>
                                                 <div class="input-group mb-3">
                                                     <input type="text" class="form" placeholder="por ejemplo: 07/05/25"
-                                                        aria-label="Username" aria-describedby="basic-addon1"
+                                                        aria-label="Username" aria-describedby="basic-addon1" name="date_emi"
                                                         value="{{ $DateActual }}" readonly>
                                                 </div>
 
                                                 <div class="form-text" id="basic-addon4">Mes</div>
                                                 <div class="input-group mb-3">
                                                     <input type="text" class="form" placeholder="por ejemplo: 07/05/25"
-                                                        aria-label="Username" aria-describedby="basic-addon1"
+                                                        aria-label="Username" aria-describedby="basic-addon1" name="mes"
                                                         value="{{ $mes_anio_actual }}" readonly>
                                                 </div>
 
@@ -625,7 +641,7 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                                 <i style="font-size: 45px; margin-left: 12px;" class='bx bxs-circle'></i>   
                                             <div class="ms-3">
                                                 <p class="fw-bold mb-1">Volumen Diferencial B/N</p>
-                                                <input type="number" class="form-control-plaintext" id="volumBn" value="{{ $VOLUM_BN }}">
+                                                <input type="number" class="form-control-plaintext" id="volumBn" name="volum_bn" value="{{ $VOLUM_BN }}" required>
                                             </div>
                                             </div>
                                         </li>
@@ -640,7 +656,7 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                                 <i style="font-size: 45px; margin-left: 12px; color:#0feae3;" class='bx bxs-circle'></i>   
                                             <div class="ms-3">
                                                 <p class="fw-bold mb-1">Volumen a Diferencial Color</p>
-                                                <input type="text" class="form-control-plaintext" id="volumColor" value="{{$VOLUM_COLOR}}">
+                                                <input type="text" class="form-control-plaintext" id="volumColor" name="volum_color" value="{{$VOLUM_COLOR}}" required>
                                             </div>
                                             </div>
                                         </li>
@@ -655,7 +671,7 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                                 <i style="font-size: 45px; margin-left: 12px;" class='bx bxs-circle'></i>   
                                             <div class="ms-3">
                                                 <p class="fw-bold mb-1">Copiado Minimo B/N</p>
-                                                <input type="number" class="form-control-plaintext w-100" id="" value="{{ $clienteL->copi_minimo_bn }}">
+                                                <input type="number" class="form-control-plaintext w-100" id="" name="copi_minimo_bn" value="{{ $clienteL->copi_minimo_bn }}" required>
                                             </div>
                                             </div>
                                         </li>
@@ -670,7 +686,7 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                                 <i style="font-size: 45px; margin-left: 12px; color:#0feae3;" class='bx bxs-circle'></i>   
                                             <div class="ms-3">
                                                 <p class="fw-bold mb-1">Copiado Minimo Color</p>
-                                                <input type="text" class="form-control-plaintext" id="" value="{{ $clienteL->copi_minimo_color }}">
+                                                <input type="text" class="form-control-plaintext" id="" name="copi_minimo_color" value="{{ $clienteL->copi_minimo_color }}" required>
                                             </div>
                                             </div>
                                         </li>
@@ -682,7 +698,7 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                         <div class="mb-3 row">
                                         <label for="staticEmail" class="col-sm- col-form-label">Monto Cargo minimo</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control-plaintext" id="cargoM" value="{{ $clienteL->PCM }}">
+                                            <input type="text" class="form-control-plaintext" id="cargoM" name="cargo_minimo" value="{{ $clienteL->PCM }}" required>
                                         </div>
                                         </div>
                                     </div>
@@ -694,7 +710,7 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                     <h4 class="mb-4 mt-6"><strong>Mes a Facturar</strong></h4>
                                     <form action="{{ route('Orden.calculo') }}" method="get">
                                         @csrf
-                                        <select name="date" class="form-select form-select-sm mb-3 w-50" aria-label=".form-select-sm example">
+                                        <select name="" class="form-select form-select-sm mb-3 w-50" aria-label=".form-select-sm example">
                                             <option selected></option>
                                             @foreach ($row_mes as $mes )
                                                 <option value="{{ $mes->mes }}">{{$mes->mes}}</option>
@@ -709,7 +725,7 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                         <div class="mb-3 row">
                                         <label for="staticEmail" class="col-sm- col-form-label">Monto B/N USD</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control-plaintext" id="montoBn" value="">
+                                            <input type="text" class="form-control-plaintext" id="montoBn" name="mont_fact_bn" value="" required>
                                         </div>
                                         </div>
                                     </div>
@@ -719,7 +735,7 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                         <div class="mb-3 row">
                                         <label for="staticEmail" class="col-sm- col-form-label">Monto Color USD</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control-plaintext" id="montoColor" value="">
+                                            <input type="text" class="form-control-plaintext" id="montoColor" name="mont_fact_color" value="" required>
                                         </div>
                                         </div>
                                     </div>
@@ -729,12 +745,12 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                         <div class="mb-3 row">
                                         <label for="staticEmail" class="col-sm- col-form-label">Monto USD</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control-plaintext" id="total" value="">
+                                            <input type="text" class="form-control-plaintext" id="total" name="base_imponible" value="" required>
                                         </div>
                                         </div>
                                     </div>
 
-                                    <button type="submit" value="submit" class="btn btn-dark mt-3">Generar Orden</button>
+                                    <button type="submit" value="submit" name="GOrden" class="btn btn-dark mt-3">Generar Orden</button>
 
                                 </div>
 
