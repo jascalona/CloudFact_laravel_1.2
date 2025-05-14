@@ -153,16 +153,32 @@
 
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Modelo</label>
-                                <input name="n_contract" type="text" class="form-control" id="exampleFormControlInput1"
-                                    placeholder="Numero de Contrato">
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Numero de Contrato</label>
                                 <input name="model" type="text" class="form-control" id="exampleFormControlInput1"
                                     placeholder="Modelo del Equipo">
                             </div>
 
+                            <div class="form-text" id="basic-addon4">Numeros de Contrato</div>
+                            <select class="form-select bb form-select-sm mb-3 mt-3" aria-label="Large select example"
+                                name="n_contract">
+                                <option selected></option>
+                                @foreach ($AlquilerContrato as $contract)
+                                    <option value="{{ $contract->n_contract }}">{{ $contract->n_contract }}</option>                                
+                                @endforeach
+                            </select>
+
+                            <div class="form-text mb-3 mt-5 ">Activo
+                            </div>
+
+                            <div style="display: flex; align-items: center;" class="form-check ">
+                                <input class="form-check- w-auto" type="radio" name="radioDefault" name="activo"
+                                    id="radioDefault1">
+                                <label class="form-check-label mt-2" for="radioDefault1">Si</label>
+                            </div>
+                            <div style="display: flex; align-items: center;" class="form-check">
+                                <input class="form-check- w-auto" type="radio" name="radioDefault" name="activo"
+                                    id="radioDefault2" checked>
+                                <label class="form-check-label mt-2" for="radioDefault2">No</label>
+                            </div>
 
                             <div class="mb-3">
                                 <label for="exampleFormControlTextarea1" class="form-label">Direccion Exacta</label>

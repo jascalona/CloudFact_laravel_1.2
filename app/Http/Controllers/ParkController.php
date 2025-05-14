@@ -28,6 +28,7 @@ class ParkController extends Controller
            $install->serial = $request->post('serial');
            $install->model = $request->post('model');
            $install->n_contract = $request->post('n_contract');
+           $install->activo = $request->post('activo');
            $install->location = $request->post('location');
            $install->city = $request->post('city');
            $install->estado = $request->post('estado');
@@ -81,6 +82,8 @@ class ParkController extends Controller
             $device->rif = $request->rif;
             $device->serial = $request->serial;
             $device->model = $request->model;
+            $device->activo = $request->activo;
+            $device->activo = $request->activo;
             $device->n_contract = $request->n_contract;
             $device->location = $request->location;
             $device->city = $request->city;

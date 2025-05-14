@@ -186,6 +186,8 @@
                                                 <th>RIF</th>
                                                 <th>Serial</th>
                                                 <th>Modelo</th>
+                                                <th>N# Contrato</th>
+                                                <th>Activo</th>
                                                 <th>Localidad</th>
                                                 <th>Ciudad</th>
                                                 <th>Estado</th>
@@ -212,6 +214,8 @@
                                                     <td>{{ $row_park->rif }}</td>
                                                     <td>{{ $row_park->serial }}</td>
                                                     <td>{{ $row_park->model }}</td>
+                                                    <td>{{ $row_park->n_contract }}</td>
+                                                    <td>{{ $row_park->activo }}</td>
                                                     <td>{{ $row_park->location }}</td>
                                                     <td>{{ $row_park->city }}</td>
                                                     <td>{{ $row_park->estado }}</td>

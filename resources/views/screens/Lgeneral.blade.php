@@ -277,6 +277,8 @@
                                             <th>RIF</th>
                                             <th>Serial</th>
                                             <th>Modelo</th>
+                                            <th>N# Contrato</th>
+                                            <th>Activo</th>
                                             <th>Localidad</th>
                                             <th>Mes</th>
                                             <th>Date</th>
@@ -307,6 +309,8 @@
                                                 <td>{{ $row_Lgeneal->rif }}</td>
                                                 <td>{{ $row_Lgeneal->serial }}</td>
                                                 <td>{{ $row_Lgeneal->model }}</td>
+                                                <td>{{ $row_Lgeneal->n_contract }}</td>
+                                                <td>{{ $row_Lgeneal->activo }}</td>
                                                 <td>{{ $row_Lgeneal->location }}</td>
                                                 <td>{{ $row_Lgeneal->mes }}</td>
                                                 <td>{{ $row_Lgeneal->date }}</td>

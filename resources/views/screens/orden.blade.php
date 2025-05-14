@@ -488,6 +488,10 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                             <!--vista 02-->
                             <div class="tab-pane" id="disabled-tabpanel-1" role="tabpanel" aria-labelledby="disabled-tab-1">
                                 <h4 class="mb-4"><strong>Información Detallada</strong></h4>
+
+                            <form action="" method="post">
+                                @csrf
+
                                 <!--vsita 012se debe ajustar el responsivo-->
                                   <!--vsita 01 se debe ajustar el responsivo-->
                                   <div class="viw-i d-flex">
@@ -730,11 +734,14 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                         </div>
                                     </div>
 
-                                </div>
+                                    <button type="submit" value="submit" class="btn btn-dark mt-3">Generar Orden</button>
 
                                 </div>
 
+                                </div>
 
+
+                            </form>
 
                         </div>
                         <!--vista 02-->

@@ -404,6 +404,8 @@
                                                 <th>RIF</th>
                                                 <th>Serial</th>
                                                 <th>Modelo</th>
+                                                <th>N# Contrato</th>
+                                                <th>Activo</th>
                                                 <th>Localidad</th>
                                                 <th>Mes</th>
                                                 <th>Date</th>
@@ -430,6 +432,8 @@
                                                     <td>{{ $row->rif }}</td>
                                                     <td>{{ $row->serial }}</td>
                                                     <td>{{ $row->model }}</td>
+                                                    <td>{{ $row->n_contract }}</td>
+                                                    <td>{{ $row->activo }}</td>
                                                     <td>{{ $row->location }}</td>
                                                     <td>{{ $row->mes }}</td>
                                                     <td>{{ $row->date }}</td>
