@@ -21,7 +21,6 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
     <title>CloudFact-Contact</title>
 
     <!--STYLES-->
-    <script src="{{ asset('js/calculator.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('assets/table_responsive.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/setting.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/style.css') }}">
@@ -31,6 +30,7 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 
 
+    <script src="{{ asset('js/dehabilitarBtn.js') }}"></script>
     <script src="{{ asset('js/check.js') }}"></script>
     <script src="{{ asset('js/tab.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js"
@@ -699,7 +699,6 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
 
                                         <button type="submit" name="calculo" value="submit" class="btn btn-dark">Aplicar</button>
                                     </form>
-
 
                                     <h4 class="mb-4 mt-3"><strong>Montos a Facturar</strong></h4>
                                     <div class="content-fact">

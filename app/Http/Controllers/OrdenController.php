@@ -16,10 +16,14 @@ class OrdenController extends Controller
 
         /**Select mes */
         $row_mes = lgenals::select('mes')->distinct()->get();
-        
+
 
         return view("screens.orden", compact("clienteL", "load", "row_mes"));
     }
 
+    public function create(Request $request)
+    {
+        
+    }
 
 }
