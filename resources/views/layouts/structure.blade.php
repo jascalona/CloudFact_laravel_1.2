@@ -60,10 +60,17 @@
                     </a>
                 </li>
 
+
                 <li class="nav-item">
                     <a class="nav-link text-dark" href="{{ route('contact') }}">
                         <i class='bx bxs-user-account'></i>
                         <span class="nav-link-text ms-1">Contacto</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="{{ route('contract') }}">
+                        <i class='bx bx-line-chart'></i> <span class="nav-link-text ms-1">Alquiler</span>
                     </a>
                 </li>
 
@@ -82,15 +89,9 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="">
-                        <i class='bx bx-home-smile'></i>
-                        <span class="nav-link-text ms-1">RFLTQ</span>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="{{ route('contract') }}">
-                        <i class='bx bxs-briefcase'></i> <span class="nav-link-text ms-1">Alquiler</span>
+                    <a class="nav-link text-dark" href="{{ route('RFLTQ') }}">
+                        <i class='bx bxs-cog'></i>
+                        <span class="nav-link-text ms-1">RF-LTQ</span>
                     </a>
                 </li>
 

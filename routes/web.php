@@ -108,3 +108,7 @@ Route::post('Orden/{id}', [App\Http\Controllers\OrdenController::class,'create']
 
 /**Ruta Invoices */
 ROute::get('Orden/{ordens}/generateInvoice', [App\Http\Controllers\OrdenController::class,'generateInvoices'])->name('orden.generateInvoices');
+
+
+/**ruta RFLTQ */
+Route::get('RFLTQ', [App\Http\Controllers\RFController::class,'index'])->name('RFLTQ');
