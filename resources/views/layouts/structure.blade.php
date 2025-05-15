@@ -82,6 +82,13 @@
                 </li>
 
                 <li class="nav-item">
+                    <a class="nav-link text-dark" href="">
+                        <i class='bx bx-home-smile'></i>
+                        <span class="nav-link-text ms-1">RFLTQ</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link text-dark" href="{{ route('contract') }}">
                         <i class='bx bxs-briefcase'></i> <span class="nav-link-text ms-1">Alquiler</span>
                     </a>

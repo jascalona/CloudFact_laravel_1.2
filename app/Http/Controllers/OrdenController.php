@@ -66,7 +66,7 @@ class OrdenController extends Controller
                 'RIF' => $ordens->rif,
                 'Dirección' => $ordens->direct_f,
                 'Ciudad' => $ordens->city,
-                'NC#' =>  $ordens->n_contract,
+                'NC#' => $ordens->n_contract,
             ],
         ]);
 
@@ -83,14 +83,36 @@ class OrdenController extends Controller
 
         //foreach($ordens->)
 
+        //$subMonto = $ordens->mont_fact_bn + $ordens->mont_fact_color;
+
         $items = [
             InvoiceItem::make('Documentos a Facturar')
                 ->description('Volum. B/N Realizado:' . " " . $ordens->volum_bn)
-                ->units($ordens->mont_fact_bn)
-                ->discount($ordens->mont_fact_color)
-                ->quantity($ordens->cargo_minimo)
-                ->pricePerUnit(10),
+                ->units("")
+                ->quantity($ordens->mont_fact_bn)
+                ->pricePerUnit(0)
 
+                //cargoMinimo
+                ->discount($ordens->cargo_minimo)
+
+                ->subTotalPrice($ordens->mont_fact_bn),
+
+            InvoiceItem::make("Documentos a Facturar")
+                ->description('Volum. Color Realizado:' . " " . $ordens->volum_color)
+                ->units("")
+                ->quantity(quantity: 0)
+                ->pricePerUnit($ordens->mont_fact_color)
+                ->subTotalPrice($ordens->mont_fact_color),
+
+            InvoiceItem::make("Total Cargo Minimo")
+                ->description('Monto Neto USD: ')
+                ->units("")
+                ->quantity(quantity: 0)
+                ->pricePerUnit(0)
+                ->subTotalPrice($ordens->cargo_minimo)
+            ,
+
+            /*
             InvoiceItem::make('Service 2')->pricePerUnit(71.96)->quantity(2),
             InvoiceItem::make('Service 3')->pricePerUnit(4.56),
             InvoiceItem::make('Service 4')->pricePerUnit(87.51)->quantity(7)->discount(4)->units('kg'),
@@ -108,13 +130,12 @@ class OrdenController extends Controller
             InvoiceItem::make('Service 17')->pricePerUnit(56.21),
             InvoiceItem::make('Service 18')->pricePerUnit(66.81)->discountByPercent(8),
             InvoiceItem::make('Service 19')->pricePerUnit(76.37),
-            InvoiceItem::make('Service 20')->pricePerUnit(55.80),
+            InvoiceItem::make('Service 20')->pricePerUnit(55.80), */
         ];
 
         $notes = [
-            'your multiline',
-            'additional notes',
-            'in regards of delivery or something else',
+            '',
+            'Tipo de Cambio:    ' . $ordens->tipo_cambio,
         ];
         $notes = implode("<br>", $notes);
 
@@ -127,7 +148,7 @@ class OrdenController extends Controller
             ->serialNumberFormat('{SEQUENCE}/{SERIES}')
             ->seller($client)
             ->buyer($customer)
-            ->date(now()->subWeeks(3))
+            ->date(date: now()->subWeeks(3))
             ->dateFormat('d/m/Y')
             ->payUntilDays(14)
             ->currencySymbol('$')
@@ -138,7 +159,7 @@ class OrdenController extends Controller
             ->filename($client->name . ' ' . $customer->name)
             ->addItems($items)
             ->notes($notes)
-            ->logo(public_path('vendor/invoices/sample-logo.png'))
+            ->logo(public_path('vendor/invoices/xdv.png'))
             // You can additionally save generated invoice to configured disk
             ->save('public');
 

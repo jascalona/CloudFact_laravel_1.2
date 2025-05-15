@@ -166,7 +166,7 @@
                 <td class="border-0 pl-0">
                     @if($invoice->status)
                         <h4 class="text-uppercase cool-gray">
-                            <strong>{{ $invoice->status }}</strong>
+                            Procesada
                         </h4>
                     @endif
                     <p>{{ __('invoices::invoice.serial') }} <strong>{{ $invoice->getSerialNumber() }}</strong></p>
@@ -181,11 +181,11 @@
         <thead>
             <tr>
                 <th class="border-0 pl-0 party-header" width="48.5%">
-                    {{ __('invoices::invoice.seller') }}
+                    <strong>Cliente</strong>
                 </th>
                 <th class="border-0" width="3%"></th>
                 <th class="border-0 pl-0 party-header">
-                    {{ __('invoices::invoice.buyer') }}
+                    Autor
                 </th>
             </tr>
         </thead>
@@ -277,17 +277,17 @@
                 <th scope="col" class="border-0 pl-0">{{ __('invoices::invoice.description') }}</th>
 
                 @if($invoice->hasItemUnits)
-                    <th scope="col" class="text-center border-0">Mont. B/N</th>
+                    <th scope="col" class="text-center border-0"></th>
                 @endif
 
                 @if($invoice->hasItemDiscount)
-                    <th scope="col" class="text-right border-0">Mont. Color</th>
+                    <th scope="col" class="text-right border-0"></th>
                 @endif
 
 
-                <th scope="col" class="text-center border-0">Carg. Minimo</th>
+                <th scope="col" class="text-center border-0">Mont. B/N</th>
 
-                <th scope="col" class="text-right border-0">{{ __('invoices::invoice.price') }}</th>
+                <th scope="col" class="text-right border-0">Mont. Color</th>
 
 
                 @if($invoice->hasItemTax)
@@ -309,14 +309,14 @@
                     </td>
 
                     @if($invoice->hasItemUnits)
-                        <td class="text-center">{{ $item->units }}$</td>
+                        <td class="text-center">{{ $item->units }}</td>
                     @endif
 
                     @if($invoice->hasItemDiscount)
-                        <td class="text-right">{{ $item->discount }}$</td>
+                        <td class="text-right"></td>
                     @endif
 
-                    <td class="text-center">{{ $item->quantity }}$</td>
+                    <td class="text-center">{{ $item->quantity }}$ </td>
 
                     <td class="text-right">
                         {{ $invoice->formatCurrency($item->price_per_unit) }}
@@ -337,7 +337,7 @@
             @if($invoice->hasItemOrInvoiceDiscount())
                 <tr>
                     <td colspan="{{ $invoice->table_columns - 2 }}" class="border-0"></td>
-                    <td class="text-right pl-0">{{ __('invoices::invoice.total_discount') }}</td>
+                    <td class="text-right pl-0">Total Cargo Minimo</td>
                     <td class="text-right pr-0">
                         {{ $invoice->formatCurrency($invoice->total_discount) }}
                     </td>
