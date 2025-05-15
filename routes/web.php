@@ -106,3 +106,5 @@ Route::get('Orden', [App\Http\Controllers\CalculoController::class,'calculo'])->
 /**Create Orden */
 Route::post('Orden/{id}', [App\Http\Controllers\OrdenController::class,'create'])->name('orden.create');
 
+/**Ruta Invoices */
+ROute::get('Orden/{ordens}/generateInvoice', [App\Http\Controllers\OrdenController::class,'generateInvoices'])->name('orden.generateInvoices');

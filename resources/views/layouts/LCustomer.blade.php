@@ -264,8 +264,8 @@
                                                 </div>
                                                 <div class="d-flex align-items-center text-sm">
                                                     {{ $ListOrden->base_imponible }} $
-                                                    <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4">
-                                                        <i class='bx bxs-file-pdf'></i> PDF</button>
+                                                    <a href="{{ route('orden.generateInvoices',$ListOrden->id ) }}" class="btn btn-link text-dark text-sm mb-0 px-0 ms-4">
+                                                        <i style="font-size: 16px" class='bx bxs-file-pdf'></i> PDF</a>
                                                 </div>
                                             </li>
                                         </ul>
