@@ -93,6 +93,8 @@ Route::post('Alquiler', [App\Http\Controllers\AlquilerController::class,'create'
 
 Route::get('edit_alquiler{edit}', [App\Http\Controllers\AlquilerController::class,'edit'])->name('edit_alquiler.edit');
 
+Route::put('edit_alquiler{update}', [App\Http\Controllers\AlquilerController::class,'update'])->name('edit_alquiler.update');
+
 
 
 
@@ -112,3 +114,4 @@ ROute::get('Orden/{ordens}/generateInvoice', [App\Http\Controllers\OrdenControll
 
 /**ruta RFLTQ */
 Route::get('RFLTQ', [App\Http\Controllers\RFController::class,'index'])->name('RFLTQ');
+

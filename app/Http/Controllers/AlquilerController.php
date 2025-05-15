@@ -25,6 +25,90 @@ class AlquilerController extends Controller
     }
 
 
+    public function update(Request $request, $id)
+    {
+
+        if (!empty($_POST['btn-edit'])) {
+
+            #Vista 01
+            if (!empty($_POST['cliente']) and !empty($_POST['date_init_contract']) and !empty($_POST['date_close_contract'])
+                
+            /**Precio y copiado minimo */
+                and !empty($_POST['P_CLICK_BN_USD']) and !empty($_POST['P_CLICK_COLOR_USD'])    
+                and !empty($_POST['PCM']) and !empty($_POST['label']) 
+
+            /**Datos primarios */ 
+                and !empty($_POST['rif']) and !empty($_POST['n_contract']) and !empty($_POST['d_contract']) and !empty($_POST['tipo_c']) and !empty($_POST['vendedor']) 
+                and !empty($_POST['administrador_01'])  
+                
+            #Vista 02   
+               and !empty($_POST['moneda']) and !empty($_POST['tipo_cambio'])) {
+
+                /**Modificacion */
+                $alquilerU = Alquilers::findOrFail($id);
+
+                #01
+                    $alquilerU->cliente = $request->cliente;
+                    $alquilerU->date_init_contract = $request->date_init_contract;
+                    $alquilerU->date_close_contract = $request->date_close_contract;
+
+                #02 
+                    $alquilerU->P_CLICK_BN_USD = $request->P_CLICK_BN_USD;
+                    $alquilerU->P_CLICK_COLOR_USD = $request->P_CLICK_COLOR_USD;
+                    $alquilerU->copi_minimo_bn = $request->copi_minimo_bn;
+                    $alquilerU->copi_minimo_color = $request->copi_minimo_color;
+                    $alquilerU->PCM = $request->PCM;
+                    $alquilerU->label = $request->label;
+
+                #03
+                   $alquilerU->rif = $request->rif;
+                   $alquilerU->n_contract = $request->n_contract;
+                   $alquilerU->d_contract = $request->d_contract;
+                   $alquilerU->tipo_c = $request->tipo_c;
+                   $alquilerU->vendedor = $request->vendedor;
+                   $alquilerU->administrador_01 = $request->administrador_01;
+
+                #04
+                    $alquilerU->moneda = $request->moneda;
+                    $alquilerU->tipo_cambio = $request->tipo_cambio;
+                    $alquilerU->razones_consorcio = $request->razones_consorcio;
+
+                /**SERVICIES */
+                    $alquilerU->info_all_i = $request->info_all_i;
+                    $alquilerU->info_all_ii = $request->info_all_ii;
+                    $alquilerU->info_all_iii = $request->info_all_iii;
+                    $alquilerU->info_all_iv = $request->info_all_iv;
+                    $alquilerU->info_all_v = $request->info_all_v;
+
+
+                #05
+                    $alquilerU->indexacion_mutuo = $request->indexacion_mutuo;
+                    $alquilerU->indexacion_porcentaje = $request->indexacion_porcentaje;
+                    $alquilerU->indexacion_frecuencia = $request->indexacion_frecuencia;
+                    
+                
+                    /**CANT LABORES */
+                    $alquilerU->n_admin = $request->n_admin;
+                    $alquilerU->n_asesor = $request->n_asesor;
+                    $alquilerU->n_operador = $request->n_operador;
+                    $alquilerU->n_analista = $request->n_analista;
+                    $alquilerU->n_supervisor = $request->n_supervisor;
+
+                $alquilerU->save();
+
+                return redirect()->route('contract')->with('success', 'El Contrato fue modificado con exito!');
+
+            } else {
+               return redirect()->route('edit_alquiler.edit', $id)->with('warning','Los Campos primarios no pueden quedar vacios. ¡Por favor inserte los datos solicitados!');
+            }
+
+        } else {
+
+            echo '<script>alert("Error!")</script>';
+        }
+
+    }
+
     /**Funtion create new contract */
     public function create(Request $request)
     {
@@ -39,7 +123,7 @@ class AlquilerController extends Controller
                 and !empty($_POST['rif']) and !empty($_POST['n_contract']) and !empty($_POST['d_contract']) and !empty($_POST['tipo_c']) and !empty($_POST['vendedor']) and !empty($_POST['administrador_01'])
 
                 #PRECIOS
-                and !empty($_POST['P_CLICK_BN_USD']) and !empty($_POST['P_CLICK_COLOR_USD']) 
+                and !empty($_POST['P_CLICK_BN_USD']) and !empty($_POST['P_CLICK_COLOR_USD'])
 
                 /**VALIDACION INFORMACION DETALLADA */
                 and !empty($_POST['moneda']) and !empty($_POST['tipo_cambio'])
@@ -94,9 +178,9 @@ class AlquilerController extends Controller
 
 
                 $contrato->save();
-            
+
                 /**retrno en caso de realizar la carga */
-                return redirect()->route('contract')->with('success','El Contrato fue creado con Exito!');
+                return redirect()->route('contract')->with('success', 'El Contrato fue creado con Exito!');
 
 
             } else {

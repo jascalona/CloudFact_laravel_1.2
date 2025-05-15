@@ -89,79 +89,80 @@
                         </p>
                     </div>
                 </div>
+            </div>
 
 
-                @if ($message_e = Session::get('success'))
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        <h5 class="alert-heading"><i class='bx bx-check'></i> Proceso completado con Exito!</h5>
-                        {{ $message_e }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i
-                                class='bx bx-x'></i></button>
-                    </div>
-                @endif
+            @if ($message_e = Session::get('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <h5 class="alert-heading"><i class='bx bx-check'></i> Proceso completado con Exito!</h5>
+                    {{ $message_e }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i
+                            class='bx bx-x'></i></button>
+                </div>
+            @endif
+            
+            <!--TABLE ORDEN-->
+            <div class="col-md-15 mb-lg-0 mb-4">
+                <div class="card mt-4">
+                    <div class="card-header pb-0 p-3">
+                        <div class="row">
+                            <div class="col-6 d-flex align-items-center">
+                                <h4 class="mb-0">Contratos</h4>
+                            </div>
 
-                <!--TABLE ORDEN-->
-                <div class="col-md-15 mb-lg-0 mb-4">
-                    <div class="card mt-4">
-                        <div class="card-header pb-0 p-3">
-                            <div class="row">
-                                <div class="col-6 d-flex align-items-center">
-                                    <h4 class="mb-0">Contratos</h4>
-                                </div>
-
-                                <div class="col-6 text-end mb-3">
-                                    <a class="btn bg-gradient-dark mb-0" href="{{ route('Alquiler.store') }}"><i
-                                            class='bx bx-plus'></i>&nbsp;&nbsp;Nuevo</a>
-                                </div>
+                            <div class="col-6 text-end mb-3">
+                                <a class="btn bg-gradient-dark mb-0" href="{{ route('Alquiler.store') }}"><i
+                                        class='bx bx-plus'></i>&nbsp;&nbsp;Nuevo</a>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="main p-5">
+                    <div class="main p-5">
 
-                            <div class="content-table">
-                                <table id="myTable" class="display">
-                                    <thead>
-                                        <tr style="font-size: 13px;">
-                                            <th class="text-center">Opciones</th>
-                                            <th>N# Contrato</th>
-                                            <th>Nombre</th>
-                                            <th>Cliente</th>
-                                            <th>RIF</th>
-                                            <th>Vendedor</th>
-                                            <th>Administrador</th>
-                                            <th>Fecha de Inicio</th>
+                        <div class="content-table">
+                            <table id="myTable" class="display">
+                                <thead>
+                                    <tr style="font-size: 13px;">
+                                        <th class="text-center">Opciones</th>
+                                        <th>N# Contrato</th>
+                                        <th>Nombre</th>
+                                        <th>Cliente</th>
+                                        <th>RIF</th>
+                                        <th>Vendedor</th>
+                                        <th>Administrador</th>
+                                        <th>Fecha de Inicio</th>
+                                    </tr>
+                                </thead>
+
+
+                                <tbody>
+
+                                    @foreach ($alquilers as $row)
+                                        <tr style="font-size: 12px;">
+                                            <td class="text-center">
+                                                <a href="{{ route('edit_alquiler.edit', $row->id) }}" class="btn btn-warning"><i
+                                                        class='bx bxs-edit-alt'></i></a>
+                                            </td>
+                                            <td>{{ $row->n_contract }}</td>
+                                            <td>{{ $row->name_c }}</td>
+                                            <td>{{ $row->cliente }}</td>
+                                            <td>{{ $row->rif }}</td>
+                                            <td>{{ $row->vendedor }}</td>
+                                            <td>{{ $row->administrador }}</td>
+                                            <td>{{ $row->date_init_contract }}</td>
                                         </tr>
-                                    </thead>
-
-
-                                    <tbody>
-
-                                        @foreach ($alquilers as $row)
-                                            <tr style="font-size: 12px;">
-                                                <td class="text-center">
-                                                    <a href="{{ route('edit_alquiler.edit', $row->id) }}"
-                                                        class="btn btn-warning"><i class='bx bxs-edit-alt'></i></a>
-                                                </td>
-                                                <td>{{ $row->n_contract }}</td>
-                                                <td>{{ $row->name_c }}</td>
-                                                <td>{{ $row->cliente }}</td>
-                                                <td>{{ $row->rif }}</td>
-                                                <td>{{ $row->vendedor }}</td>
-                                                <td>{{ $row->administrador }}</td>
-                                                <td>{{ $row->date_init_contract }}</td>
-                                            </tr>
-                                        @endforeach
+                                    @endforeach
 
 
 
 
-                                    </tbody>
-                                </table>
-                            </div>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
-                <!--TABLE ORDEN-->
+            </div>
+            <!--TABLE ORDEN-->
 
 
 

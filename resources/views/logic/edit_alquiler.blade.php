@@ -94,6 +94,14 @@
 
             </div>
 
+            @if ($message_e = Session::get('warning'))
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <h5 class="alert-heading"><i class='bx bx-error-circle'></i> Alerta!</h5>
+                    {{ $message_e }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class='bx bx-x'></i></button>
+            </div>
+            @endif
+
             <!--VISTA-->
             <div class="tab-" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
 
@@ -109,442 +117,477 @@
                             </div>
                         </div>
 
-                        <div class="input-group mt-5 mb-4">
-                            <div class="form-text" id="basic-addon4">Nombre del Contrato:</div>
-                            <input style="font-size: 38px" type="text" class="form-"
-                                placeholder="Por ejemplo: 056JE22K Xerox Corporation, C.A" aria-label="Username"
-                                aria-describedby="basic-addon1" value="{{ $alquiler->name_c }}">
-                        </div>
+                        <form class="mb-5" action="{{ route('edit_alquiler.update', $alquiler->id) }}" method="post">
+                            @method('put')
+                            @csrf
 
-
-                        <ul class="nav nav-tabs mt-5" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link active" id="disabled-tab-0" data-bs-toggle="tab"
-                                    href="#disabled-tabpanel-0" role="tab" aria-controls="disabled-tabpanel-0"
-                                    aria-selected="true">Datos del Cliente</a>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link" id="disabled-tab-1" data-bs-toggle="tab" href="#disabled-tabpanel-1"
-                                    role="tab" aria-controls="disabled-tabpanel-1" aria-selected="false">Información
-                                    General</a>
-                            </li>
-
-                        </ul>
-
-                        <div class="tab-content pt-5" id="tab-content">
-
-                            <!--vista 01-->
-                            <div class="tab-pane active" id="disabled-tabpanel-0" role="tabpanel"
-                                aria-labelledby="disabled-tab-0">
-
-                                <h4 class="mb-4"><strong>Datos del Cliente</strong></h4>
-
-                                <!--vsita 01 se debe ajustar el responsivo-->
-                                <div class="viw-i d-flex">
-                                    <div class="col-md-6 mb-md-0 mb-4">
-                                        <div class="col-md-">
-                                            <div
-                                                class="card card-body lectura card-plain border-radius-lg d-block align-items-center flex-row">
-                                                <!--form auto completado-->
-
-                                                <div class="alquiler">
-
-                                                    <div class="form-text" id="basic-addon4">Seleccione un Cliente</div>
-                                                    <div class="input-group mb-3">
-                                                        <input type="text" class="form"
-                                                            placeholder="Por ejemplo: Xerox Corporation"
-                                                            aria-label="Username" aria-describedby="basic-addon1"
-                                                            value="{{ $alquiler->cliente }}">
-                                                    </div>
-
-                                                    <div class="form-text mt-4" id="basic-addon4">Fecha de Inicio</div>
-                                                    <div class="input-group mb-3">
-                                                        <input type="date" class="form" placeholder="Emision"
-                                                            aria-label="Username" aria-describedby="basic-addon1"
-                                                            value="{{ $alquiler->date_init_contract }}">
-                                                    </div>
-
-                                                    <div class="form-text mt-4" id="basic-addon4">Fecha de Final</div>
-                                                    <div class="input-group mb-3">
-                                                        <input type="date" class="form" placeholder="Emision"
-                                                            aria-label="Username" aria-describedby="basic-addon1"
-                                                            value="{{  $alquiler->date_close_contract}}">
-                                                    </div>
-
-                                                    <ul class="nav nav-fill nav-tabs w-90 mt-6" role="tablist">
-                                                        <li class="nav-item" role="presentation">
-                                                            <a class="nav-link active" id="fill-tab-0" data-bs-toggle="tab"
-                                                                href="#fill-tabpanel-0" role="tab"
-                                                                aria-controls="fill-tabpanel-0" aria-selected="true">Precio
-                                                                por
-                                                                click global</a>
-                                                        </li>
-                                                        <li class="nav-item" role="presentation">
-                                                            <a class="nav-link" id="fill-tab-1" data-bs-toggle="tab"
-                                                                href="#fill-tabpanel-1" role="tab"
-                                                                aria-controls="fill-tabpanel-1" aria-selected="false">Precio
-                                                                por
-                                                                click individual</a>
-                                                        </li>
-
-                                                    </ul>
-                                                    <div class="tab-content pt-5" id="tab-content">
-
-                                                        <!--Vista 01-->
-                                                        <div class="tab-pane active w-100" id="fill-tabpanel-0"
-                                                            role="tabpanel" aria-labelledby="fill-tab-0">
-                                                            <!--show click Global-->
-                                                            <div class="cont" id="show_global">
-                                                                <div class="form-text" id="basic-addon4">Precio global por
-                                                                    click
-                                                                    B/N USD
-                                                                </div>
-                                                                <div class="input-group mb-3">
-                                                                    <input type="number" step="0.01" class="form"
-                                                                        placeholder="0.00" aria-label="Username"
-                                                                        aria-describedby="basic-addon1"
-                                                                        value="{{ $alquiler->P_CLICK_BN_USD }}">
-                                                                </div>
-
-                                                                <div class="form-text" id="basic-addon4">Precio global por
-                                                                    click
-                                                                    Color USD
-                                                                </div>
-                                                                <div class="input-group mb-3">
-                                                                    <input type="number" step="0.01" class="form"
-                                                                        placeholder="0.00" aria-label="Username"
-                                                                        aria-describedby="basic-addon1"
-                                                                        value="{{ $alquiler->P_CLICK_COLOR_USD }}">
-                                                                </div>
-
-                                                                <div class="form-text" id="basic-addon4">Copiado Minimo
-                                                                    Contratado B/N</div>
-                                                                <div class="input-group mb-3">
-                                                                    <input type="number" class="form" placeholder="2500"
-                                                                        aria-label="Username"
-                                                                        aria-describedby="basic-addon1" value="0">
-                                                                </div>
-
-                                                                <div class="form-text" id="basic-addon4">Copiado Minimo
-                                                                    Contratado Color</div>
-                                                                <div class="input-group mb-3">
-                                                                    <input type="number" class="form" placeholder="2500"
-                                                                        aria-label="Username"
-                                                                        aria-describedby="basic-addon1" value="0">
-                                                                </div>
-
-                                                                <div class="form-text" id="basic-addon4">Precio Cargo Minimo
-                                                                </div>
-                                                                <div class="input-group mb-3">
-                                                                    <input type="number" class="form" placeholder="1.000,84"
-                                                                        aria-label="Username"
-                                                                        aria-describedby="basic-addon1" value="">
-                                                                </div>
-
-                                                                <div class="form-text" id="basic-addon4">Label</div>
-                                                                <div class="input-group mb-3">
-                                                                    <input type="number" class="form" placeholder="450,00"
-                                                                        aria-label="Username"
-                                                                        aria-describedby="basic-addon1" value="">
-                                                                </div>
-
-                                                            </div>
-                                                            <!--show click Global-->
-                                                        </div>
-
-                                                        <div class="tab-pane" id="fill-tabpanel-1" role="tabpanel"
-                                                            aria-labelledby="fill-tab-1">Definir con el cliente</div>
-                                                    </div>
-
-                                                </div>
-
-                                                <!--form auto completado-->
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <div
-                                            class="card card-body lectura card-plain border-radius-lg d-block align-items-center flex-row">
-                                            <!--form auto completado-->
-
-                                            <div class="alquiler">
-
-                                                <div class="input-group mb-4">
-                                                    <div class="form-text" id="basic-addon4">RIF - Cliente</div>
-                                                    <input type="text" class="form-" name="rif"
-                                                        placeholder="Por ejemplo, J000000006" id="rif" aria-label="Username"
-                                                        aria-describedby="basic-addon1" readonly
-                                                        value="{{ $alquiler->rif }}">
-                                                </div>
-
-                                                <div class="form-text" id="basic-addon4">Numero de Contrado
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <input type="text" class="form" placeholder="Por ejemplo: 056JE22K"
-                                                        aria-label="Username" aria-describedby="basic-addon1"
-                                                        value="{{ $alquiler->n_contract }}">
-                                                </div>
-
-
-                                                <div class="form-text" id="basic-addon4">Duracion del Contrato (Numero)
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <input type="number" class="form" placeholder="Por ejemplo: 12"
-                                                        aria-label="Username" aria-describedby="basic-addon1"
-                                                        value="{{ $alquiler->d_contract }}">
-                                                </div>
-
-                                                <div class="form-text mt-4" id="basic-addon4">Tipo de Contrato</div>
-                                                <select class="form-select bb form-select-sm mb- mt-3"
-                                                    aria-label="Large select example">
-                                                    <option selected>{{ $alquiler->tipo_c }}</option>
-                                                    <option value="1">FSMA</option>
-                                                    <option value="2">Renta - TCO</option>
-                                                    <option value="3">Renta - Plataforma</option>
-                                                    <option value="2">Copiado minimo</option>
-                                                    <option value="2">SMA</option>
-                                                    <option value="2">Mixto (FSMA + Renta)</option>
-                                                </select>
-
-                                                <div class="form-text mt-4" id="basic-addon4">Vendedor Eje.</div>
-                                                <select class="form-select bb form-select-sm mb-3 mt-3"
-                                                    aria-label="Large select example">
-                                                    <option selected>{{ $alquiler->vendedor }}</option>
-                                                    <option value="1">Jose Escalona</option>
-                                                    <option value="2">Jose Abraham</option>
-                                                </select>
-
-                                                <div class="form-text" id="basic-addon4">Administrador</div>
-                                                <select class="form-select bb form-select-sm mb-3 mt-3"
-                                                    aria-label="Large select example">
-                                                    <option selected>{{ $alquiler->administrador_01 }}</option>
-                                                    <option value="1">Jose Escalona</option>
-                                                    <option value="2">Jose Abraham</option>
-                                                </select>
-
-                                            </div>
-                                            <!--form auto completado-->
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--vsita 01 se debe ajustar el responsivo-->
-
+                            <div class="input-group mt-5 mb-4">
+                                <div class="form-text" id="basic-addon4">Nombre del Contrato:</div>
+                                <input style="font-size: 38px" type="text" class="form-"
+                                    placeholder="Por ejemplo: 056JE22K Xerox Corporation, C.A" aria-label="Username"
+                                    aria-describedby="basic-addon1" name="name_c" value="{{ $alquiler->name_c }}">
                             </div>
-                            <!--vista 01-->
+
+                            <div class="col-12 text-end">
+                                <button type="submit" value="submit" name="btn-edit" class="btn bg-gradient-dark mb-0"
+                                    href="javascript:;"><i class='bx bxs-save'></i>&nbsp;&nbsp;Guardar</button>
+                            </div>
 
 
+                            <ul class="nav nav-tabs mt-5" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link active" id="disabled-tab-0" data-bs-toggle="tab"
+                                        href="#disabled-tabpanel-0" role="tab" aria-controls="disabled-tabpanel-0"
+                                        aria-selected="true">Datos del Cliente</a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" id="disabled-tab-1" data-bs-toggle="tab" href="#disabled-tabpanel-1"
+                                        role="tab" aria-controls="disabled-tabpanel-1" aria-selected="false">Información
+                                        General</a>
+                                </li>
 
-                            <!--vista 02-->
-                            <div class="tab-pane" id="disabled-tabpanel-1" role="tabpanel" aria-labelledby="disabled-tab-1">
-                                <h4 class="mb-4"><strong>Información General</strong></h4>
-                                <!--vsita 012se debe ajustar el responsivo-->
-                                <div class="viw-i d-flex">
-                                    <div class="col-md-6 mb-md-0 mb-4">
-                                        <div class="col-md-">
+                            </ul>
+
+                            <div class="tab-content pt-5" id="tab-content">
+
+                                <!--vista 01-->
+                                <div class="tab-pane active" id="disabled-tabpanel-0" role="tabpanel"
+                                    aria-labelledby="disabled-tab-0">
+
+                                    <h4 class="mb-4"><strong>Datos del Cliente</strong></h4>
+
+                                    <!--vsita 01 se debe ajustar el responsivo-->
+                                    <div class="viw-i d-flex">
+                                        <div class="col-md-6 mb-md-0 mb-4">
+                                            <div class="col-md-">
+                                                <div
+                                                    class="card card-body lectura card-plain border-radius-lg d-block align-items-center flex-row">
+                                                    <!--form auto completado-->
+
+                                                    <div class="alquiler">
+
+                                                        <div class="form-text" id="basic-addon4">Seleccione un Cliente</div>
+                                                        <div class="input-group mb-3">
+                                                            <input type="text" class="form"
+                                                                placeholder="Por ejemplo: Xerox Corporation"
+                                                                aria-label="Username" aria-describedby="basic-addon1"
+                                                                name="cliente" value="{{ $alquiler->cliente }}">
+                                                        </div>
+
+                                                        <div class="form-text mt-4" id="basic-addon4">Fecha de Inicio</div>
+                                                        <div class="input-group mb-3">
+                                                            <input type="date" class="form" placeholder="Emision"
+                                                                aria-label="Username" aria-describedby="basic-addon1"
+                                                                name="date_init_contract"
+                                                                value="{{ $alquiler->date_init_contract }}">
+                                                        </div>
+
+                                                        <div class="form-text mt-4" id="basic-addon4">Fecha de Final</div>
+                                                        <div class="input-group mb-3">
+                                                            <input type="date" class="form" placeholder="Emision"
+                                                                aria-label="Username" aria-describedby="basic-addon1"
+                                                                name="date_close_contract"
+                                                                value="{{  $alquiler->date_close_contract}}">
+                                                        </div>
+
+                                                        <ul class="nav nav-fill nav-tabs w-90 mt-6" role="tablist">
+                                                            <li class="nav-item" role="presentation">
+                                                                <a class="nav-link active" id="fill-tab-0"
+                                                                    data-bs-toggle="tab" href="#fill-tabpanel-0" role="tab"
+                                                                    aria-controls="fill-tabpanel-0"
+                                                                    aria-selected="true">Precio
+                                                                    por
+                                                                    click global</a>
+                                                            </li>
+                                                            <li class="nav-item" role="presentation">
+                                                                <a class="nav-link" id="fill-tab-1" data-bs-toggle="tab"
+                                                                    href="#fill-tabpanel-1" role="tab"
+                                                                    aria-controls="fill-tabpanel-1"
+                                                                    aria-selected="false">Precio
+                                                                    por
+                                                                    click individual</a>
+                                                            </li>
+
+                                                        </ul>
+                                                        <div class="tab-content pt-5" id="tab-content">
+
+                                                            <!--Vista 01-->
+                                                            <div class="tab-pane active w-100" id="fill-tabpanel-0"
+                                                                role="tabpanel" aria-labelledby="fill-tab-0">
+                                                                <!--show click Global-->
+                                                                <div class="cont" id="show_global">
+                                                                    <div class="form-text" id="basic-addon4">Precio global
+                                                                        por
+                                                                        click
+                                                                        B/N USD
+                                                                    </div>
+                                                                    <div class="input-group mb-3">
+                                                                        <input type="number" step="0.01" class="form"
+                                                                            placeholder="0.00" aria-label="Username"
+                                                                            aria-describedby="basic-addon1"
+                                                                            name="P_CLICK_BN_USD"
+                                                                            value="{{ $alquiler->P_CLICK_BN_USD }}">
+                                                                    </div>
+
+                                                                    <div class="form-text" id="basic-addon4">Precio global
+                                                                        por
+                                                                        click
+                                                                        Color USD
+                                                                    </div>
+                                                                    <div class="input-group mb-3">
+                                                                        <input type="number" step="0.01" class="form"
+                                                                            placeholder="0.00" aria-label="Username"
+                                                                            aria-describedby="basic-addon1"
+                                                                            name="P_CLICK_COLOR_USD"
+                                                                            value="{{ $alquiler->P_CLICK_COLOR_USD }}">
+                                                                    </div>
+
+                                                                    <div class="form-text" id="basic-addon4">Copiado Minimo
+                                                                        Contratado B/N</div>
+                                                                    <div class="input-group mb-3">
+                                                                        <input type="number" class="form" placeholder="2500"
+                                                                            aria-label="Username"
+                                                                            aria-describedby="basic-addon1"
+                                                                            name="copi_minimo_bn" value="{{ $alquiler->copi_minimo_bn }}">
+                                                                    </div>
+
+                                                                    <div class="form-text" id="basic-addon4">Copiado Minimo
+                                                                        Contratado Color</div>
+                                                                    <div class="input-group mb-3">
+                                                                        <input type="number" class="form" placeholder="2500"
+                                                                            aria-label="Username"
+                                                                            aria-describedby="basic-addon1"
+                                                                            name="copi_minimo_color" value="copi_minimo_color">
+                                                                    </div>
+
+                                                                    <div class="form-text" id="basic-addon4">Precio Cargo
+                                                                        Minimo
+                                                                    </div>
+                                                                    <div class="input-group mb-3">
+                                                                        <input type="number" class="form"
+                                                                            placeholder="1.000,84" aria-label="Username"
+                                                                            aria-describedby="basic-addon1" name="PCM"
+                                                                            value="{{ $alquiler->PCM }}">
+                                                                    </div>
+
+                                                                    <div class="form-text" id="basic-addon4">Label</div>
+                                                                    <div class="input-group mb-3">
+                                                                        <input type="number" class="form"
+                                                                            placeholder="450,00" aria-label="Username"
+                                                                            aria-describedby="basic-addon1" name="label"
+                                                                            value="{{ $alquiler->label }}">
+                                                                    </div>
+
+                                                                </div>
+                                                                <!--show click Global-->
+                                                            </div>
+
+                                                            <div class="tab-pane" id="fill-tabpanel-1" role="tabpanel"
+                                                                aria-labelledby="fill-tab-1">Definir con el cliente</div>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <!--form auto completado-->
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
                                             <div
                                                 class="card card-body lectura card-plain border-radius-lg d-block align-items-center flex-row">
                                                 <!--form auto completado-->
 
-                                                <div class="form-text mt-2" id="basic-addon4">Información Monetarea</div>
-                                                <select class="form-select bb form-select-sm mb-4 mt-3 w-50"
-                                                    aria-label="Large select example">
-                                                    <option selected>{{ $alquiler->moneda }}</option>
-                                                    <option value="1">Bolivares</option>
-                                                    <option value="2">Dolares</option>
-                                                </select>
-
                                                 <div class="alquiler">
 
-                                                    <div class="form-text mt-4" id="basic-addon4">Razones de Consorcio</div>
+                                                    <div class="input-group mb-4">
+                                                        <div class="form-text" id="basic-addon4">RIF - Cliente</div>
+                                                        <input type="text" class="form-" name="rif"
+                                                            placeholder="Por ejemplo, J000000006" id="rif"
+                                                            aria-label="Username" aria-describedby="basic-addon1" readonly
+                                                            value="{{ $alquiler->rif }}">
+                                                    </div>
+
+                                                    <div class="form-text" id="basic-addon4">Numero de Contrado
+                                                    </div>
                                                     <div class="input-group mb-3">
-                                                        <input type="text" class="form" placeholder="Razones de Consorcio"
-                                                            aria-label="Username" aria-describedby="basic-addon1" value="">
+                                                        <input type="text" class="form" placeholder="Por ejemplo: 056JE22K"
+                                                            aria-label="Username" aria-describedby="basic-addon1"
+                                                            name="n_contract" value="{{ $alquiler->n_contract }}">
                                                     </div>
 
-                                                    <div class="form-text mb-3 mt-5  id=" basic-addon4">Info All In</div>
-                                                    <div class="grop">
-                                                        <div class="group-check">
-                                                            <label for="Equipos">Equipos</label>
-                                                            <input type="checkbox" value="Equipos" id="Equipos">
-                                                        </div>
 
-                                                        <div class="group-check">
-                                                            <label for="Suministros">Suministros</label>
-                                                            <input type="checkbox" value="Suministros" id="Suministros">
-                                                        </div>
-
-                                                        <div class="group-check">
-                                                            <label for="Partes">Partes</label>
-                                                            <input type="checkbox" value="Partes" id="Partes">
-                                                        </div>
-
-                                                        <div class="group-check">
-                                                            <label for="Servicios">Servicios</label>
-                                                            <input type="checkbox" value="Servicios" id="Servicios">
-                                                        </div>
-
-
-                                                        <div class="group-check">
-                                                            <label for="Papel">Papel</label>
-                                                            <input type="checkbox" value="Papel" id="Papel">
-                                                        </div>
+                                                    <div class="form-text" id="basic-addon4">Duracion del Contrato (Numero)
                                                     </div>
-
-                                                    <hr class="w-90">
-
-
-                                                    <h4 class="mt-5 mb-4"><strong>Labores</strong></h4>
-                                                    <div class="grop">
-                                                        <div class="group-check">
-                                                            <label for="admin">Administrador</label>
-                                                            <input type="checkbox" value="Administrador" id="admin"
-                                                                onchange="admin(this);">
-                                                        </div>
-
-                                                        <div class="group-check">
-                                                            <label for="asesor">Asesor Tecnológico</label>
-                                                            <input type="checkbox" value="asesor" id="asesor"
-                                                                onchange="asesor(this);">
-                                                        </div>
-
-                                                        <div class="group-check">
-                                                            <label for="operador">Operador</label>
-                                                            <input type="checkbox" value="Operador" id="operador"
-                                                                onchange="operador(this);">
-                                                        </div>
-
-                                                        <div class="group-check">
-                                                            <label for="analista">Analista</label>
-                                                            <input type="checkbox" value="Analista" id="analista"
-                                                                onchange="analista(this);">
-                                                        </div>
-
-
-                                                        <div class="group-check">
-                                                            <label for="supervisor">Supervisor</label>
-                                                            <input type="checkbox" value="Supervisor" id="supervisor"
-                                                                onchange="supervisor(this);">
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-
-                                                <!--form auto completado-->
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <div
-                                            class="card card-body lectura card-plain border-radius-lg d-block align-items-center flex-row">
-                                            <!--form auto completado-->
-
-                                            <div class="alquiler">
-
-                                                <h4 class="mt-"><strong>Labores</strong></h4>
-                                                <div class="input-group mb-4">
-                                                    <div class="form-text" id="basic-addon4">Indexacion Mutuo Acuerdo</div>
-                                                    <input type="text" class="form-" name="rif"
-                                                        placeholder="Dedinir con el cliente" id="rif" aria-label="Username"
-                                                        aria-describedby="basic-addon1" readonly value="">
-                                                </div>
-
-                                                <div class="form-text" id="basic-addon4">Indexacion Porcentaje
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <input type="number" class="form" placeholder="%" value="0"
-                                                        aria-label="Username" aria-describedby="basic-addon1">
-                                                </div>
-
-
-                                                <div class="form-text" id="basic-addon4">Indexacion Frecuencia</div>
-                                                <select class="form-select bb form-select-sm mb-3 mt-3"
-                                                    aria-label="Large select example">
-                                                    <option selected></option>
-                                                    <option value="1">Mensual</option>
-                                                    <option value="2">Trimestre</option>
-                                                    <option value="2">Semestre</option>
-                                                    <option value="2">Anual</option>
-                                                </select>
-
-
-                                                <!--inputs show-->
-                                                <div style="display: none;" id="InputAdministrador"
-                                                    class="input-hidden mt-5">
-                                                    <div class="form-text mt-4">Candidad
-                                                        Administrador</div>
                                                     <div class="input-group mb-3">
-                                                        <input type="Number" class="form"
-                                                            placeholder="Unidades Administrador" aria-label="Username"
-                                                            aria-describedby="basic-addon1" value="">
+                                                        <input type="number" class="form" placeholder="Por ejemplo: 12"
+                                                            aria-label="Username" aria-describedby="basic-addon1"
+                                                            name="d_contract" value="{{ $alquiler->d_contract }}">
                                                     </div>
+
+                                                    <div class="form-text mt-4" id="basic-addon4">Tipo de Contrato</div>
+                                                    <select class="form-select bb form-select-sm mb- mt-3"
+                                                        aria-label="Large select example" name="tipo_c">
+                                                        <option value="{{ $alquiler->tipo_c }}" selected>{{ $alquiler->tipo_c }}</option>
+                                                        <option value="FSMA">FSMA</option>
+                                                        <option value="Renta - TCO">Renta - TCO</option>
+                                                        <option value="Renta - Plataforma">Renta - Plataforma</option>
+                                                        <option value="Copiado minimo">Copiado minimo</option>
+                                                        <option value="SMA">SMA</option>
+                                                        <option value="Mixto (FSMA + Renta)">Mixto (FSMA + Renta)</option>
+                                                    </select>
+
+                                                    <div class="form-text mt-4" id="basic-addon4">Vendedor Eje.</div>
+                                                    <select class="form-select bb form-select-sm mb-3 mt-3"
+                                                        aria-label="Large select example" name="vendedor">
+                                                        <option value="{{ $alquiler->vendedor }}" selected>{{ $alquiler->vendedor }}</option>
+                                                        <option value="Jose Escalona">Jose Escalona</option>
+                                                        <option value="Jose Abraham">Jose Abraham</option>
+                                                    </select>
+
+                                                    <div class="form-text" id="basic-addon4">Administrador</div>
+                                                    <select class="form-select bb form-select-sm mb-3 mt-3"
+                                                        aria-label="Large select example" name="administrador_01">
+                                                        <option selected>{{ $alquiler->administrador_01 }}</option>
+                                                        <option value="Jose Escalona">Jose Escalona</option>
+                                                        <option value="Jose Abraham">Jose Abraham</option>
+                                                    </select>
+
                                                 </div>
-                                                <!--inputs show-->
-
-                                                <!--inputs show-->
-                                                <div style="display: none;" id="InputAsesor" class="input-hidden">
-                                                    <div class="form-text mt-4">Candidad Asesor</div>
-                                                    <div class="input-group mb-3">
-                                                        <input type="Number" class="form"
-                                                            placeholder="Unidades Administrador" aria-label="Username"
-                                                            aria-describedby="basic-addon1" value="">
-                                                    </div>
-                                                </div>
-                                                <!--inputs show-->
-
-                                                <!--inputs show-->
-                                                <div style="display: none;" id="InputOperador" class="input-hidden">
-                                                    <div class="form-text mt-4">Candidad Operador</div>
-                                                    <div class="input-group mb-3">
-                                                        <input type="Number" class="form" placeholder="Unidades Operador"
-                                                            aria-label="Username" aria-describedby="basic-addon1" value="">
-                                                    </div>
-                                                </div>
-                                                <!--inputs show-->
-
-
-                                                <!--inputs show-->
-                                                <div style="display: none;" id="InputAnalista" class="input-hidden">
-                                                    <div class="form-text mt-4">Candidad Analista</div>
-                                                    <div class="input-group mb-3">
-                                                        <input type="Number" class="form" placeholder="Unidades Analista"
-                                                            aria-label="Username" aria-describedby="basic-addon1" value="">
-                                                    </div>
-                                                </div>
-                                                <!--inputs show-->
-
-                                                <!--inputs show-->
-                                                <div style="display: none;" id="InputSupervisor" class="input-hidden">
-                                                    <div class="form-text mt-4">Candidad Supervisor</div>
-                                                    <div class="input-group mb-3">
-                                                        <input type="Number" class="form" placeholder="Unidades Supervisor"
-                                                            aria-label="Username" aria-describedby="basic-addon1" value="">
-                                                    </div>
-                                                </div>
-                                                <!--inputs show-->
-
-
                                                 <!--form auto completado-->
                                             </div>
                                         </div>
                                     </div>
                                     <!--vsita 01 se debe ajustar el responsivo-->
+
                                 </div>
+                                <!--vista 01-->
+
+
+                                <!--vista 02-->
+                                <div class="tab-pane" id="disabled-tabpanel-1" role="tabpanel"
+                                    aria-labelledby="disabled-tab-1">
+                                    <h4 class="mb-4"><strong>Información General</strong></h4>
+                                    <!--vsita 012se debe ajustar el responsivo-->
+                                    <div class="viw-i d-flex">
+                                        <div class="col-md-6 mb-md-0 mb-4">
+                                            <div class="col-md-">
+                                                <div
+                                                    class="card card-body lectura card-plain border-radius-lg d-block align-items-center flex-row">
+                                                    <!--form auto completado-->
+
+                                                    <div class="form-text mt-2" id="basic-addon4">Información Monetarea
+                                                    </div>
+                                                    <select class="form-select bb form-select-sm mb-4 mt-3 w-50"
+                                                        aria-label="Large select example" name="moneda">
+                                                        <option value="{{ $alquiler->moneda }}" selected>{{ $alquiler->moneda }}</option>
+                                                        <option value="Bolivares">Bolivares</option>
+                                                        <option value="Dolares">Dolares</option>
+                                                    </select>
+
+                                                    <div class="alquiler">
+
+                                                        <div class="form-text mt-4" id="basic-addon4">Tipo de Cambio</div>
+                                                        <div class="input-group mb-3">
+                                                            <input type="text" class="form"
+                                                                placeholder="Por ejemplo: Paralelo" aria-label="Username"
+                                                                aria-describedby="basic-addon1" value="{{ $alquiler->tipo_cambio }}" name="tipo_cambio">
+                                                        </div>
+
+                                                        <div class="form-text mt-4" id="basic-addon4">Razones de Consorcio
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <input type="text" class="form"
+                                                                placeholder="Razones de Consorcio" aria-label="Username"
+                                                                aria-describedby="basic-addon1" name="razones_consorcio"
+                                                                value="{{ $alquiler->razones_consorcio }}">
+                                                        </div>
+
+                                                        <div class="form-text mb-3 mt-5  id=">Info All In
+                                                        </div>
+                                                        <div class="grop">
+                                                            <div class="group-check">
+                                                                <label for="Equipos">Equipos</label>
+                                                                <input type="checkbox" value="Equipos" name="info_all_i" id="Equipos">
+                                                            </div>
+
+                                                            <div class="group-check">
+                                                                <label for="Suministros">Suministros</label>
+                                                                <input type="checkbox" value="Suministros" name="info_all_ii" id="Suministros">
+                                                            </div>
+
+                                                            <div class="group-check">
+                                                                <label for="Partes">Partes</label>
+                                                                <input type="checkbox" value="Partes" name="info_all_iii" id="Partes">
+                                                            </div>
+
+                                                            <div class="group-check">
+                                                                <label for="Servicios">Servicios</label>
+                                                                <input type="checkbox" value="Servicios" name="info_all_iv" id="Servicios">
+                                                            </div>
+
+
+                                                            <div class="group-check">
+                                                                <label for="Papel">Papel</label>
+                                                                <input type="checkbox" value="Papel" name="info_all_v" id="Papel">
+                                                            </div>
+                                                        </div>
+
+                                                        <hr class="w-90">
+
+
+                                                        <h4 class="mt-5 mb-4"><strong>Labores</strong></h4>
+                                                        <div class="grop">
+                                                            <div class="group-check">
+                                                                <label for="admin">Administrador</label>
+                                                                <input type="checkbox" value="Administrador" id="admin">
+                                                            </div>
+
+                                                            <div class="group-check">
+                                                                <label for="asesor">Asesor Tecnológico</label>
+                                                                <input type="checkbox" value="asesor" id="asesor">
+                                                            </div>
+
+                                                            <div class="group-check">
+                                                                <label for="operador">Operador</label>
+                                                                <input type="checkbox" value="Operador" id="operador">
+                                                            </div>
+
+                                                            <div class="group-check">
+                                                                <label for="analista">Analista</label>
+                                                                <input type="checkbox" value="Analista" id="analista">
+                                                            </div>
+
+
+                                                            <div class="group-check">
+                                                                <label for="supervisor">Supervisor</label>
+                                                                <input type="checkbox" value="Supervisor" id="supervisor">
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <!--form auto completado-->
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div
+                                                class="card card-body lectura card-plain border-radius-lg d-block align-items-center flex-row">
+                                                <!--form auto completado-->
+
+                                                <div class="alquiler">
+
+                                                    <h4 class="mt-"><strong>Indexaciones</strong></h4>
+                                                    <div class="input-group mb-4">
+                                                        <div class="form-text" id="basic-addon4">Indexacion Mutuo Acuerdo
+                                                        </div>
+                                                        <input type="text" class="form-" name="indexacion_mutuo"
+                                                            placeholder="Dedinir con el cliente"
+                                                            aria-label="Username" aria-describedby="basic-addon1"
+                                                            value="{{ $alquiler->indexacion_mutuo }}">
+                                                    </div>
+
+                                                    <div class="form-text" id="basic-addon4">Indexacion Porcentaje
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <input type="number" class="form" placeholder="%" value="{{ $alquiler->indexacion_porcentaje }}"
+                                                            aria-label="Username" name="indexacion_porcentaje" aria-describedby="basic-addon1">
+                                                    </div>
+
+
+                                                    <div class="form-text" id="basic-addon4">Indexacion Frecuencia</div>
+                                                    <select class="form-select bb form-select-sm mb-3 mt-3"
+                                                        aria-label="Large select example" name="indexacion_frecuencia" >
+                                                        <option value="{{ $alquiler->indexacion_frecuencia }}" selected>{{ $alquiler->indexacion_frecuencia }}</option>
+                                                        <option value="Mensual">Mensual</option>
+                                                        <option value="Trimestre">Trimestre</option>
+                                                        <option value="Semestre">Semestre</option>
+                                                        <option value="Anual">Anual</option>
+                                                    </select>
+
+
+                                                    <!--inputs show-->
+                                                    <div id="InputAdministrador"
+                                                        class="input-hidden mt-5">
+                                                        <div class="form-text mt-4">Candidad
+                                                            Administrador (Opcional)</div>
+                                                        <div class="input-group mb-3">
+                                                            <input type="Number" class="form"
+                                                                placeholder="Unidades Administrador" aria-label="Username"
+                                                                aria-describedby="basic-addon1" name="n_admin" value="1">
+                                                        </div>
+                                                    </div>
+                                                    <!--inputs show-->
+
+                                                    <!--inputs show-->
+                                                    <div id="InputAsesor" class="input-hidden">
+                                                        <div class="form-text mt-4">Candidad Asesor (Opcional)</div>
+                                                        <div class="input-group mb-3">
+                                                            <input type="Number" class="form"
+                                                                placeholder="Unidades Administrador" aria-label="Username"
+                                                                aria-describedby="basic-addon1" name="n_asesor" value="0">
+                                                        </div>
+                                                    </div>
+                                                    <!--inputs show-->
+
+                                                    <!--inputs show-->
+                                                    <div id="InputOperador" class="input-hidden">
+                                                        <div class="form-text mt-4">Candidad Operador (Opcional)</div>
+                                                        <div class="input-group mb-3">
+                                                            <input type="Number" class="form"
+                                                                placeholder="Unidades Operador" aria-label="Username"
+                                                                aria-describedby="basic-addon1" name="n_operador" value="0">
+                                                        </div>
+                                                    </div>
+                                                    <!--inputs show-->
+
+
+                                                    <!--inputs show-->
+                                                    <div id="InputAnalista" class="input-hidden">
+                                                        <div class="form-text mt-4">Candidad Analista (Opcional)</div>
+                                                        <div class="input-group mb-3">
+                                                            <input type="Number" class="form"
+                                                                placeholder="Unidades Analista" aria-label="Username"
+                                                                aria-describedby="basic-addon1" name="n_analista" value="0">
+                                                        </div>
+                                                    </div>
+                                                    <!--inputs show-->
+
+                                                    <!--inputs show-->
+                                                    <div id="InputSupervisor" class="input-hidden">
+                                                        <div class="form-text mt-4">Candidad Supervisor (Opcional)</div>
+                                                        <div class="input-group mb-3">
+                                                            <input type="Number" class="form"
+                                                                placeholder="Unidades Supervisor" aria-label="Username"
+                                                                aria-describedby="basic-addon1" name="n_supervisor" value="0">
+                                                        </div>
+                                                    </div>
+                                                    <!--inputs show-->
+
+
+                                                    <!--form auto completado-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--vsita 01 se debe ajustar el responsivo-->
+                                    </div>
+                                </div>
+                                <!--vista 02-->
+
+
+
+
+
+                                <div class="tab-pane" id="disabled-tabpanel-2" role="tabpanel"
+                                    aria-labelledby="disabled-tab-2">
+                                    Tab 3 dfd</div>
+
                             </div>
-                            <!--vista 02-->
 
 
-
-
-
-                            <div class="tab-pane" id="disabled-tabpanel-2" role="tabpanel" aria-labelledby="disabled-tab-2">
-                                Tab 3 dfd</div>
-
-                        </div>
-
-
-
+                        </form>
 
 
                     </div>

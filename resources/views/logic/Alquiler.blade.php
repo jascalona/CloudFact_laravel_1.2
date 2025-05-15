@@ -95,9 +95,6 @@
 
             </div>
 
-
-
-
             @if ($message_e = Session::get('warning'))
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 <h5 class="alert-heading"><i class='bx bx-error-circle'></i> Alerta!</h5>
@@ -452,7 +449,7 @@
                                                         <hr class="w-90">
 
 
-                                                        <h4 class="mt-5 mb-4"><strong>Labores</strong></h4>
+                                                        <h4 class="mt-5 mb-4"><strong>Indexaciones</strong></h4>
                                                         <div class="grop">
                                                             <div class="group-check">
                                                                 <label for="admin">Administrador</label>
