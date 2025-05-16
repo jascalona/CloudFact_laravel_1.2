@@ -147,7 +147,7 @@
                                 <div class="card-footer p-2 ps-3">
                                     <p class="mb-0 text-sm">Contrato: #<span
                                             class="text-success font-weight-bolder">{{ $row->n_contract }} </span></p>
-                                    <span><a href="{{ route('LCustomer', $row->id) }}">Detalles</a></span>
+                                    <span><a href="{{ route('LCustomer', $row->n_contract) }}">Detalles</a></span>
                                 </div>
                             </div>
                         </div>

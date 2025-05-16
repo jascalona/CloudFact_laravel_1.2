@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\links;
+use Illuminate\Pagination\CursorPaginator;
 use Illuminate\Http\Request;
 use App\Models\Ordens;
 use App\Models\Customer;
@@ -49,7 +51,9 @@ class ScreensController extends Controller
         
         /**Hay que relacionar connumero de contrato */
         $load = lgenals::orderBy('date', 'desc')->get();
-        $ordens = Ordens::all();
+        
+        $ordens = Ordens::orderBy('date_emi', 'desc')->cursorPaginate(6);
+
 
         return view("layouts.LCustomer", compact("clienteL", "load", "ordens"));
     }

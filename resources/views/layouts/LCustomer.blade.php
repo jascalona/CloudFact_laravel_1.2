@@ -114,7 +114,7 @@
                                     <div class="overflow-hidden position-relative border-radius-xl">
                                         <span class="mask bg-gradient-dark opacity-10"></span>
                                         <div class="card-body position-relative z-index-1 p-3 text-white">
-                                             <h4><strong>{{$clienteL->cliente}}</strong></h4>
+                                            <h4><strong>{{$clienteL->cliente}}</strong></h4>
                                             <h5 class="text-white mt-4 mb-5 pb-2">
                                                 #{{$clienteL->n_contract}}
                                             </h5>
@@ -252,25 +252,29 @@
                                 <div class="tab-content pt-5" id="tab-content">
                                     <div class="tab-pane active" id="fill-tabpanel-0" role="tabpanel"
                                         aria-labelledby="fill-tab-0">
-                                        
+
                                         @foreach ($ordens as $ListOrden)
 
-                                        <ul class="list-group">
-                                            <li
-                                                class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                                                <div class="d-flex flex-column">
-                                                    <h6 class="mb-1 text-dark font-weight-bold text-sm">{{ $ListOrden->mes }}</h6>
-                                                    <span class="text-xs"># {{ $ListOrden->n_contract }}</span>
-                                                </div>
-                                                <div class="d-flex align-items-center text-sm">
-                                                    {{ $ListOrden->base_imponible }} $
-                                                    <a href="{{ route('orden.generateInvoices',$ListOrden->id ) }}" class="btn btn-link text-dark text-sm mb-0 px-0 ms-4">
-                                                        <i style="font-size: 16px" class='bx bxs-file-pdf'></i> PDF</a>
-                                                </div>
-                                            </li>
-                                        </ul>
+                                            <ul class="list-group">
+                                                <li
+                                                    class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                                                    <div class="d-flex flex-column">
+                                                        <h6 class="mb-1 text-dark font-weight-bold text-sm">
+                                                            {{ $ListOrden->mes }}</h6>
+                                                        <span class="text-xs"># {{ $ListOrden->n_contract }}</span>
+                                                    </div>
+                                                    <div class="d-flex align-items-center text-sm">
+                                                        {{ $ListOrden->base_imponible }} $
+                                                        <a href="{{ route('orden.generateInvoices', $ListOrden->id) }}"
+                                                            class="btn btn-link text-dark text-sm mb-0 px-0 ms-4">
+                                                            <i style="font-size: 16px" class='bx bxs-file-pdf'></i> PDF</a>
+                                                    </div>
+                                                </li>
+                                            </ul>
 
                                         @endforeach
+
+                                        {{ $ordens->links() }}
                                     </div>
 
                                     <div class="tab-pane" id="fill-tabpanel-1" role="tabpanel" aria-labelledby="fill-tab-1">
@@ -429,8 +433,10 @@
                                             <th>Volum. Scan Jobs</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        @foreach ($load as $row)
+
+                                    @foreach ($load as $row)
+
+                                        <tbody>
                                             <tr style="font-size: 12px;">
                                                 <td>{{ $row->cliente }}</td>
                                                 <td>{{ $row->rif }}</td>
@@ -457,9 +463,11 @@
                                                 <td>{{ $row->volum_scan_jobs }}</td>
 
                                             </tr>
-                                        @endforeach
 
-                                    </tbody>
+                                        </tbody>
+
+                                    @endforeach
+
                                 </table>
                             </div>
                         </div>

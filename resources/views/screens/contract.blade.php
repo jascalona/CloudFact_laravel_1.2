@@ -27,6 +27,7 @@
     <!--STYLES-->
 
 </head>
+
 <script>
     $(document).ready(function () {
         $('#myTable').DataTable(
@@ -89,7 +90,6 @@
                         </p>
                     </div>
                 </div>
-            </div>
 
 
             @if ($message_e = Session::get('success'))
@@ -100,7 +100,7 @@
                             class='bx bx-x'></i></button>
                 </div>
             @endif
-            
+
             <!--TABLE ORDEN-->
             <div class="col-md-15 mb-lg-0 mb-4">
                 <div class="card mt-4">
