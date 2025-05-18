@@ -178,25 +178,25 @@
                             <div class="main p-5">
 
                                 <div class="content-table">
-                                    <table id="myTable" class="display">
+                                    <table id="myTable" class="table align-items-center mb-0">
                                         <thead>
                                             <tr style="font-size: 13px;">
-                                                <th class="text-center">Opciones</th>
-                                                <th>Cliente</th>
-                                                <th>RIF</th>
-                                                <th>Serial</th>
-                                                <th>Modelo</th>
-                                                <th>N# Contrato</th>
-                                                <th>Activo</th>
-                                                <th>Localidad</th>
-                                                <th>Ciudad</th>
-                                                <th>Estado</th>
-                                                <th>Fecha Insta.</th>
-                                                <th>Status</th>
-                                                <th>Cont. Insta. B/N</th>
-                                                <th>Cont. Insta. Color</th>
-                                                <th>Observacion</th>
-                                                <th>DOC</th>
+                                                <th class="text-center"><input class="form-check-input" type="checkbox" value="" id="checkDefault"></th>
+                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Cliente</th>
+                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">RIF</th>
+                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Serial</th>
+                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Modelo</th>
+                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">N# Contrato</th>
+                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Activo</th>
+                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Localidad</th>
+                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Ciudad</th>
+                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Estado</th>
+                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Fecha Insta.</th>
+                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Status</th>
+                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Cont. Insta. B/N</th>
+                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Cont. Insta. Color</th>
+                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Observacion</th>
+                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">DOC</th>
                                             </tr>
                                         </thead>
 
@@ -210,21 +210,21 @@
                                                             class="btn btn-warning"><i class='bx bxs-edit-alt'></i></a>
                                                         <button class="btn btn-danger"><i class='bx bxs-trash-alt'></i></button>
                                                     </td>
-                                                    <td>{{ $row_park->cliente }}</td>
-                                                    <td>{{ $row_park->rif }}</td>
-                                                    <td>{{ $row_park->serial }}</td>
-                                                    <td>{{ $row_park->model }}</td>
-                                                    <td>{{ $row_park->n_contract }}</td>
-                                                    <td>{{ $row_park->activo }}</td>
-                                                    <td>{{ $row_park->location }}</td>
-                                                    <td>{{ $row_park->city }}</td>
-                                                    <td>{{ $row_park->estado }}</td>
-                                                    <td>{{ $row_park->date_insta }}</td>
-                                                    <td>{{ $row_park->n_port }}</td>
-                                                    <td>{{ $row_park->cont_insta_bn }}</td>
-                                                    <td>{{ $row_park->cont_insta_color }}</td>
-                                                    <td>{{ $row_park->obser }}</td>
-                                                    <td>{{ $row_park->doc }}</td>
+                                                    <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_park->cliente }}</td>
+                                                    <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_park->rif }}</td>
+                                                    <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_park->serial }}</td>
+                                                    <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_park->model }}</td>
+                                                    <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_park->n_contract }}</td>
+                                                    <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_park->activo }}</td>
+                                                    <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_park->location }}</td>
+                                                    <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_park->city }}</td>
+                                                    <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_park->estado }}</td>
+                                                    <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_park->date_insta }}</td>
+                                                    <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_park->n_port }}</td>
+                                                    <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_park->cont_insta_bn }}</td>
+                                                    <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_park->cont_insta_color }}</td>
+                                                    <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_park->obser }}</td>
+                                                    <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_park->doc }}</td>
                                                 </tr>
                                             @endforeach
 
