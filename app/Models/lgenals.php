@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class lgenals extends Model
 {
-    
-    public $timestamps = false;
 
-    protected $guarded = [
-        
-    ];
-    
+    public function alquilers()
+    {
+        return $this->hasOne(Alquilers::class, 'n_contract', 'n_contract');
+
+    }
+
 }

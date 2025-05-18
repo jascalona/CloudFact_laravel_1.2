@@ -17,13 +17,30 @@ class OrdenController extends Controller
     public function edit($id)
     {
         $clienteL = alquilers::findOrFail($id);
-        $load = lgenals::orderBy('date', 'desc')->get();
+        
+                /**
+         * Example SQL :
+         * 
+            * SELECT *
+            * FROM lgenals
+            * INNER JOIN alquilers ON lgenals.n_contract = alquilers.n_contract WHERE alquilers.n_contract = $id ;
+         */
+        
+        $load = lgenals::with('alquilers')
+            ->where('n_contract', $id)
+            ->get();
+
+
+        $ordens = ordens::orderBy('date_emi', 'desc')-> with('alquilers')
+            ->where('n_contract', $id) 
+            ->get();
+
 
         /**Select mes */
         $row_mes = lgenals::select('mes')->distinct()->get();
 
 
-        return view("screens.orden", compact("clienteL", "load", "row_mes"));
+        return view("screens.orden", compact("clienteL", 'ordens', "load", "row_mes"));
     }
 
     public function create(Request $request, $id)

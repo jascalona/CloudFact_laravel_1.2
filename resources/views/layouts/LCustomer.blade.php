@@ -274,13 +274,12 @@
 
                                         @endforeach
 
-                                        {{ $ordens->links() }}
                                     </div>
 
                                     <div class="tab-pane" id="fill-tabpanel-1" role="tabpanel" aria-labelledby="fill-tab-1">
 
                                         <div class="col-12 text-end mb-3">
-                                            <a href="{{ route('orden.edit', $clienteL->id) }}" type="submit" value="submit"
+                                            <a href="{{ route('orden.edit', $clienteL->n_contract) }}" type="submit" value="submit"
                                                 name="btn-load" class="btn bg-gradient-dark mb-0" href="javascript:;"><i
                                                     class='bx bxs-save'></i>&nbsp;&nbsp;Nueva Orden</a>
                                         </div>
@@ -399,7 +398,6 @@
                                 </div>
                             </div>
                         </div>
-
 
                         <!--TABLE ORDEN-->
                         <div class="main p-5">

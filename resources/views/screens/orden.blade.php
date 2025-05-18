@@ -71,6 +71,23 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
 </script>
 <!--TABLE LECTURAS SCAN-->
 
+
+<!--TABLE LECTURAS FACT-->
+<script>
+    $(document).ready(function () {
+        $('#myTable_fact').DataTable(
+            {
+                "language": {
+                    "url": "cdn.datatables.net/plug-ins/1.13.1/i18n/es-ES.json"
+                }
+            }
+        );
+    });
+</script>
+<!--TABLE LECTURAS FACT-->
+
+
+
 <!--CALCULATOR MONTO BN-->
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -463,21 +480,28 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                                 <!--vista cotizacion-->
                                                 <div class="tab-pane" id="simple-tabpanel-2" role="tabpanel" aria-labelledby="simple-tab-2">
 
-                                                <table id="myTable" class="display">
+                                                <table id="myTable_fact" class="display">
                                                     <thead>
                                                         <tr>
-                                                            <th>Column 1</th>
-                                                            <th>Column 2</th>
+                                                            <th>N# Factura</th>
+                                                            <th>Mes</th>
+                                                            <th>N# Contrato</th>
+                                                            <th>RIF</th>
+                                                            <th>Total Facturado</th>
                                                         </tr>
                                                     </thead>
+
+                                                    @foreach ($ordens as $row_ordens)
+                                                    
+                                                    @endforeach
                                                     <tbody>
                                                         <tr>
-                                                            <td>Row 1 Data 1</td>
-                                                            <td>Row 1 Data 2</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Row 2 Data 1</td>
-                                                            <td>Row 2 Data 2</td>
+                                                            <td>{{ $row_ordens->n_fact }}</td>
+                                                            <td>{{ $row_ordens->mes }}</td>
+                                                            <td>{{ $row_ordens->n_contract }}</td>
+                                                            <td>{{ $row_ordens->rif }}</td>
+                                                            <td>{{ $row_ordens->base_imponible }} $</td>
+                                                            
                                                         </tr>
                                                     </tbody>
                                                 </table>

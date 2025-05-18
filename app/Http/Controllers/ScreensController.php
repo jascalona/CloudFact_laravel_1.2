@@ -15,6 +15,8 @@ use App\Models\Alquilers;
 use PhpParser\Node\Expr\AssignOp\Concat;
 use App\Http\Controllers\CustomerRequest;
 
+use DB;
+
 class ScreensController extends Controller
 {
     /**
@@ -28,7 +30,7 @@ class ScreensController extends Controller
         //return  $parks;
         return view("screens.park", compact("parks"));
     }
-    
+
     public function lead()
     {
 
@@ -44,15 +46,28 @@ class ScreensController extends Controller
     }
 
 
-
     public function show($id)
     {
         $clienteL = alquilers::findOrFail($id);
-        
-        /**Hay que relacionar connumero de contrato */
-        $load = lgenals::orderBy('date', 'desc')->get();
-        
-        $ordens = Ordens::orderBy('date_emi', 'desc')->cursorPaginate(6);
+
+        /**
+         * Example SQL :
+         * 
+            * SELECT *
+            * FROM lgenals
+            * INNER JOIN alquilers ON lgenals.n_contract = alquilers.n_contract WHERE alquilers.n_contract = $id ;
+         */
+
+        $load = lgenals::with('alquilers')
+            ->where('n_contract', $id)
+            ->get();
+
+
+        $ordens = ordens::orderBy('date_emi', 'desc')-> with('alquilers')
+            ->where('n_contract', $id) 
+            ->get();
+
+        //$ordens = Ordens::orderBy('date_emi', 'desc')->cursorPaginate(6);
 
 
         return view("layouts.LCustomer", compact("clienteL", "load", "ordens"));
@@ -102,35 +117,37 @@ class ScreensController extends Controller
     /**Method Update */
     public function update(Request $request, $id)
     {
-       if (!empty($_POST['modificar'])) {
-        if (!empty($_POST['rif']) and !empty($_POST['direct_f']) and !empty($_POST['city']) and !empty($_POST['estado'])
-        and !empty($_POST['date_creation']) and !empty($_POST['p_contact']) and !empty($_POST['p_email']) and !empty($_POST['p_movil'])) {
+        if (!empty($_POST['modificar'])) {
+            if (
+                !empty($_POST['rif']) and !empty($_POST['direct_f']) and !empty($_POST['city']) and !empty($_POST['estado'])
+                and !empty($_POST['date_creation']) and !empty($_POST['p_contact']) and !empty($_POST['p_email']) and !empty($_POST['p_movil'])
+            ) {
 
-            /**Modificar */
-            $contact = Customer::findOrFail($id);
-            $contact->rif = $request->rif;
-            $contact->direct_f = $request->direct_f;
-            $contact->city = $request->city;
-            $contact->estado = $request->estado;
-            $contact->date_creation = $request->date_creation;
-            $contact->p_contact = $request->p_contact;
-            $contact->p_email = $request->p_email;
-            $contact->p_movil = $request->p_movil;
-            $contact->save();
+                /**Modificar */
+                $contact = Customer::findOrFail($id);
+                $contact->rif = $request->rif;
+                $contact->direct_f = $request->direct_f;
+                $contact->city = $request->city;
+                $contact->estado = $request->estado;
+                $contact->date_creation = $request->date_creation;
+                $contact->p_contact = $request->p_contact;
+                $contact->p_email = $request->p_email;
+                $contact->p_movil = $request->p_movil;
+                $contact->save();
 
-            return redirect()->route('contact')->with('success','El fue modificado con exito!');
+                return redirect()->route('contact')->with('success', 'El fue modificado con exito!');
+
+            } else {
+                echo '<script>alert("Los CAmpos Primarios no pueden quedar vacios!")</script>';
+            }
+
 
         } else {
-            echo '<script>alert("Los CAmpos Primarios no pueden quedar vacios!")</script>';
+            echo '<script>alert("Error")</script>';
         }
-        
-    
-    } else {
-        echo '<script>alert("Error")</script>';
-    }
-       
 
-      
+
+
 
     }
 
