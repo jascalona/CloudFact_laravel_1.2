@@ -165,13 +165,9 @@
                             <div class="card-header pb-0 p-3">
                                 <div class="row">
                                     <div class="col-6 d-flex align-items-center">
-                                        <h4 class="mb-0">Customer's: <small>Park</small></h4>
+                                        <h4 class="mb-3 text-secondary font-weight-bolder opacity-7">Customer's: <small>Park</small></h4>
                                     </div>
 
-                                    <div class="icons-pages col-6 text-end mb-3">
-                                        <button id="scroll-button-left"><i class='bx bx-chevron-left'></i></button>
-                                        <button id="scroll-button-right"><i class='bx bx-chevron-right'></i></button>
-                                    </div>
                                 </div>
                             </div>
 
@@ -215,7 +211,7 @@
                                                     <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_park->serial }}</td>
                                                     <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_park->model }}</td>
                                                     <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_park->n_contract }}</td>
-                                                    <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_park->activo }}</td>
+                                                    <td class=""><span class="badge bg-primary rounded-pill d-inline">{{ $row_park->activo }}</span></td>
                                                     <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_park->location }}</td>
                                                     <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_park->city }}</td>
                                                     <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_park->estado }}</td>
