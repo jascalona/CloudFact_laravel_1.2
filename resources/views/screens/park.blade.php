@@ -165,7 +165,8 @@
                             <div class="card-header pb-0 p-3">
                                 <div class="row">
                                     <div class="col-6 d-flex align-items-center">
-                                        <h4 class="mb-3 text-secondary font-weight-bolder opacity-7">Customer's: <small>Park</small></h4>
+                                        <h4 class="mb-3 text-secondary font-weight-bolder opacity-7">Customer's:
+                                            <small>Park</small></h4>
                                     </div>
 
                                 </div>
@@ -177,50 +178,129 @@
                                     <table id="myTable" class="table align-items-center mb-0">
                                         <thead>
                                             <tr style="font-size: 13px;">
-                                                <th class="text-center"><input class="form-check-input" type="checkbox" value="" id="checkDefault"></th>
-                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Cliente</th>
-                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">RIF</th>
-                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Serial</th>
-                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Modelo</th>
-                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">N# Contrato</th>
-                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Activo</th>
-                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Localidad</th>
-                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Ciudad</th>
-                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Estado</th>
-                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Fecha Insta.</th>
-                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Status</th>
-                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Cont. Insta. B/N</th>
-                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Cont. Insta. Color</th>
-                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Observacion</th>
-                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">DOC</th>
+                                                <th class="text-start"><input style="margin-left: 50px;"
+                                                        class="form-check-input" type="checkbox" value="" id="checkPark"
+                                                        for="checkIndeterminate"></th>
+                                                <th
+                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                    Cliente</th>
+                                                <th
+                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                    RIF</th>
+                                                <th
+                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                    Serial</th>
+                                                <th
+                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                    Modelo</th>
+                                                <th
+                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                    N# Contrato</th>
+                                                <th
+                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                    Activo</th>
+                                                <th
+                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                    Localidad</th>
+                                                <th
+                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                    Ciudad</th>
+                                                <th
+                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                    Estado</th>
+                                                <th
+                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                    Fecha Insta.</th>
+                                                <th
+                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                    Status</th>
+                                                <th
+                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                    Cont. Insta. B/N</th>
+                                                <th
+                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                    Cont. Insta. Color</th>
+                                                <th
+                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                    Observacion</th>
+                                                <th
+                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                    DOC</th>
                                             </tr>
                                         </thead>
 
+                                        <script>
+                                            // Obtener el checkbox principal y los checkboxes de la lista
+                                            const seleccionarTodo = document.getElementById("checkPark");
+                                            const checkboxes = document.querySelectorAll(".item-checkbox");
+
+                                            // Agregar un evento de cambio al checkbox principal
+                                            seleccionarTodo.addEventListener("change", (event) => {
+                                                // Obtener el estado actual del checkbox principal
+                                                const estado = event.target.checked;
+
+                                                // Iterar sobre los checkboxes de la lista
+                                                checkboxes.forEach((checkbox) => {
+                                                    // Establecer el estado de cada checkbox a la del checkbox principal
+                                                    checkbox.checked = estado;
+                                                });
+                                            });
+                                        </script>
 
                                         <tbody>
 
                                             @foreach ($parks as $row_park)
                                                 <tr style="font-size: 12px;">
-                                                    <td class="text-center">
-                                                        <a href="{{ route('Upark.edit', $row_park->id) }}"
-                                                            class="btn btn-warning"><i class='bx bxs-edit-alt'></i></a>
-                                                        <button class="btn btn-danger"><i class='bx bxs-trash-alt'></i></button>
+                                                    <td class="text-start">
+                                                        <input style="margin-left: 50px;" class="form-check-input item-checkbox"
+                                                            type="checkbox" value="{{ $row_park->id }}" id="checkIndeterminate">
                                                     </td>
-                                                    <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_park->cliente }}</td>
-                                                    <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_park->rif }}</td>
-                                                    <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_park->serial }}</td>
-                                                    <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_park->model }}</td>
-                                                    <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_park->n_contract }}</td>
-                                                    <td class=""><span class="badge bg-primary rounded-pill d-inline">{{ $row_park->activo }}</span></td>
-                                                    <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_park->location }}</td>
-                                                    <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_park->city }}</td>
-                                                    <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_park->estado }}</td>
-                                                    <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_park->date_insta }}</td>
-                                                    <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_park->n_port }}</td>
-                                                    <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_park->cont_insta_bn }}</td>
-                                                    <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_park->cont_insta_color }}</td>
-                                                    <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_park->obser }}</td>
-                                                    <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_park->doc }}</td>
+
+                                                    <td
+                                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                        {{ $row_park->cliente }}</td>
+                                                    <td
+                                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                        {{ $row_park->rif }}</td>
+                                                    <td
+                                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                        {{ $row_park->serial }}</td>
+                                                    <td
+                                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                        {{ $row_park->model }}</td>
+                                                    <td
+                                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                        {{ $row_park->n_contract }}</td>
+                                                    <td class=""><span
+                                                            class="badge bg-primary rounded-pill d-inline">{{ $row_park->activo }}</span>
+                                                    </td>
+                                                    <td
+                                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                        {{ $row_park->location }}</td>
+                                                    <td
+                                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                        {{ $row_park->city }}</td>
+                                                    <td
+                                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                        {{ $row_park->estado }}</td>
+                                                    <td
+                                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                        {{ $row_park->date_insta }}</td>
+                                                    <td
+                                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                        {{ $row_park->n_port }}</td>
+                                                    <td
+                                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                        {{ $row_park->cont_insta_bn }}</td>
+                                                    <td
+                                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                        {{ $row_park->cont_insta_color }}</td>
+                                                    <td
+                                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                        {{ $row_park->obser }}</td>
+                                                    <td
+                                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                        {{ $row_park->doc }}</td>
                                                 </tr>
                                             @endforeach
 
