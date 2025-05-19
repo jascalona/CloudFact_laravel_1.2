@@ -260,7 +260,8 @@
                                                     class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
                                                     <div class="d-flex flex-column">
                                                         <h6 class="mb-1 text-dark font-weight-bold text-sm">
-                                                            {{ $ListOrden->mes }}</h6>
+                                                            {{ $ListOrden->mes }}
+                                                        </h6>
                                                         <span class="text-xs"># {{ $ListOrden->n_contract }}</span>
                                                     </div>
                                                     <div class="d-flex align-items-center text-sm">
@@ -279,9 +280,9 @@
                                     <div class="tab-pane" id="fill-tabpanel-1" role="tabpanel" aria-labelledby="fill-tab-1">
 
                                         <div class="col-12 text-end mb-3">
-                                            <a href="{{ route('orden.edit', $clienteL->n_contract) }}" type="submit" value="submit"
-                                                name="btn-load" class="btn bg-gradient-dark mb-0" href="javascript:;"><i
-                                                    class='bx bxs-save'></i>&nbsp;&nbsp;Nueva Orden</a>
+                                            <a href="{{ route('orden.edit', $clienteL->n_contract) }}" type="submit"
+                                                value="submit" name="btn-load" class="btn bg-gradient-dark mb-0"
+                                                href="javascript:;"><i class='bx bxs-save'></i>&nbsp;&nbsp;Nueva Orden</a>
                                         </div>
 
                                     </div>
@@ -389,16 +390,14 @@
                         <div class="card-header pb-0 p-3">
                             <div class="row">
                                 <div class="col-6 d-flex align-items-center">
-                                    <h4 class="mb-0">Customer's: <small>Lead</small></h4>
+                                    <h4 class="mb-3 text-secondary font-weight-bolder opacity-7">Customer's:
+                                        <small>Load</small>
+                                    </h4>
                                 </div>
 
-                                <div class="icons-pages col-6 text-end mb-3">
-                                    <button id="scroll-button-left"><i class='bx bx-chevron-left'></i></button>
-                                    <button id="scroll-button-right"><i class='bx bx-chevron-right'></i></button>
-                                </div>
                             </div>
                         </div>
-
+                        
                         <!--TABLE ORDEN-->
                         <div class="main p-5">
 
@@ -406,29 +405,52 @@
                                 <table id="myTable" class="table align-items-center mb-0">
                                     <thead>
                                         <tr style="font-size: 13px;">
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Cliente</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">RIF</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Serial</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Modelo</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">N# Contrato</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Activo</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Localidad</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Mes</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Date</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Cont. Anterior B/N</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Cont. Actual B/N</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Volum. B/N</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">AMCV_bn</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Cont. Anterior Color</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Cont. Actual Color</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Volum. Color</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">AMCV_color</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Cont. Anterior ScanImages</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Cont. Actual ScanImages</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Volum. Scan Images</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Cont. Anterior ScanJobs</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Cont. Actual ScanJobs</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Volum. Scan Jobs</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                Cliente</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                RIF</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                Serial</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                Modelo</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                N# Contrato</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                Activo</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                Localidad</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                Mes</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                Date</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                Cont. Anterior B/N</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                Cont. Actual B/N</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                Volum. B/N</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                AMCV_bn</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                Cont. Anterior Color</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                Cont. Actual Color</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                Volum. Color</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                AMCV_color</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                Cont. Anterior ScanImages</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                Cont. Actual ScanImages</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                Volum. Scan Images</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                Cont. Anterior ScanJobs</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                Cont. Actual ScanJobs</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                Volum. Scan Jobs</th>
                                         </tr>
                                     </thead>
 
@@ -436,29 +458,52 @@
 
                                         <tbody>
                                             <tr style="font-size: 12px;">
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->cliente }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->rif }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->serial }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->model }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->n_contract }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->activo }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->location }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->mes }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->date }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->cont_ante_bn }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->cont_actu_bn }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->volum_bn }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->AMCV_bn }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->cont_ante_color }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->cont_actu_color }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->volum_color }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->AMCV_color }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->cont_ante_scan_images }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->cont_actu_scan_images }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->volum_scan_images }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->cont_ante_scan_jobs }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->cont_actu_scan_jobs }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->volum_scan_jobs }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                    {{ $row->cliente }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                    {{ $row->rif }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                    {{ $row->serial }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                    {{ $row->model }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                    {{ $row->n_contract }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                    {{ $row->activo }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                    {{ $row->location }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                    {{ $row->mes }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                    {{ $row->date }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                    {{ $row->cont_ante_bn }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                    {{ $row->cont_actu_bn }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                    {{ $row->volum_bn }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                    {{ $row->AMCV_bn }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                    {{ $row->cont_ante_color }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                    {{ $row->cont_actu_color }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                    {{ $row->volum_color }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                    {{ $row->AMCV_color }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                    {{ $row->cont_ante_scan_images }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                    {{ $row->cont_actu_scan_images }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                    {{ $row->volum_scan_images }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                    {{ $row->cont_ante_scan_jobs }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                    {{ $row->cont_actu_scan_jobs }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                    {{ $row->volum_scan_jobs }}</td>
 
                                             </tr>
 
