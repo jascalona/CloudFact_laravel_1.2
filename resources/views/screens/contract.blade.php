@@ -120,17 +120,17 @@
                     <div class="main p-5">
 
                         <div class="content-table">
-                            <table id="myTable" class="display">
+                            <table id="myTable" class="table align-items-center mb-0">
                                 <thead>
                                     <tr style="font-size: 13px;">
                                         <th class="text-center">Opciones</th>
-                                        <th>N# Contrato</th>
-                                        <th>Nombre</th>
-                                        <th>Cliente</th>
-                                        <th>RIF</th>
-                                        <th>Vendedor</th>
-                                        <th>Administrador</th>
-                                        <th>Fecha de Inicio</th>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">N# Contrato</th>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Nombre</th>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Cliente</th>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">RIF</th>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Vendedor</th>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Administrador</th>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Fecha de Inicio</th>
                                     </tr>
                                 </thead>
 
@@ -143,13 +143,13 @@
                                                 <a href="{{ route('edit_alquiler.edit', $row->id) }}" class="btn btn-warning"><i
                                                         class='bx bxs-edit-alt'></i></a>
                                             </td>
-                                            <td>{{ $row->n_contract }}</td>
-                                            <td>{{ $row->name_c }}</td>
-                                            <td>{{ $row->cliente }}</td>
-                                            <td>{{ $row->rif }}</td>
-                                            <td>{{ $row->vendedor }}</td>
-                                            <td>{{ $row->administrador }}</td>
-                                            <td>{{ $row->date_init_contract }}</td>
+                                            <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->n_contract }}</td>
+                                            <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->name_c }}</td>
+                                            <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->cliente }}</td>
+                                            <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->rif }}</td>
+                                            <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->vendedor }}</td>
+                                            <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->administrador }}</td>
+                                            <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->date_init_contract }}</td>
                                         </tr>
                                     @endforeach
 

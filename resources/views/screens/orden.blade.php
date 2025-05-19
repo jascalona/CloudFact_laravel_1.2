@@ -392,19 +392,19 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                                     
                                                 <div class="content-table">
                                                 <h4 class="mb-4">Lecturas Copiado</h4>
-                                                    <table id="myTable" class="display">
+                                                    <table id="myTable" class="table align-items-center mb-0">
                                                         <thead>
                                                             <tr>
-                                                                <th>Serial</th>
-                                                                <th>Modelo</th>
-                                                                <th>Mes</th>
-                                                                <th>Fecha</th>
-                                                                <th>Cont. Anterior B/N</th>
-                                                                <th>Cont. Actual B/N</th>
-                                                                <th>Volum B/N</th>
-                                                                <th>Cont. Anterior Color</th>
-                                                                <th>Cont. Actual Color</th>
-                                                                <th>Volum Color</th>
+                                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Serial</th>
+                                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Modelo</th>
+                                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Mes</th>
+                                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Fecha</th>
+                                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Cont. Anterior B/N</th>
+                                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Cont. Actual B/N</th>
+                                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Volum B/N</th>
+                                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Cont. Anterior Color</th>
+                                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Cont. Actual Color</th>
+                                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Volum Color</th>
                                                             </tr>
                                                         </thead>
 
@@ -412,16 +412,16 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                                             @foreach ($load as $row_load)
 
                                                             <tr>
-                                                                <td>{{ $row_load->serial }}</td>
-                                                                <td>{{ $row_load->model }}</td>
-                                                                <td>{{ $row_load->mes }}</td>
-                                                                <td>{{ $row_load->date }}</td>
-                                                                <td>{{ $row_load->cont_ante_bn }}</td>
-                                                                <td>{{ $row_load->cont_actu_bn }}</td>
-                                                                <td>{{ $row_load->volum_bn }}</td>
-                                                                <td>{{ $row_load->cont_ante_color }}</td>
-                                                                <td>{{ $row_load->cont_actu_color }}</td>
-                                                                <td>{{ $row_load->volum_color }}</td>
+                                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_load->serial }}</td>
+                                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_load->model }}</td>
+                                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_load->mes }}</td>
+                                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_load->date }}</td>
+                                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_load->cont_ante_bn }}</td>
+                                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_load->cont_actu_bn }}</td>
+                                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_load->volum_bn }}</td>
+                                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_load->cont_ante_color }}</td>
+                                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_load->cont_actu_color }}</td>
+                                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_load->volum_color }}</td>
                                                             </tr>
                                                             @endforeach
                                                         </tbody>
@@ -439,19 +439,19 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                                         <h4 class="mb-4">Lecturas Digitalización</h4>
 
 
-                                                        <table id="myTable_scan" class="display">
+                                                        <table id="myTable_scan" class="table align-items-center mb-0">
                                                             <thead>
                                                                 <tr>
-                                                                    <th>Serial</th>
-                                                                    <th>Modelo</th>
-                                                                    <th>Mes</th>
-                                                                    <th>Fecha</th>
-                                                                    <th>Cont. Ant. ScanImages</th>
-                                                                    <th>Cont. Act. ScanImages</th>
-                                                                    <th>Volum ScanImages</th>
-                                                                    <th>Cont. Ante. ScanJobs</th>
-                                                                    <th>Cont. Actu. ScanJobs</th>
-                                                                    <th>Volum ScanJobs</th>
+                                                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Serial</th>
+                                                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Modelo</th>
+                                                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Mes</th>
+                                                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Fecha</th>
+                                                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Cont. Ant. ScanImages</th>
+                                                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Cont. Act. ScanImages</th>
+                                                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Volum ScanImages</th>
+                                                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Cont. Ante. ScanJobs</th>
+                                                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Cont. Actu. ScanJobs</th>
+                                                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Volum ScanJobs</th>
                                                                 </tr>
                                                             </thead>
 
@@ -459,16 +459,16 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                                                 @foreach ($load as $row_load_scan)
 
                                                                 <tr>
-                                                                    <td>{{ $row_load_scan->serial }}</td>
-                                                                    <td>{{ $row_load_scan->model }}</td>
-                                                                    <td>{{ $row_load_scan->mes }}</td>
-                                                                    <td>{{ $row_load_scan->date }}</td>
-                                                                    <td>{{ $row_load_scan->cont_ante_scan_images }}</td>
-                                                                    <td>{{ $row_load_scan->cont_actu_scan_images }}</td>
-                                                                    <td>{{ $row_load_scan->volum_scan_images }}</td>
-                                                                    <td>{{ $row_load_scan->cont_ante_scan_jobs }}</td>
-                                                                    <td>{{ $row_load_scan->cont_actu_scan_jobs }}</td>
-                                                                    <td>{{ $row_load_scan->volum_scan_jobs }}</td>
+                                                                    <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_load_scan->serial }}</td>
+                                                                    <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_load_scan->model }}</td>
+                                                                    <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_load_scan->mes }}</td>
+                                                                    <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_load_scan->date }}</td>
+                                                                    <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_load_scan->cont_ante_scan_images }}</td>
+                                                                    <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_load_scan->cont_actu_scan_images }}</td>
+                                                                    <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_load_scan->volum_scan_images }}</td>
+                                                                    <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_load_scan->cont_ante_scan_jobs }}</td>
+                                                                    <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_load_scan->cont_actu_scan_jobs }}</td>
+                                                                    <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_load_scan->volum_scan_jobs }}</td>
                                                                 </tr>
                                                                 @endforeach
                                                             </tbody>
@@ -480,14 +480,14 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                                 <!--vista cotizacion-->
                                                 <div class="tab-pane" id="simple-tabpanel-2" role="tabpanel" aria-labelledby="simple-tab-2">
 
-                                                <table id="myTable_fact" class="display">
+                                                <table id="myTable_fact" class="table align-items-center mb-0">
                                                     <thead>
                                                         <tr>
-                                                            <th>N# Factura</th>
-                                                            <th>Mes</th>
-                                                            <th>N# Contrato</th>
-                                                            <th>RIF</th>
-                                                            <th>Total Facturado</th>
+                                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">N# Factura</th>
+                                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Mes</th>
+                                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">N# Contrato</th>
+                                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">RIF</th>
+                                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Total Facturado</th>
                                                         </tr>
                                                     </thead>
 
@@ -496,11 +496,11 @@ $mes_anio_actual = $fecha_actual->translatedFormat('F Y');
                                                     @endforeach
                                                     <tbody>
                                                         <tr>
-                                                            <td>{{ $row_ordens->n_fact }}</td>
-                                                            <td>{{ $row_ordens->mes }}</td>
-                                                            <td>{{ $row_ordens->n_contract }}</td>
-                                                            <td>{{ $row_ordens->rif }}</td>
-                                                            <td>{{ $row_ordens->base_imponible }} $</td>
+                                                            <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_ordens->n_fact }}</td>
+                                                            <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_ordens->mes }}</td>
+                                                            <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_ordens->n_contract }}</td>
+                                                            <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_ordens->rif }}</td>
+                                                            <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row_ordens->base_imponible }} $</td>
                                                             
                                                         </tr>
                                                     </tbody>

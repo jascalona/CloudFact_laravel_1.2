@@ -439,26 +439,26 @@
                                                 <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->cliente }}</td>
                                                 <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->rif }}</td>
                                                 <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->serial }}</td>
-                                                <td>{{ $row->model }}</td>
-                                                <td>{{ $row->n_contract }}</td>
-                                                <td>{{ $row->activo }}</td>
-                                                <td>{{ $row->location }}</td>
-                                                <td>{{ $row->mes }}</td>
-                                                <td>{{ $row->date }}</td>
-                                                <td>{{ $row->cont_ante_bn }}</td>
-                                                <td>{{ $row->cont_actu_bn }}</td>
-                                                <td>{{ $row->volum_bn }}</td>
-                                                <td>{{ $row->AMCV_bn }}</td>
-                                                <td>{{ $row->cont_ante_color }}</td>
-                                                <td>{{ $row->cont_actu_color }}</td>
-                                                <td>{{ $row->volum_color }}</td>
-                                                <td>{{ $row->AMCV_color }}</td>
-                                                <td>{{ $row->cont_ante_scan_images }}</td>
-                                                <td>{{ $row->cont_actu_scan_images }}</td>
-                                                <td>{{ $row->volum_scan_images }}</td>
-                                                <td>{{ $row->cont_ante_scan_jobs }}</td>
-                                                <td>{{ $row->cont_actu_scan_jobs }}</td>
-                                                <td>{{ $row->volum_scan_jobs }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->model }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->n_contract }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->activo }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->location }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->mes }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->date }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->cont_ante_bn }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->cont_actu_bn }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->volum_bn }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->AMCV_bn }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->cont_ante_color }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->cont_actu_color }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->volum_color }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->AMCV_color }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->cont_ante_scan_images }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->cont_actu_scan_images }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->volum_scan_images }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->cont_ante_scan_jobs }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->cont_actu_scan_jobs }}</td>
+                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->volum_scan_jobs }}</td>
 
                                             </tr>
 
