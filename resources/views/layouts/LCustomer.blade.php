@@ -400,15 +400,80 @@
 
                                                             <!--BODY MODAL CARGAS MANUALES-->
                                                             <div class="modal fade" id="LecturaManual" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="LecturaManual" aria-hidden="true">
-                                                            <div class="modal-dialog">
+                                                            <div class="modal-dialog modal-dialog-scrollable">
                                                                 <div class="modal-content">
                                                                 <div class="modal-header">
                                                                     <h1 class="modal-title fs-5" id="LecturaManual">Carga de lectura manual</h1>
                                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                        sdsd
+                                                                     <div class="mb-3">
+                                                                        <label for="recipient-name" class="col-form-label">Cliente</label>
+                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="text" class="form-control"  id="recipient-name" value="">
+                                                                    </div>
 
+                                                                     <div class="mb-3">
+                                                                        <label for="recipient-name" class="col-form-label">RIF</label>
+                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="text" class="form-control" id="recipient-name" value="">
+                                                                    </div>
+
+                                                                     <div class="mb-3">
+                                                                        <label for="recipient-name" class="col-form-label">Serial</label>
+                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="text" class="form-control" id="recipient-name" value="">
+                                                                    </div>
+
+                                                                     <div class="mb-3">
+                                                                        <label for="recipient-name" class="col-form-label">Modelo</label>
+                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="text" class="form-control" id="recipient-name" value="">
+                                                                    </div>
+
+                                                                     <div class="mb-3">
+                                                                        <label for="recipient-name" class="col-form-label">N# Contrato</label>
+                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="text" class="form-control" id="recipient-name" value="">
+                                                                    </div>
+
+                                                                     <div class="mb-3">
+                                                                        <label for="recipient-name" class="col-form-label">Mes</label>
+                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="text" class="form-control" id="recipient-name" value="">
+                                                                    </div>
+
+                                                                     <div class="mb-3">
+                                                                        <label for="recipient-name" class="col-form-label">Fecha</label>
+                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="text" class="form-control" id="recipient-name" value="">
+                                                                    </div>
+
+                                                                    <div class="mb-3">
+                                                                        <label for="recipient-name" class="col-form-label">Cont. Ante. B/N</label>
+                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="text" class="form-control" id="recipient-name" value="">
+                                                                    </div>
+
+                                                                    <div class="mb-3">
+                                                                        <label for="recipient-name" class="col-form-label">Cont. Actu. B/N</label>
+                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="text" class="form-control" id="recipient-name" value="">
+                                                                    </div>
+
+                                                                    <div class="mb-3">
+                                                                        <label for="recipient-name" class="col-form-label">Volum. B/N</label>
+                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="text" class="form-control" id="recipient-name" value="">
+                                                                    </div>
+
+                                                                    <div class="mb-3">
+                                                                        <label for="recipient-name" class="col-form-label">Cont. Ante. Color</label>
+                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="text" class="form-control" id="recipient-name" value="">
+                                                                    </div>
+
+                                                                    <div class="mb-3">
+                                                                        <label for="recipient-name" class="col-form-label">Cont. Actu. Color</label>
+                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="text" class="form-control" id="recipient-name" value="">
+                                                                    </div>
+                                                                    
+                                                                    <div class="mb-3">
+                                                                        <label for="recipient-name" class="col-form-label">Volum. Color</label>
+                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="text" class="form-control" id="recipient-name" value="">
+                                                                    </div>
+                                                                    
+
+                                                                    
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
