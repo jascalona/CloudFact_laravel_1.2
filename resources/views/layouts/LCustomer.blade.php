@@ -315,7 +315,7 @@
                                                                     <div class="modal-dialog modal-lg">
                                                                         <div class="modal-content">
                                                                         <div class="modal-header">
-                                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Carga de Lectura masiva</h1>
+                                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Carga de lectura masiva</h1>
                                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                         </div>
                                                                         <div class="modal-body">
@@ -395,7 +395,30 @@
 
                                                             <div class="card-body">
 
-                                                                <button style="border: solid 1px;" class="btn btn-outline-default" data-bs-toggle="modal" data-bs-target="#exampleModal" href="">Cargar ahora</button>
+                                                            <!--MODAL CARGAS MANUALES-->
+                                                            <button style="border: solid 1px;" class="btn btn-outline-default" data-bs-toggle="modal" data-bs-target="#LecturaManual" href="">Cargar ahora</button>
+
+                                                            <!--BODY MODAL CARGAS MANUALES-->
+                                                            <div class="modal fade" id="LecturaManual" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="LecturaManual" aria-hidden="true">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h1 class="modal-title fs-5" id="LecturaManual">Carga de lectura manual</h1>
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                        sdsd
+
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                                                    <button type="button" class="btn btn-primary">Cargar</button>
+                                                                </div>
+                                                                </div>
+                                                            </div>
+                                                            </div>
+                                                            <!--BODY MODAL CARGAS MANUALES-->
+                                                            <!--MODAL CARGAS MANUALES-->
 
 
                                                             </div>
