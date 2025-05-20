@@ -33,11 +33,7 @@ class ScreensController extends Controller
 
     public function lead()
     {
-
         $customers = alquilers::all();
-
-        
-
         return view("screens.lead", compact("customers"));
     }
 
