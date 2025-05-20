@@ -92,6 +92,25 @@
                 </div>
             </div>
 
+            @if ($message_e = Session::get('warning'))
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <h5 class="alert-heading"><i class='bx bx-error-circle'></i> Alerta!</h5>
+                    {{ $message_e }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i
+                            class='bx bx-x'></i></button>
+                </div>
+            @endif
+
+                            
+            @if ($message_e = Session::get('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <h5 class="alert-heading"><i class='bx bx-check'></i> Proceso completado con Exito!</h5>
+                    {{ $message_e }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i
+                        class='bx bx-x'></i></button>
+                </div>
+            @endif
+            
 
             <!--SECTION GENERAL-->
             <div class="container-fluid py-2 mb-">
@@ -125,7 +144,11 @@
                                                 <div class="modal-body">
 
                                                     <h4>Descargar Plantillas</h4>
-                                                        <p><a href="#">Aquí</a> puede descargar la Plantilla de Importación</p>
+                                                        <p>Puede descargar la Plantilla de Importación <a href="#">Aquí</a></p>
+                                                        <hr>
+
+                                                        <h4>Carga Manual</h4>
+                                                            <p>Realice la carga de lecturas manual <a href=""> aqui</a></p>
                                                         <hr>
 
                                                                     
@@ -134,36 +157,32 @@
 
                                                         <form action="" method="post" enctype="multipart/form-data">
                                                             @csrf
-                                                              <div class="file-input text-center">
-                                                                  <input type="file" accept=".csv" name="file" id="file-input" class="form-control" required />
+                                                              <div class="file-input text-center d-flex ">
+                                                                  <input style="height: 40px; " type="file" accept=".csv" name="file" id="file-input" class="form-control w-60" required />
                                                                  <label class="file-input__label" for="file-input">
+
+                                                                <div class="text-start">
+                                                                    <button style="font-size: 17px; padding: auto;" type="submit" name="subir" id="btn_load" onclick="load_reading_general();"
+                                                                    class="btn btn-success" value="submit">Cargar .CSV</button>
+                                                                </div>
+
                                                               </div>
 
-
-                                                             <div class="text-start mt-2">
-                                                                <button type="submit" name="subir" id="btn_load" onclick="load_reading_general();"
-                                                                       class="btn btn-dark" value="submit">Cargar .CSV</button>
-                                                             </div>
                                                         </form>
                                                          <hr>
-
-                                                        <h4>Carga Manual</h4>
-                                                            <p>Realice la carda de lecturas manual <a href=""> aqui</a></p>
-                                                        <hr>
 
                                                          <h4>Exportar .XLS</h4>
                                                             <p>Exportar Lecturas Globales</p>
 
-                                                            <div class="text-start mt-4">
+                                                            <div class="text-start mt-">
                                                                 <form action="" method="POST">
-                                                                    <a href="../CONTROLLER/Export_data.php" name="export" id="export" class="btn btn-dark" value="Submit">Exportar .XLS</a>
+                                                                    <a href="../CONTROLLER/Export_data.php" name="export" id="export" class="" value="Submit">Exportar .XLS</a>
                                                                 </form>
                                                              </div>
 
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-subtle" data-bs-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn btn-primary">Understood</button>
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                                                 </div>
                                                 </div>
                                             </div>
@@ -189,15 +208,6 @@
 
 
             <div class="main p-5">
-
-                @if ($message_e = Session::get('success'))
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        <h5 class="alert-heading"><i class='bx bx-check'></i> Proceso completado con Exito!</h5>
-                        {{ $message_e }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i
-                                class='bx bx-x'></i></button>
-                    </div>
-                @endif
 
                 <!--TABLE ORDEN-->
                 <div class="col-md-15 mb-lg-0 mb-4">

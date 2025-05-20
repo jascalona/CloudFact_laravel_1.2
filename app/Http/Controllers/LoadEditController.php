@@ -11,7 +11,6 @@ class LoadEditController extends Controller
         $editLoad = lgenals::findOrFail( $id );
         return view("logic.LoadEdit", compact("editLoad"));
 
-
     }
 
     public function update(Request $request, $id){

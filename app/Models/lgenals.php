@@ -14,4 +14,29 @@ class lgenals extends Model
 
     }
 
+    protected $fillable = [
+        'n_contract',
+        'cliente',
+        'rif',
+        'serial',
+        'model',
+        'location',
+        'date',
+        'mes',
+        'cont_ante_bn',
+        'cont_actu_bn',
+        'volum_bn',
+        'amcv_bn',
+        'cont_ante_color',
+        'cont_actu_color',
+        'volum_color',
+        'amcv_color',
+        'cont_ante_scan_images',
+        'cont_actu_scan_images',
+        'volum_scan_images',
+        'cont_ante_scan_jobs',
+        'cont_actu_scan_jobs',
+        'volum_scan_jobs'  
+    ];
+
 }

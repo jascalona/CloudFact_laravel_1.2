@@ -183,7 +183,7 @@
 
                         <!--GRAFICOS-->
                         <div class="row">
-                            <div class="col-lg-6 col-md-6 mt-4 mb-4">
+                            <div class="col-lg-6 col-md-6 mt-6 mb-4">
                                 <div class="card">
                                     <div class="card-body">
                                         <h6 class="mb-0 ">Carga de Contadores</h6>
@@ -200,7 +200,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 col-md-6 mt-4 mb-4">
+                            <div class="col-lg-6 col-md-6 mt-6 mb-4">
                                 <div class="card ">
                                     <div class="card-body">
                                         <h6 class="mb-0 ">Facturación</h6>
@@ -240,16 +240,18 @@
                                             <li class="nav-item" role="presentation">
                                                 <a class="nav-link" id="fill-tab-1" data-bs-toggle="tab"
                                                     href="#fill-tabpanel-1" role="tab" aria-controls="fill-tabpanel-1"
-                                                    aria-selected="false">Orden</a>
+                                                    aria-selected="false">Opciones Avanzadas</a>
                                             </li>
 
                                         </ul>
 
                                     </div>
                                 </div>
+                            </div>
 
-
-                                <div class="tab-content pt-5" id="tab-content">
+                            <!--body resumen-->
+                            <div class="tab-content pt-5 m-3" id="tab-content">
+                                    
                                     <div class="tab-pane active" id="fill-tabpanel-0" role="tabpanel"
                                         aria-labelledby="fill-tab-0">
 
@@ -257,8 +259,8 @@
 
                                             <ul class="list-group">
                                                 <li
-                                                    class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                                                    <div class="d-flex flex-column">
+                                                    class="list-group-item border-1 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                                                    <div class="d-flex flex-column p-2">
                                                         <h6 class="mb-1 text-dark font-weight-bold text-sm">
                                                             {{ $ListOrden->mes }}
                                                         </h6>
@@ -278,16 +280,148 @@
                                     </div>
 
                                     <div class="tab-pane" id="fill-tabpanel-1" role="tabpanel" aria-labelledby="fill-tab-1">
-
-                                        <div class="col-12 text-end mb-3">
-                                            <a href="{{ route('orden.edit', $clienteL->n_contract) }}" type="submit"
-                                                value="submit" name="btn-load" class="btn bg-gradient-dark mb-0"
-                                                href="javascript:;"><i class='bx bxs-save'></i>&nbsp;&nbsp;Nueva Orden</a>
+                                        <!--GENERAR ORDEN-->
+                                        <div class="card mb-2">
+                                            <div class="card-body">
+                                                <h5 class="card-title mb-3">Generar Ordenes</h5>
+                                                <span class="card-text">
+                                                    <a style="border: solid 1px;" href="{{ route('orden.edit', $clienteL->n_contract) }}" type="submit"
+                                                    value="submit" name="btn-load" class="btn btn-outline-default"
+                                                    href="javascript:;">Nueva Orden</a>
+                                                </span>
+                                            </div>
                                         </div>
+                                        <!--GENERAR ORDEN-->
+
+                                        <!--LECTUAS-->
+                                        <div class="accordion accordion-flush mt-3" id="accordionFlushExample">
+
+                                            <div class="accordion">
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                                        Lectura Masiva
+                                                    </button>
+                                                    </h2>
+
+                                                    <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                                                            <div class="accordion-body">
+                                                                <div class="card-body">
+
+                                                                    <button style="border: solid 1px;" class="btn btn-outline-default" data-bs-toggle="modal" data-bs-target="#exampleModal" href="">Cargar ahora</button>
+
+                                                                    <!-- Modal -->
+                                                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                    <div class="modal-dialog modal-lg">
+                                                                        <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Carga de Lectura masiva</h1>
+                                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+
+                                                                            <!--01 Downloads plantilla-->
+                                                                            <h2 class="fs-5"><strong>1. Descargue "Planilla Carga" de muestra(*.CSV)</strong></h2>
+                                                                            
+                                                                            <label class="mt-4" for="">Seleccione un Rango de fechas</label>
+                                                                            <div class="input-group mb-3">
+                                                                                
+                                                                                <div class="form-floating m-2">
+                                                                                    <input style="border: solid 1px rgba(112, 112, 112, 0.54);" type="date" class="form-control" id="floatingInputGrid" placeholder="name@example.com" value="mdo@example.com">
+                                                                                    <label for="floatingInputGrid">Fecha desde:</label>
+                                                                                </div>
+
+                                                                                <div class="form-floating m-2">
+                                                                                    <input style="border: solid 1px rgba(112, 112, 112, 0.54);" type="date" class="form-control" id="floatingInputGrid" placeholder="name@example.com" value="mdo@example.com">
+                                                                                    <label for="floatingInputGrid">Fecha hasta:</label>
+                                                                                </div>
+
+                                                                            </div>
+
+                                                                            <button name="downloads_p" class="btn btn-primary m-2">Descargar</button>
+
+                                                                            <!--01 Downloads plantilla-->
+                                                                            
+                                                                            <hr>
+
+                                                                            <form action="" method="post" >
+
+                                                                                <!--02 Carga masiva-->
+                                                                                <h2 class="fs-5"><strong>2. Seleccione la plantilla descargada (*.CSV)</strong></h2>
+                                                                                
+                                                                                <label class="mt-4" for="">Plantilla con lecturas actualizadas</label>
+                                                                                <div class="input-group mb-3">
+                                                                                    <input style="border: solid 1px rgba(112, 112, 112, 0.54);" type="file" class="form-control" id="inputGroupFile02" required>
+                                                                                </div>
+                                                                                <!--02 Carga masiva-->
+
+                                                                        </div>
+
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                                                                <button type="submit" name="load_customer" value="submit" class="btn btn-primary">Cargar Lecturas</button>
+                                                                            </div>
+
+                                                                            </form>
+
+                                                                        </div>
+                                                                    </div>
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <div style="font-size: 13px; height: auto; padding: 10px;" class="card-footer text-muted">
+                                                                    Ideal para equipos conectados (XRC,XDA)
+                                                                </div>
+
+                                                            </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <br>
+                                            
+                                            <div class="accordion-item">
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                                                        Lectura Manual
+                                                    </button>
+                                                    </h2>
+
+                                                    <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                                                        <div class="accordion-body">
+
+                                                            <div class="card-body">
+
+                                                                <button style="border: solid 1px;" class="btn btn-outline-default" data-bs-toggle="modal" data-bs-target="#exampleModal" href="">Cargar ahora</button>
+
+
+                                                            </div>
+
+                                                            <div style="font-size: 13px; height: auto; padding: 10px;" class="card-footer text-muted">
+                                                                Ideal para equipos en localidades foráneas cuyo acceso sea limitado
+                                                            </div>
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>  
+                                            </div>
+
+
+                                        </div>
+                                        <!--LECTURAS-->
+                                        
+                                      
 
                                     </div>
-                                </div>
+
                             </div>
+                            <!--body resumen-->
+
+
                         </div>
                     </div>
                     <!--RESUMEN FACTURACION-->
@@ -454,9 +588,9 @@
                                         </tr>
                                     </thead>
 
-                                    @foreach ($load as $row)
 
                                         <tbody>
+                                            @foreach ($load as $row)
                                             <tr style="font-size: 12px;">
                                                 <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
                                                     {{ $row->cliente }}</td>
@@ -506,10 +640,9 @@
                                                     {{ $row->volum_scan_jobs }}</td>
 
                                             </tr>
-
+                                            @endforeach
                                         </tbody>
 
-                                    @endforeach
 
                                 </table>
                             </div>
