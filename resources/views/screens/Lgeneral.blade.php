@@ -96,139 +96,89 @@
             <!--SECTION GENERAL-->
             <div class="container-fluid py-2 mb-">
                 <div class="row">
-                    <div class="col-lg-8">
+                    <div class="col-lg-12">
                         <div class="row">
 
                             <div class="col-md-12 mb-lg-0 mb-4">
+
                                 <div class="card">
-                                    <div class="card-header pb-0 p-3">
-                                        <div class="row">
-                                            <div class="col-6 d-flex align-items-center">
-                                                <h4 class="mb-0">Informe Detallado Global</h4>
-                                            </div>
+                                    <div class="card-header d-flex align-items-center border-bottom">
+                                        <span class="avatar text-bg-primary avatar-lg fs-5">R</span>
+                                        <div class="ms-3">
+                                            <h6 class="mb-0 fs-sm">Informe detallado Global</h6>
+                                            <span class="text-muted fs-sm">September 14, 2022</span>
+                                        </div>
+
+                                        <!--BTN MODAL-->
+                                        <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                             class="btn text-muted ms-auto"><i class='bx bx-dots-vertical-rounded'></i>
+                                        </button>
+
+                                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+                                            data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="staticBackdropLabel">Opciones Avanzadas</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+
+                                                    <h4>Descargar Plantillas</h4>
+                                                        <p><a href="#">Aquí</a> puede descargar la Plantilla de Importación</p>
+                                                        <hr>
+
+                                                                    
+                                                        <h4>Importar .CSV</h4>
+                                                        <p>Realice la carga de lecturas através de un CSV.</p>
+
+                                                        <form action="" method="post" enctype="multipart/form-data">
+                                                            @csrf
+                                                              <div class="file-input text-center">
+                                                                  <input type="file" accept=".csv" name="file" id="file-input" class="form-control" required />
+                                                                 <label class="file-input__label" for="file-input">
+                                                              </div>
 
 
-                                            <div class="col-6 mb-2 text-end">
-                                                <div class="advanced">
+                                                             <div class="text-start mt-2">
+                                                                <button type="submit" name="subir" id="btn_load" onclick="load_reading_general();"
+                                                                       class="btn btn-dark" value="submit">Cargar .CSV</button>
+                                                             </div>
+                                                        </form>
+                                                         <hr>
 
-                                                    <!-- Button modal Activation-->
-                                                    <button type="button" class="btn btn-dark text-center"
-                                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                        <i style="" class='bx bx-cog'></i>
-                                                    </button>
-                                                    <!-- Button modal Activation-->
+                                                        <h4>Carga Manual</h4>
+                                                            <p>Realice la carda de lecturas manual <a href=""> aqui</a></p>
+                                                        <hr>
 
-                                                    <!-- Modal -->
-                                                    <div class="modal fade text-start" id="exampleModal" tabindex="-1"
-                                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                        <div class="modal-dialog">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">
-                                                                        <strong>Opciones Avanzadas</strong>
-                                                                    </h1>
-                                                                    <button type="button" class="btn-close"
-                                                                        data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                </div>
+                                                         <h4>Exportar .XLS</h4>
+                                                            <p>Exportar Lecturas Globales</p>
 
-
-                                                                <div class="modal-body">
-
-                                                                    <h4>Descargar Plantillas</h4>
-                                                                    <p>Aquí puede descargar la Plantilla de Importación
-                                                                    </p>
-                                                                    <a href="" data-bs-toggle="tooltip"
-                                                                        title="Tooltip">Descargar</a>
-
-
-                                                                    <hr>
-
-                                                                    <h4>Importar .CSV</h4>
-                                                                    <p>Realice la carga de lecturas através de un CSV.
-                                                                    </p>
-
-                                                                    <form action="" method="post"
-                                                                        enctype="multipart/form-data">
-                                                                        @csrf
-                                                                        <div class="file-input text-center">
-                                                                            <input type="file" accept=".csv" name="file"
-                                                                                id="file-input" class="form-control"
-                                                                                required />
-                                                                            <label class="file-input__label"
-                                                                                for="file-input">
-                                                                        </div>
-
-
-                                                                        <div class="text-start mt-2">
-                                                                            <button type="submit" name="subir" id="btn_load"
-                                                                                onclick="load_reading_general();"
-                                                                                class="btn btn-dark" value="submit">Cargar
-                                                                                .CSV</button>
-                                                                        </div>
-                                                                    </form>
-
-                                                                    <hr>
-
-                                                                    <h4>Carga Manual</h4>
-                                                                    <p>Realice la carda de lecturas manual</p>
-                                                                    <a href="../modelos/vistas/form_manual.php"
-                                                                        data-bs-toggle="tooltip" title="Tooltip">Realizar
-                                                                        Carga</a>
-
-                                                                    <hr>
-                                                                    <h4>Exportar .XLS</h4>
-                                                                    <p>Exportar Lecturas Globales</p>
-
-                                                                    <div class="text-start mt-4">
-                                                                        <form action="" method="POST">
-                                                                            <a href="../CONTROLLER/Export_data.php"
-                                                                                name="export" id="export"
-                                                                                class="btn btn-dark" value="Submit">Exportar
-                                                                                .XLS</a>
-                                                                        </form>
-                                                                    </div>
-
-
-                                                                </div>
-
-
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary"
-                                                                        data-bs-dismiss="modal">Cerrar</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Modal -->
+                                                            <div class="text-start mt-4">
+                                                                <form action="" method="POST">
+                                                                    <a href="../CONTROLLER/Export_data.php" name="export" id="export" class="btn btn-dark" value="Submit">Exportar .XLS</a>
+                                                                </form>
+                                                             </div>
 
                                                 </div>
-
-
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-subtle" data-bs-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary">Understood</button>
+                                                </div>
+                                                </div>
                                             </div>
+                                            </div>
+                                        <!--BTN MODAL-->
 
 
-
-                                        </div>
                                     </div>
-                                    <div class="card-body p-3">
-                                        <div class="row">
-                                            <div class="col-md-6 mb-md-0 mb-4">
-                                                <div
-                                                    class="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row">
-                                                    <img class="w-10 me-3 mb-0" src="{{ asset('images/xdv.png') }}"
-                                                        alt="logo">
-                                                    <h6 class="mb-0">
-                                                        Total de CLientes: 52
-                                                    </h6>
-                                                    <i style="font-size: 20px"
-                                                        class="bx bx-group ms-auto text-dark cursor-pointer"
-                                                        data-bs-toggle="tooltip" data-bs-placement="top"></i>
-                                                </div>
-                                            </div>
-
-                                        </div>
+                                    <div class="card-body">
+                                        Total de Clientes bajo contrato: 52 <i style="font-size: 18px"
+                                            class="bx bx-group ms-auto text-dark" data-bs-toggle="tooltip"
+                                            data-bs-placement="top"></i>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>

@@ -77,49 +77,26 @@
                     </div>
                 </div>
 
-
                 <!--SECTION GENERAL-->
                 <div class="container-fluid py-2 mb-6">
-                    <div class="row">
-                        <div class="col-lg-8">
-                            <div class="row">
 
-                                <div class="col-md-12 mb-lg-0 mb-4">
-                                    <div class="card">
-                                        <div class="card-header pb-0 p-3">
-                                            <div class="row">
-                                                <div class="col-6 d-flex align-items-center">
-                                                    <h4 class="mb-0">Informe Detallado Global</h4>
-                                                </div>
-                                                <div class="col-6 mb-2 text-end">
-                                                    <a class="btn bg-gradient-dark mb-0" href="{{ route('Lgeneral') }}"><i
-                                                            class='bx bxs-book-open'></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card-body p-3">
-                                            <div class="row">
-                                                <div class="col-md-6 mb-md-0 mb-4">
-                                                    <div
-                                                        class="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row">
-                                                        <img class="w-10 me-3 mb-0" src="{{ asset('images/xdv.png') }}"
-                                                            alt="logo">
-                                                        <h6 class="mb-0">
-                                                            Total de CLientes: 52
-                                                        </h6>
-                                                        <i style="font-size: 20px"
-                                                            class="bx bx-group ms-auto text-dark cursor-pointer"
-                                                            data-bs-toggle="tooltip" data-bs-placement="top"></i>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="card">
+                        <div class="card-header d-flex align-items-center border-bottom">
+                            <span class="avatar text-bg-primary avatar-lg fs-5">R</span>
+                            <div class="ms-3">
+                                <h6 class="mb-0 fs-sm">Lecturas de Cliente</h6>
+                                <span class="text-muted fs-sm">September 14, 2022</span>
                             </div>
+                            <a href="{{ route('Lgeneral') }}" class="btn text-muted ms-auto"><i
+                                    class='bx bxs-book-open'></i></a>
+                        </div>
+                        <div class="card-body">
+                            Total de Clientes bajo contrato: 52 <i style="font-size: 18px"
+                                class="bx bx-group ms-auto text-dark" data-bs-toggle="tooltip"
+                                data-bs-placement="top"></i>
                         </div>
                     </div>
+
                 </div>
                 <!--SECTION GENERAL-->
 
@@ -161,8 +138,8 @@
             </div>
 
 
-           
-            
+
+
         </main>
 
     @endsection

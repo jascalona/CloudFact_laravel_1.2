@@ -164,10 +164,22 @@
                         <div class="card mt-4">
                             <div class="card-header pb-0 p-3">
                                 <div class="row">
-                                    <div class="col-6 d-flex align-items-center">
+                                    <div style="justify-content: space-between;" class="col-12 d-flex align-items-center">
                                         <h4 class="mb-3 text-secondary font-weight-bolder opacity-7">Customer's:
                                             <small>Park</small></h4>
+
+                                        <form action="" method="post" >
+                                            @csrf
+                                            @method('PATCH')
+
+                                             <div style="" class="btns">
+                                                <button type="submit" value="submit" href="" class="btn btn-dark">Editar</button>
+                                                <button class="btn btn-dark">Suprimir</button>
+
+                                            </div>
                                     </div>
+
+                                   
 
                                 </div>
                             </div>
@@ -178,6 +190,12 @@
                                     <table id="myTable" class="table align-items-center mb-0">
                                         <thead>
                                             <tr style="font-size: 13px;">
+
+                                                <th
+                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                    IDs</th>
+                                                <th
+                                                
                                                 <th class="text-start"><input style="margin-left: 50px;"
                                                         class="form-check-input" type="checkbox" value="" id="checkPark"
                                                         for="checkIndeterminate"></th>
@@ -229,31 +247,20 @@
                                             </tr>
                                         </thead>
 
-                                        <script>
-                                            // Obtener el checkbox principal y los checkboxes de la lista
-                                            const seleccionarTodo = document.getElementById("checkPark");
-                                            const checkboxes = document.querySelectorAll(".item-checkbox");
-
-                                            // Agregar un evento de cambio al checkbox principal
-                                            seleccionarTodo.addEventListener("change", (event) => {
-                                                // Obtener el estado actual del checkbox principal
-                                                const estado = event.target.checked;
-
-                                                // Iterar sobre los checkboxes de la lista
-                                                checkboxes.forEach((checkbox) => {
-                                                    // Establecer el estado de cada checkbox a la del checkbox principal
-                                                    checkbox.checked = estado;
-                                                });
-                                            });
-                                        </script>
 
                                         <tbody>
 
                                             @foreach ($parks as $row_park)
                                                 <tr style="font-size: 12px;">
+
+                                                    <td
+                                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                        {{ $row_park->id }}</td>
+                                                    <td
+
                                                     <td class="text-start">
                                                         <input style="margin-left: 50px;" class="form-check-input item-checkbox"
-                                                            type="checkbox" value="{{ $row_park->id }}" id="checkIndeterminate">
+                                                            type="checkbox" name="checkboxes[]" value="{{ $row_park->id }}">
                                                     </td>
 
                                                     <td
@@ -311,6 +318,9 @@
                                     </table>
                                 </div>
                             </div>
+
+                            </form>
+
                         </div>
                     </div>
                     <!--TABLE ORDEN-->

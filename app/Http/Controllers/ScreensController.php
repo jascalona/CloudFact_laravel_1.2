@@ -35,6 +35,9 @@ class ScreensController extends Controller
     {
 
         $customers = alquilers::all();
+
+        
+
         return view("screens.lead", compact("customers"));
     }
 
