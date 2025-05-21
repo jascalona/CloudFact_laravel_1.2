@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\links;
+use Carbon\Carbon;
 use Illuminate\Pagination\CursorPaginator;
 use Illuminate\Http\Request;
 use App\Models\Ordens;
@@ -66,10 +67,16 @@ class ScreensController extends Controller
             ->where('n_contract', $id) 
             ->get();
 
+
+        $dateLM = Carbon::now();
+
+        $mesLM = $dateLM->translatedFormat('F Y');
+
+
         //$ordens = Ordens::orderBy('date_emi', 'desc')->cursorPaginate(6);
 
 
-        return view("layouts.LCustomer", compact("clienteL", "load", "ordens"));
+        return view("layouts.LCustomer", compact("clienteL", "load", "ordens" ,"dateLM","mesLM"));
     }
 
 
