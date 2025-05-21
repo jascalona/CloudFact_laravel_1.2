@@ -19,6 +19,7 @@
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 
 
+    <script src="{{ asset('js/calculator.js') }}"></script>
     <script src="{{ asset('js/scroller_tables.js') }}"></script>
     <script src="{{ asset('js/material-dashboard.js') }}"></script>
     <script src="{{ asset('js/material-dashboard.js.map') }}"></script>
@@ -415,62 +416,62 @@
 
                                                                      <div class="mb-3">
                                                                         <label for="recipient-name" class="col-form-label">Cliente</label>
-                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="text" name="cliente" placeholder="Cliente" class="form-control"  id="recipient-name" value="">
+                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="text" name="cliente" placeholder="Cliente" class="form-control"  id="recipient-name" value="" readonly>
                                                                     </div>
 
                                                                      <div class="mb-3">
                                                                         <label for="recipient-name" class="col-form-label">RIF</label>
-                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="text" name="rif" placeholder="Rif del Cliente" class="form-control" id="recipient-name" value="">
+                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="text" name="rif" placeholder="Rif del Cliente" class="form-control" id="recipient-name" value="" readonly>
                                                                     </div>
 
                                                                      <div class="mb-3">
                                                                         <label for="recipient-name" class="col-form-label">Modelo</label>
-                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="text" name="model" placeholder="Modelo del equipo" class="form-control" id="recipient-name" value="">
+                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="text" name="model" placeholder="Modelo del equipo" class="form-control" id="recipient-name" value="" readonly>
                                                                     </div>
 
                                                                      <div class="mb-3">
                                                                         <label for="recipient-name" class="col-form-label">N# Contrato</label>
-                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="text" name="n_contract" placeholder="N# Contrato" class="form-control" id="recipient-name" value="">
+                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="text" name="n_contract" placeholder="N# Contrato" class="form-control" id="recipient-name" value="" readonly>
                                                                     </div>
 
                                                                      <div class="mb-3">
                                                                         <label for="recipient-name" class="col-form-label">Mes</label>
-                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="text" name="mes" placeholder="Mes de Carga" class="form-control" id="recipient-name" value="">
+                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="text" name="mes" placeholder="Mes de Carga" class="form-control" id="recipient-name" value="{{ $mesLM }}" readonly>
                                                                     </div>
 
                                                                      <div class="mb-3">
                                                                         <label for="recipient-name" class="col-form-label">Fecha</label>
-                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="text" name="date" placeholder="Fecha de carga" class="form-control" id="recipient-name" value="">
+                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="text" name="date" placeholder="Fecha de carga" class="form-control" id="recipient-name" value="{{ $dateLM->format('Y-m-d') }}" readonly>
                                                                     </div>
 
                                                                     <div class="mb-3">
                                                                         <label for="recipient-name" class="col-form-label">Cont. Ante. B/N</label>
-                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="text" placeholder="Ingrese el contador anterior B/N" name="cont_ante_bn" class="form-control" id="recipient-name" value="">
+                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="number" placeholder="Ingrese el contador anterior B/N" name="cont_ante_bn" class="form-control" id="cont_ante_bn" value="0">
                                                                     </div>
 
                                                                     <div class="mb-3">
                                                                         <label for="recipient-name" class="col-form-label">Cont. Actu. B/N</label>
-                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="text" placeholder="Ingrese el contador anterior B/N" name="cont_actu_bn" class="form-control" id="recipient-name" value="">
+                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="number" placeholder="Ingrese el contador actual B/N" name="cont_actu_bn" class="form-control" id="cont_actu_bn" value="0">
                                                                     </div>
 
                                                                     <div class="mb-3">
                                                                         <label for="recipient-name" class="col-form-label">Volum. B/N</label>
-                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="text" name="volum_bn" placeholder="Calculo de volumen B/N" class="form-control" id="recipient-name" value="">
+                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="number" name="volum_bn" placeholder="Calculo de volumen B/N" class="form-control" id="volum_bn" value="">
                                                                     </div>
 
                                                                     <div class="mb-3">
                                                                         <label for="recipient-name" class="col-form-label">Cont. Ante. Color</label>
-                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="text" placeholder="Ingrese el contador anterior color" name="cont_ante_color" class="form-control" id="recipient-name" value="">
+                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="number" placeholder="Ingrese el contador anterior color" name="cont_ante_color" class="form-control" id="recipient-name" value="0">
                                                                     </div>
 
                                                                     <div class="mb-3">
                                                                         <label for="recipient-name" class="col-form-label">Cont. Actu. Color</label>
-                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="text" placeholder="Ingrese el contador actual color" name="cont_actu_color" class="form-control" id="recipient-name" value="">
+                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="number" placeholder="Ingrese el contador actual color" name="cont_actu_color" class="form-control" id="recipient-name" value="0">
                                                                     </div>
                                                                     
                                                                     <div class="mb-3">
                                                                         <label for="recipient-name" class="col-form-label">Volum. Color</label>
-                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="text" placeholder="Calculo de volumen Color" name="volum_bn" class="form-control" id="recipient-name" value="">
+                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="number" placeholder="Calculo de volumen Color" name="volum_bn" class="form-control" id="recipient-name" value="">
                                                                     </div>
                                                                     
 

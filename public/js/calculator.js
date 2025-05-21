@@ -1,21 +1,27 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const num1Input = document.getElementById('num1');
-    const num2Input = document.getElementById('num2');
-    const resultadoInput = document.getElementById('resultado');
+/**CALCULO DE VOLUMEN EN CARGA MANUAL */
 
-    // Agrega un evento input a ambos input
-    num1Input.addEventListener('input', actualizarResultado);
-    num2Input.addEventListener('input', actualizarResultado);
+/**CALCULO */
+document.addEventListener('DOMContentLoaded', function(){
+    const CONT_ANTE_BN = document.getElementById('cont_ante_bn');
+    const CONT_ACTU_BN = document.getElementById('cont_actu_bn');
+    const VOLUM_BN = document.getElementById('volum_bn');
 
-    function actualizarResultado() {
-        const num1 = parseFloat(num1Input.value);
-        const num2 = parseFloat(num2Input.value);
+    //Agregar los eventos input a ambos inputs
+    CONT_ANTE_BN.addEventListener('input', actualizarResultado);
+    CONT_ACTU_BN.addEventListener('input', actualizarResultado);
 
-        if (isNaN(num1) || isNaN(num2)) {
-            resultadoInput.value = ''; // Limpiar el resultado si alguno de los valores no es un número
+    //FUNCION DE CONVERSION
+    function actualizarResultado(){
+        const ante_bn = parseInt(CONT_ANTE_BN.value);
+        const actu_bn = parseInt(CONT_ACTU_BN.value);
+
+        if (isNaN(ante_bn) || isNaN(actu_bn)) {
+            VOLUM_BN.value = ''; 
+        //Formatear los campos en caso de que los datos ingresado no puedan ser calculados
         } else {
-            const resultado = num1 * num2;
-            resultadoInput.value = resultado;
+            const resultado = actu_bn - ante_bn;
+            VOLUM_BN.value = resultado;
         }
     }
-});    
+
+})

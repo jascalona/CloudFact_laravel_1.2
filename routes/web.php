@@ -36,7 +36,6 @@ Route::get('/dashboard', [App\Http\Controllers\CustomerController::class, 'index
 Route::post('install', [App\Http\Controllers\ParkController::class,'store'])->name('park.store');
 
 
-
  /**ruta lecturas */
  Route::get('/lead', [App\Http\Controllers\ScreensController::class,'lead'])->name('.lead');
 
