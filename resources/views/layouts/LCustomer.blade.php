@@ -461,17 +461,17 @@
 
                                                                     <div class="mb-3">
                                                                         <label for="recipient-name" class="col-form-label">Cont. Ante. Color</label>
-                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="number" placeholder="Ingrese el contador anterior color" name="cont_ante_color" class="form-control" id="recipient-name" value="0">
+                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="number" placeholder="Ingrese el contador anterior color" name="cont_ante_color" class="form-control" id="cont_ante_color" value="0">
                                                                     </div>
 
                                                                     <div class="mb-3">
                                                                         <label for="recipient-name" class="col-form-label">Cont. Actu. Color</label>
-                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="number" placeholder="Ingrese el contador actual color" name="cont_actu_color" class="form-control" id="recipient-name" value="0">
+                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="number" placeholder="Ingrese el contador actual color" name="cont_actu_color" class="form-control" id="cont_actu_color" value="0">
                                                                     </div>
                                                                     
                                                                     <div class="mb-3">
                                                                         <label for="recipient-name" class="col-form-label">Volum. Color</label>
-                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="number" placeholder="Calculo de volumen Color" name="volum_bn" class="form-control" id="recipient-name" value="">
+                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="number" placeholder="Calculo de volumen Color" name="volum_color" class="form-control" id="volum_color" value="">
                                                                     </div>
                                                                     
 
