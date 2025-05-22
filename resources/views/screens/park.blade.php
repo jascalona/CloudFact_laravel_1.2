@@ -190,11 +190,6 @@
                                     <table id="myTable" class="table align-items-center mb-0">
                                         <thead>
                                             <tr style="font-size: 13px;">
-
-                                                <th
-                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                    IDs</th>
-                                                <th
                                                 
                                                 <th class="text-start"><input style="margin-left: 50px;"
                                                         class="form-check-input" type="checkbox" value="" id="checkPark"
@@ -252,11 +247,6 @@
 
                                             @foreach ($parks as $row_park)
                                                 <tr style="font-size: 12px;">
-
-                                                    <td
-                                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                        {{ $row_park->id }}</td>
-                                                    <td
 
                                                     <td class="text-start">
                                                         <input style="margin-left: 50px;" class="form-check-input item-checkbox"

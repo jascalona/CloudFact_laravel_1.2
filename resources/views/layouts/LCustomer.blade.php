@@ -304,8 +304,10 @@
                                                 <div class="d-flex align-items-center text-sm">
                                                     {{ $ListOrden->base_imponible }} $
                                                     <a href="{{ route('orden.generateInvoices', $ListOrden->id) }}"
-                                                        class="btn btn-link text-dark text-sm mb-0 px-0 ms-4">
+                                                        class="btn btn- text-dark text-sm mb-0 px-0 ms-4">
                                                         <i style="font-size: 16px" class='bx bxs-file-pdf'></i> PDF</a>
+
+                                                    <a stype="" href="" class=""><i style="font-size: 20px; padding: 6px;" class='bx bx-edit'></i></a>
                                                 </div>
                                             </li>
                                         </ul>
@@ -1012,6 +1014,7 @@
                                             <table id="myTable_fact" class="table align-items-center mb-0">
                                                 <thead>
                                                     <tr>
+
                                                         <th
                                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
                                                             N# Factura</th>
@@ -1027,6 +1030,7 @@
                                                         <th
                                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
                                                             Total Facturado</th>
+
                                                     </tr>
                                                 </thead>
 
