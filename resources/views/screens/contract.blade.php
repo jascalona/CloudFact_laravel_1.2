@@ -140,7 +140,7 @@
                                     @foreach ($alquilers as $row)
                                         <tr style="font-size: 12px;">
                                             <td class="text-center">
-                                                <a href="{{ route('edit_alquiler.edit', $row->id) }}" class="btn btn-warning"><i
+                                                <a href="{{ route('edit_alquiler.edit', $row->n_contract) }}" class="btn btn-warning"><i
                                                         class='bx bxs-edit-alt'></i></a>
                                             </td>
                                             <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">{{ $row->n_contract }}</td>

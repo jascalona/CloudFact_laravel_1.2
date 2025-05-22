@@ -31,23 +31,23 @@ class AlquilerController extends Controller
         if (!empty($_POST['btn-edit'])) {
 
             #Vista 01
-            if (!empty($_POST['cliente']) and !empty($_POST['date_init_contract']) and !empty($_POST['date_close_contract'])
+            if (!empty($_POST['cliente']) and !empty($_POST['date_init_contract'])
                 
             /**Precio y copiado minimo */
-                and !empty($_POST['P_CLICK_BN_USD']) and !empty($_POST['P_CLICK_COLOR_USD'])    
-                and !empty($_POST['PCM']) and !empty($_POST['label']) 
+                and !empty($_POST['P_CLICK_BN_USD'])  
+                and !empty($_POST['PCM'])
 
             /**Datos primarios */ 
-                and !empty($_POST['rif']) and !empty($_POST['n_contract']) and !empty($_POST['d_contract']) and !empty($_POST['tipo_c']) and !empty($_POST['vendedor']) 
-                and !empty($_POST['administrador_01'])  
+                and !empty($_POST['rif']) and !empty($_POST['n_contract']) 
                 
             #Vista 02   
-               and !empty($_POST['moneda']) and !empty($_POST['tipo_cambio'])) {
+               and !empty($_POST['moneda']) ) {
 
                 /**Modificacion */
                 $alquilerU = Alquilers::findOrFail($id);
 
                 #01
+                    $alquilerU->name_c = $request->name_c;
                     $alquilerU->cliente = $request->cliente;
                     $alquilerU->date_init_contract = $request->date_init_contract;
                     $alquilerU->date_close_contract = $request->date_close_contract;

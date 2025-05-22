@@ -117,7 +117,7 @@
                             </div>
                         </div>
 
-                        <form class="mb-5" action="{{ route('edit_alquiler.update', $alquiler->id) }}" method="post">
+                        <form class="mb-5" action="{{ route('edit_alquiler.update', $alquiler->n_contract) }}" method="post">
                             @method('put')
                             @csrf
 
@@ -125,7 +125,7 @@
                                 <div class="form-text" id="basic-addon4">Nombre del Contrato:</div>
                                 <input style="font-size: 38px" type="text" class="form-"
                                     placeholder="Por ejemplo: 056JE22K Xerox Corporation, C.A" aria-label="Username"
-                                    aria-describedby="basic-addon1" name="name_c" value="{{ $alquiler->name_c }}">
+                                    aria-describedby="basic-addon1" name="name_c" value="{{ $alquiler->name_c }}" required>
                             </div>
 
                             <div class="col-12 text-end">
@@ -171,7 +171,7 @@
                                                             <input type="text" class="form"
                                                                 placeholder="Por ejemplo: Xerox Corporation"
                                                                 aria-label="Username" aria-describedby="basic-addon1"
-                                                                name="cliente" value="{{ $alquiler->cliente }}">
+                                                                name="cliente" value="{{ $alquiler->cliente }}" required>
                                                         </div>
 
                                                         <div class="form-text mt-4" id="basic-addon4">Fecha de Inicio</div>
@@ -179,7 +179,7 @@
                                                             <input type="date" class="form" placeholder="Emision"
                                                                 aria-label="Username" aria-describedby="basic-addon1"
                                                                 name="date_init_contract"
-                                                                value="{{ $alquiler->date_init_contract }}">
+                                                                value="{{ $alquiler->date_init_contract }}" required>
                                                         </div>
 
                                                         <div class="form-text mt-4" id="basic-addon4">Fecha de Final</div>
@@ -187,7 +187,7 @@
                                                             <input type="date" class="form" placeholder="Emision"
                                                                 aria-label="Username" aria-describedby="basic-addon1"
                                                                 name="date_close_contract"
-                                                                value="{{  $alquiler->date_close_contract}}">
+                                                                value="{{  $alquiler->date_close_contract}}" required>
                                                         </div>
 
                                                         <ul class="nav nav-fill nav-tabs w-90 mt-6" role="tablist">
@@ -226,7 +226,7 @@
                                                                             placeholder="0.00" aria-label="Username"
                                                                             aria-describedby="basic-addon1"
                                                                             name="P_CLICK_BN_USD"
-                                                                            value="{{ $alquiler->P_CLICK_BN_USD }}">
+                                                                            value="{{ $alquiler->P_CLICK_BN_USD }}" required>
                                                                     </div>
 
                                                                     <div class="form-text" id="basic-addon4">Precio global
@@ -239,7 +239,7 @@
                                                                             placeholder="0.00" aria-label="Username"
                                                                             aria-describedby="basic-addon1"
                                                                             name="P_CLICK_COLOR_USD"
-                                                                            value="{{ $alquiler->P_CLICK_COLOR_USD }}">
+                                                                            value="{{ $alquiler->P_CLICK_COLOR_USD }}" required>
                                                                     </div>
 
                                                                     <div class="form-text" id="basic-addon4">Copiado Minimo
@@ -248,7 +248,7 @@
                                                                         <input type="number" class="form" placeholder="2500"
                                                                             aria-label="Username"
                                                                             aria-describedby="basic-addon1"
-                                                                            name="copi_minimo_bn" value="{{ $alquiler->copi_minimo_bn }}">
+                                                                            name="copi_minimo_bn" value="{{ $alquiler->copi_minimo_bn }}" required>
                                                                     </div>
 
                                                                     <div class="form-text" id="basic-addon4">Copiado Minimo
@@ -257,7 +257,7 @@
                                                                         <input type="number" class="form" placeholder="2500"
                                                                             aria-label="Username"
                                                                             aria-describedby="basic-addon1"
-                                                                            name="copi_minimo_color" value="copi_minimo_color">
+                                                                            name="copi_minimo_color" value="{{ $alquiler->copi_minimo_color }}" required>
                                                                     </div>
 
                                                                     <div class="form-text" id="basic-addon4">Precio Cargo
@@ -267,7 +267,7 @@
                                                                         <input type="number" class="form"
                                                                             placeholder="1.000,84" aria-label="Username"
                                                                             aria-describedby="basic-addon1" name="PCM"
-                                                                            value="{{ $alquiler->PCM }}">
+                                                                            value="{{ $alquiler->PCM }}" required>
                                                                     </div>
 
                                                                     <div class="form-text" id="basic-addon4">Label</div>
@@ -275,7 +275,7 @@
                                                                         <input type="number" class="form"
                                                                             placeholder="450,00" aria-label="Username"
                                                                             aria-describedby="basic-addon1" name="label"
-                                                                            value="{{ $alquiler->label }}">
+                                                                            value="{{ $alquiler->label }}" >
                                                                     </div>
 
                                                                 </div>
@@ -313,7 +313,7 @@
                                                     <div class="input-group mb-3">
                                                         <input type="text" class="form" placeholder="Por ejemplo: 056JE22K"
                                                             aria-label="Username" aria-describedby="basic-addon1"
-                                                            name="n_contract" value="{{ $alquiler->n_contract }}">
+                                                            name="n_contract" value="{{ $alquiler->n_contract }}" required>
                                                     </div>
 
 
@@ -322,12 +322,12 @@
                                                     <div class="input-group mb-3">
                                                         <input type="number" class="form" placeholder="Por ejemplo: 12"
                                                             aria-label="Username" aria-describedby="basic-addon1"
-                                                            name="d_contract" value="{{ $alquiler->d_contract }}">
+                                                            name="d_contract" value="{{ $alquiler->d_contract }}" required>
                                                     </div>
 
                                                     <div class="form-text mt-4" id="basic-addon4">Tipo de Contrato</div>
                                                     <select class="form-select bb form-select-sm mb- mt-3"
-                                                        aria-label="Large select example" name="tipo_c">
+                                                        aria-label="Large select example" name="tipo_c" required>
                                                         <option value="{{ $alquiler->tipo_c }}" selected>{{ $alquiler->tipo_c }}</option>
                                                         <option value="FSMA">FSMA</option>
                                                         <option value="Renta - TCO">Renta - TCO</option>
@@ -379,7 +379,7 @@
                                                     <div class="form-text mt-2" id="basic-addon4">Información Monetarea
                                                     </div>
                                                     <select class="form-select bb form-select-sm mb-4 mt-3 w-50"
-                                                        aria-label="Large select example" name="moneda">
+                                                        aria-label="Large select example" name="moneda" required>
                                                         <option value="{{ $alquiler->moneda }}" selected>{{ $alquiler->moneda }}</option>
                                                         <option value="Bolivares">Bolivares</option>
                                                         <option value="Dolares">Dolares</option>
@@ -391,7 +391,7 @@
                                                         <div class="input-group mb-3">
                                                             <input type="text" class="form"
                                                                 placeholder="Por ejemplo: Paralelo" aria-label="Username"
-                                                                aria-describedby="basic-addon1" value="{{ $alquiler->tipo_cambio }}" name="tipo_cambio">
+                                                                aria-describedby="basic-addon1" value="{{ $alquiler->tipo_cambio }}" name="tipo_cambio" required>
                                                         </div>
 
                                                         <div class="form-text mt-4" id="basic-addon4">Razones de Consorcio

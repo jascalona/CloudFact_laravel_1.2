@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ImportController;
 use App\Http\Controllers\ParkController;
+use App\Http\Controllers\ScreensController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\OrdenController;
@@ -113,4 +114,3 @@ ROute::get('Orden/{ordens}/generateInvoice', [App\Http\Controllers\OrdenControll
 
 /**ruta RFLTQ */
 Route::get('RFLTQ', [App\Http\Controllers\RFController::class,'index'])->name('RFLTQ');
-

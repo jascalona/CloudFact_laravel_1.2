@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\links;
+use App\Models\parks;
 use Carbon\Carbon;
 use Illuminate\Pagination\CursorPaginator;
 use Illuminate\Http\Request;
@@ -53,21 +54,31 @@ class ScreensController extends Controller
         /**
          * Example SQL :
          * 
-            * SELECT *
-            * FROM lgenals
-            * INNER JOIN alquilers ON lgenals.n_contract = alquilers.n_contract WHERE alquilers.n_contract = $id ;
+         * SELECT *
+         * FROM lgenals
+         * INNER JOIN alquilers ON lgenals.n_contract = alquilers.n_contract WHERE alquilers.n_contract = $id ;
          */
 
+
+        /**RELACION TABLE LGENALS */
         $load = lgenals::with('alquilers')
             ->where('n_contract', $id)
             ->get();
 
 
-        $ordens = ordens::orderBy('date_emi', 'desc')-> with('alquilers')
-            ->where('n_contract', $id) 
+        /**RELACION TABLE ORDENS */
+        $ordens = ordens::orderBy('date_emi', 'desc')->with('alquilers')
+            ->where('n_contract', $id)
             ->get();
 
 
+        /**RELACION TABLE PARKS */
+        $devicePark = parks::with('alquilers')
+            ->where('n_contract', $id)
+            ->get();
+
+
+        /**SECTION DATETIMES SERVER */
         $dateLM = Carbon::now();
 
         $mesLM = $dateLM->translatedFormat('F Y');
@@ -75,8 +86,7 @@ class ScreensController extends Controller
 
         //$ordens = Ordens::orderBy('date_emi', 'desc')->cursorPaginate(6);
 
-
-        return view("layouts.LCustomer", compact("clienteL", "load", "ordens" ,"dateLM","mesLM"));
+        return view("layouts.LCustomer", compact("clienteL", "load", "ordens", "devicePark", "dateLM", "mesLM"));
     }
 
 

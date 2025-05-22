@@ -34,17 +34,51 @@
     <!--STYLES-->
 
 </head>
+
+<!--TABLE LECTURAS PRINT-->
 <script>
     $(document).ready(function () {
         $('#myTable').DataTable(
             {
                 "language": {
-                    "url": "//cdn.datatables.net/plug-ins/1.13.1/i18n/es-ES.json"
+                    "url": "cdn.datatables.net/plug-ins/1.13.1/i18n/es-ES.json"
                 }
             }
         );
     });
 </script>
+<!--TABLE LECTURAS PRINT-->
+
+
+<!--TABLE LECTURAS SCAN-->
+<script>
+    $(document).ready(function () {
+        $('#myTable_scan').DataTable(
+            {
+                "language": {
+                    "url": "cdn.datatables.net/plug-ins/1.13.1/i18n/es-ES.json"
+                }
+            }
+        );
+    });
+</script>
+<!--TABLE LECTURAS SCAN-->
+
+
+<!--TABLE LECTURAS FACT-->
+<script>
+    $(document).ready(function () {
+        $('#myTable_fact').DataTable(
+            {
+                "language": {
+                    "url": "cdn.datatables.net/plug-ins/1.13.1/i18n/es-ES.json"
+                }
+            }
+        );
+    });
+</script>
+<!--TABLE LECTURAS FACT-->
+
 
 <body style="background-color: rgba(208, 218, 237, 0.296);">
 
@@ -252,261 +286,403 @@
 
                             <!--body resumen-->
                             <div class="tab-content pt-5 m-3" id="tab-content">
-                                    
-                                    <div class="tab-pane active" id="fill-tabpanel-0" role="tabpanel"
-                                        aria-labelledby="fill-tab-0">
 
-                                        @foreach ($ordens as $ListOrden)
+                                <div class="tab-pane active" id="fill-tabpanel-0" role="tabpanel"
+                                    aria-labelledby="fill-tab-0">
 
-                                            <ul class="list-group">
-                                                <li
-                                                    class="list-group-item border-1 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                                                    <div class="d-flex flex-column p-2">
-                                                        <h6 class="mb-1 text-dark font-weight-bold text-sm">
-                                                            {{ $ListOrden->mes }}
-                                                        </h6>
-                                                        <span class="text-xs"># {{ $ListOrden->n_contract }}</span>
-                                                    </div>
-                                                    <div class="d-flex align-items-center text-sm">
-                                                        {{ $ListOrden->base_imponible }} $
-                                                        <a href="{{ route('orden.generateInvoices', $ListOrden->id) }}"
-                                                            class="btn btn-link text-dark text-sm mb-0 px-0 ms-4">
-                                                            <i style="font-size: 16px" class='bx bxs-file-pdf'></i> PDF</a>
-                                                    </div>
-                                                </li>
-                                            </ul>
+                                    @foreach ($ordens as $ListOrden)
 
-                                        @endforeach
+                                        <ul class="list-group">
+                                            <li
+                                                class="list-group-item border-1 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                                                <div class="d-flex flex-column p-2">
+                                                    <h6 class="mb-1 text-dark font-weight-bold text-sm">
+                                                        {{ $ListOrden->mes }}
+                                                    </h6>
+                                                    <span class="text-xs"># {{ $ListOrden->n_contract }}</span>
+                                                </div>
+                                                <div class="d-flex align-items-center text-sm">
+                                                    {{ $ListOrden->base_imponible }} $
+                                                    <a href="{{ route('orden.generateInvoices', $ListOrden->id) }}"
+                                                        class="btn btn-link text-dark text-sm mb-0 px-0 ms-4">
+                                                        <i style="font-size: 16px" class='bx bxs-file-pdf'></i> PDF</a>
+                                                </div>
+                                            </li>
+                                        </ul>
 
-                                    </div>
+                                    @endforeach
 
-                                    <div class="tab-pane" id="fill-tabpanel-1" role="tabpanel" aria-labelledby="fill-tab-1">
-                                        <!--GENERAR ORDEN-->
-                                        <div class="card mb-2">
-                                            <div class="card-body">
-                                                <h5 class="card-title mb-3">Generar Ordenes</h5>
-                                                <span class="card-text">
-                                                    <a style="border: solid 1px;" href="{{ route('orden.edit', $clienteL->n_contract) }}" type="submit"
+                                </div>
+
+                                <div class="tab-pane" id="fill-tabpanel-1" role="tabpanel" aria-labelledby="fill-tab-1">
+                                    <!--GENERAR ORDEN-->
+                                    <div class="card mb-2">
+                                        <div class="card-body">
+                                            <h5 class="card-title mb-3">Generar Ordenes</h5>
+                                            <span class="card-text">
+                                                <a style="border: solid 1px;"
+                                                    href="{{ route('orden.edit', $clienteL->n_contract) }}" type="submit"
                                                     value="submit" name="btn-load" class="btn btn-outline-default"
                                                     href="javascript:;">Nueva Orden</a>
-                                                </span>
-                                            </div>
+                                            </span>
                                         </div>
-                                        <!--GENERAR ORDEN-->
+                                    </div>
+                                    <!--GENERAR ORDEN-->
 
-                                        <!--LECTUAS-->
-                                        <div class="accordion accordion-flush mt-3" id="accordionFlushExample">
+                                    <!--LECTUAS-->
+                                    <div class="accordion accordion-flush mt-3" id="accordionFlushExample">
 
-                                            <div class="accordion">
-                                                <div class="accordion-item">
-                                                    <h2 class="accordion-header">
-                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                        <div class="accordion">
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header">
+                                                    <button class="accordion-button collapsed" type="button"
+                                                        data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo"
+                                                        aria-expanded="false" aria-controls="flush-collapseTwo">
                                                         Lectura Masiva
                                                     </button>
-                                                    </h2>
+                                                </h2>
 
-                                                    <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                                                            <div class="accordion-body">
-                                                                <div class="card-body">
+                                                <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                                                    data-bs-parent="#accordionFlushExample">
+                                                    <div class="accordion-body">
+                                                        <div class="card-body">
 
-                                                                    <button style="border: solid 1px;" class="btn btn-outline-default" data-bs-toggle="modal" data-bs-target="#exampleModal" href="">Cargar ahora</button>
+                                                            <button style="border: solid 1px;"
+                                                                class="btn btn-outline-default" data-bs-toggle="modal"
+                                                                data-bs-target="#exampleModal" href="">Cargar ahora</button>
 
-                                                                    <!-- Modal -->
-                                                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                                    <div class="modal-dialog modal-lg">
-                                                                        <div class="modal-content">
+                                                            <!-- Modal -->
+                                                            <div class="modal fade" id="exampleModal" tabindex="-1"
+                                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                <div class="modal-dialog modal-lg">
+                                                                    <div class="modal-content">
                                                                         <div class="modal-header">
-                                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Carga de lectura masiva</h1>
-                                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                            <h1 class="modal-title fs-5"
+                                                                                id="exampleModalLabel">Carga de lectura
+                                                                                masiva</h1>
+                                                                            <button type="button" class="btn-close"
+                                                                                data-bs-dismiss="modal"
+                                                                                aria-label="Close"></button>
                                                                         </div>
                                                                         <div class="modal-body">
 
                                                                             <!--01 Downloads plantilla-->
-                                                                            <h2 class="fs-5"><strong>1. Descargue "Planilla Carga" de muestra(*.CSV)</strong></h2>
-                                                                            
-                                                                            <label class="mt-4" for="">Seleccione un Rango de fechas</label>
+                                                                            <h2 class="fs-5"><strong>1. Descargue "Planilla
+                                                                                    Carga" de muestra(*.CSV)</strong></h2>
+
+                                                                            <label class="mt-4" for="">Seleccione un Rango
+                                                                                de fechas</label>
                                                                             <div class="input-group mb-3">
-                                                                                
+
                                                                                 <div class="form-floating m-2">
-                                                                                    <input style="border: solid 1px rgba(112, 112, 112, 0.54);" type="date" class="form-control" id="floatingInputGrid" placeholder="name@example.com" value="mdo@example.com">
-                                                                                    <label for="floatingInputGrid">Fecha desde:</label>
+                                                                                    <input
+                                                                                        style="border: solid 1px rgba(112, 112, 112, 0.54);"
+                                                                                        type="date" class="form-control"
+                                                                                        id="floatingInputGrid"
+                                                                                        placeholder="name@example.com"
+                                                                                        value="mdo@example.com">
+                                                                                    <label for="floatingInputGrid">Fecha
+                                                                                        desde:</label>
                                                                                 </div>
 
                                                                                 <div class="form-floating m-2">
-                                                                                    <input style="border: solid 1px rgba(112, 112, 112, 0.54);" type="date" class="form-control" id="floatingInputGrid" placeholder="name@example.com" value="mdo@example.com">
-                                                                                    <label for="floatingInputGrid">Fecha hasta:</label>
+                                                                                    <input
+                                                                                        style="border: solid 1px rgba(112, 112, 112, 0.54);"
+                                                                                        type="date" class="form-control"
+                                                                                        id="floatingInputGrid"
+                                                                                        placeholder="name@example.com"
+                                                                                        value="mdo@example.com">
+                                                                                    <label for="floatingInputGrid">Fecha
+                                                                                        hasta:</label>
                                                                                 </div>
 
                                                                             </div>
 
-                                                                            <button name="downloads_p" class="btn btn-primary m-2">Descargar</button>
+                                                                            <button name="downloads_p"
+                                                                                class="btn btn-primary m-2">Descargar</button>
 
                                                                             <!--01 Downloads plantilla-->
-                                                                            
+
                                                                             <hr>
 
-                                                                            <form action="" method="post" >
+                                                                            <form action="" method="post">
 
                                                                                 <!--02 Carga masiva-->
-                                                                                <h2 class="fs-5"><strong>2. Seleccione la plantilla descargada (*.CSV)</strong></h2>
-                                                                                
-                                                                                <label class="mt-4" for="">Plantilla con lecturas actualizadas</label>
+                                                                                <h2 class="fs-5"><strong>2. Seleccione la
+                                                                                        plantilla descargada
+                                                                                        (*.CSV)</strong></h2>
+
+                                                                                <label class="mt-4" for="">Plantilla con
+                                                                                    lecturas actualizadas</label>
                                                                                 <div class="input-group mb-3">
-                                                                                    <input style="border: solid 1px rgba(112, 112, 112, 0.54);" type="file" class="form-control" id="inputGroupFile02" required>
+                                                                                    <input
+                                                                                        style="border: solid 1px rgba(112, 112, 112, 0.54);"
+                                                                                        type="file" class="form-control"
+                                                                                        id="inputGroupFile02" required>
                                                                                 </div>
                                                                                 <!--02 Carga masiva-->
 
                                                                         </div>
 
-                                                                            <div class="modal-footer">
-                                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                                                                <button type="submit" name="load_customer" value="submit" class="btn btn-primary">Cargar Lecturas</button>
-                                                                            </div>
-
-                                                                            </form>
-
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-secondary"
+                                                                                data-bs-dismiss="modal">Cerrar</button>
+                                                                            <button type="submit" name="load_customer"
+                                                                                value="submit"
+                                                                                class="btn btn-primary">Cargar
+                                                                                Lecturas</button>
                                                                         </div>
+
+                                                                        </form>
+
                                                                     </div>
-                                                                    </div>
-
                                                                 </div>
-
-                                                                <div style="font-size: 13px; height: auto; padding: 10px;" class="card-footer text-muted">
-                                                                    Ideal para equipos conectados (XRC,XDA)
-                                                                </div>
-
                                                             </div>
+
+                                                        </div>
+
+                                                        <div style="font-size: 13px; height: auto; padding: 10px;"
+                                                            class="card-footer text-muted">
+                                                            Ideal para equipos conectados (XRC,XDA)
+                                                        </div>
+
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
 
 
-                                            <br>
-                                            
+                                        <br>
+
+                                        <div class="accordion-item">
                                             <div class="accordion-item">
-                                                <div class="accordion-item">
-                                                    <h2 class="accordion-header">
-                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                                                <h2 class="accordion-header">
+                                                    <button class="accordion-button collapsed" type="button"
+                                                        data-bs-toggle="collapse" data-bs-target="#flush-collapseThree"
+                                                        aria-expanded="false" aria-controls="flush-collapseThree">
                                                         Lectura Manual
                                                     </button>
-                                                    </h2>
+                                                </h2>
 
-                                                    <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                                                        <div class="accordion-body">
+                                                <div id="flush-collapseThree" class="accordion-collapse collapse"
+                                                    data-bs-parent="#accordionFlushExample">
+                                                    <div class="accordion-body">
 
-                                                            <div class="card-body">
+                                                        <div class="card-body">
 
                                                             <!--MODAL CARGAS MANUALES-->
-                                                            <button style="border: solid 1px;" class="btn btn-outline-default" data-bs-toggle="modal" data-bs-target="#LecturaManual" href="">Cargar ahora</button>
+                                                            <button style="border: solid 1px;"
+                                                                class="btn btn-outline-default" data-bs-toggle="modal"
+                                                                data-bs-target="#LecturaManual" href="">Cargar
+                                                                ahora</button>
 
                                                             <!--BODY MODAL CARGAS MANUALES-->
-                                                            <div class="modal fade" id="LecturaManual" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="LecturaManual" aria-hidden="true">
-                                                            <div class="modal-dialog modal-dialog-scrollable">
-                                                                <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h1 class="modal-title fs-5" id="LecturaManual">Carga de lectura manual</h1>
-                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            <div class="modal fade" id="LecturaManual"
+                                                                data-bs-backdrop="static" data-bs-keyboard="false"
+                                                                tabindex="-1" aria-labelledby="LecturaManual"
+                                                                aria-hidden="true">
+                                                                <div class="modal-dialog modal-dialog-scrollable">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h1 class="modal-title fs-5" id="LecturaManual">
+                                                                                Carga de lectura manual</h1>
+                                                                            <button type="button" class="btn-close"
+                                                                                data-bs-dismiss="modal"
+                                                                                aria-label="Close"></button>
+                                                                        </div>
+
+                                                                        <div class="modal-body">
+                                                                            <div class="mb-3">
+                                                                                <label for="recipient-name"
+                                                                                    class="col-form-label">Serial</label>
+                                                                                <input
+                                                                                    style="border: solid 1px rgba(99, 97, 97, 0.6);"
+                                                                                    type="text" name="serial"
+                                                                                    placeholder="Ingrese su serial"
+                                                                                    class="form-control" id="recipient-name"
+                                                                                    value="">
+                                                                            </div>
+
+                                                                            <div class="mb-3">
+                                                                                <label for="recipient-name"
+                                                                                    class="col-form-label">Cliente</label>
+                                                                                <input
+                                                                                    style="border: solid 1px rgba(99, 97, 97, 0.6);"
+                                                                                    type="text" name="cliente"
+                                                                                    placeholder="Cliente"
+                                                                                    class="form-control" id="recipient-name"
+                                                                                    value="" readonly>
+                                                                            </div>
+
+                                                                            <div class="mb-3">
+                                                                                <label for="recipient-name"
+                                                                                    class="col-form-label">RIF</label>
+                                                                                <input
+                                                                                    style="border: solid 1px rgba(99, 97, 97, 0.6);"
+                                                                                    type="text" name="rif"
+                                                                                    placeholder="Rif del Cliente"
+                                                                                    class="form-control" id="recipient-name"
+                                                                                    value="" readonly>
+                                                                            </div>
+
+                                                                            <div class="mb-3">
+                                                                                <label for="recipient-name"
+                                                                                    class="col-form-label">Modelo</label>
+                                                                                <input
+                                                                                    style="border: solid 1px rgba(99, 97, 97, 0.6);"
+                                                                                    type="text" name="model"
+                                                                                    placeholder="Modelo del equipo"
+                                                                                    class="form-control" id="recipient-name"
+                                                                                    value="" readonly>
+                                                                            </div>
+
+                                                                            <div class="mb-3">
+                                                                                <label for="recipient-name"
+                                                                                    class="col-form-label">N#
+                                                                                    Contrato</label>
+                                                                                <input
+                                                                                    style="border: solid 1px rgba(99, 97, 97, 0.6);"
+                                                                                    type="text" name="n_contract"
+                                                                                    placeholder="N# Contrato"
+                                                                                    class="form-control" id="recipient-name"
+                                                                                    value="" readonly>
+                                                                            </div>
+
+                                                                            <div class="mb-3">
+                                                                                <label for="recipient-name"
+                                                                                    class="col-form-label">Mes</label>
+                                                                                <input
+                                                                                    style="border: solid 1px rgba(99, 97, 97, 0.6);"
+                                                                                    type="text" name="mes"
+                                                                                    placeholder="Mes de Carga"
+                                                                                    class="form-control" id="recipient-name"
+                                                                                    value="{{ $mesLM }}" readonly>
+                                                                            </div>
+
+                                                                            <div class="mb-3">
+                                                                                <label for="recipient-name"
+                                                                                    class="col-form-label">Fecha</label>
+                                                                                <input
+                                                                                    style="border: solid 1px rgba(99, 97, 97, 0.6);"
+                                                                                    type="text" name="date"
+                                                                                    placeholder="Fecha de carga"
+                                                                                    class="form-control" id="recipient-name"
+                                                                                    value="{{ $dateLM->format('Y-m-d') }}"
+                                                                                    readonly>
+                                                                            </div>
+
+                                                                            <div class="mb-3">
+                                                                                <label for="recipient-name"
+                                                                                    class="col-form-label">Cont. Ante.
+                                                                                    B/N</label>
+                                                                                <input
+                                                                                    style="border: solid 1px rgba(99, 97, 97, 0.6);"
+                                                                                    type="number"
+                                                                                    placeholder="Ingrese el contador anterior B/N"
+                                                                                    name="cont_ante_bn" class="form-control"
+                                                                                    id="cont_ante_bn" value="0">
+                                                                            </div>
+
+                                                                            <div class="mb-3">
+                                                                                <label for="recipient-name"
+                                                                                    class="col-form-label">Cont. Actu.
+                                                                                    B/N</label>
+                                                                                <input
+                                                                                    style="border: solid 1px rgba(99, 97, 97, 0.6);"
+                                                                                    type="number"
+                                                                                    placeholder="Ingrese el contador actual B/N"
+                                                                                    name="cont_actu_bn" class="form-control"
+                                                                                    id="cont_actu_bn" value="0">
+                                                                            </div>
+
+                                                                            <div class="mb-3">
+                                                                                <label for="recipient-name"
+                                                                                    class="col-form-label">Volum.
+                                                                                    B/N</label>
+                                                                                <input
+                                                                                    style="border: solid 1px rgba(99, 97, 97, 0.6);"
+                                                                                    type="number" name="volum_bn"
+                                                                                    placeholder="Calculo de volumen B/N"
+                                                                                    class="form-control" id="volum_bn"
+                                                                                    value="">
+                                                                            </div>
+
+                                                                            <div class="mb-3">
+                                                                                <label for="recipient-name"
+                                                                                    class="col-form-label">Cont. Ante.
+                                                                                    Color</label>
+                                                                                <input
+                                                                                    style="border: solid 1px rgba(99, 97, 97, 0.6);"
+                                                                                    type="number"
+                                                                                    placeholder="Ingrese el contador anterior color"
+                                                                                    name="cont_ante_color"
+                                                                                    class="form-control"
+                                                                                    id="cont_ante_color" value="0">
+                                                                            </div>
+
+                                                                            <div class="mb-3">
+                                                                                <label for="recipient-name"
+                                                                                    class="col-form-label">Cont. Actu.
+                                                                                    Color</label>
+                                                                                <input
+                                                                                    style="border: solid 1px rgba(99, 97, 97, 0.6);"
+                                                                                    type="number"
+                                                                                    placeholder="Ingrese el contador actual color"
+                                                                                    name="cont_actu_color"
+                                                                                    class="form-control"
+                                                                                    id="cont_actu_color" value="0">
+                                                                            </div>
+
+                                                                            <div class="mb-3">
+                                                                                <label for="recipient-name"
+                                                                                    class="col-form-label">Volum.
+                                                                                    Color</label>
+                                                                                <input
+                                                                                    style="border: solid 1px rgba(99, 97, 97, 0.6);"
+                                                                                    type="number"
+                                                                                    placeholder="Calculo de volumen Color"
+                                                                                    name="volum_color" class="form-control"
+                                                                                    id="volum_color" value="">
+                                                                            </div>
+
+                                                                        </div>
+
+
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-secondary"
+                                                                                data-bs-dismiss="modal">Cerrar</button>
+                                                                            <button type="submit" name="loadManual"
+                                                                                value="submit"
+                                                                                class="btn btn-primary">Cargar</button>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
-                                                                <div class="modal-body">
-                                                                     
-                                                                    <div class="mb-3">
-                                                                        <label for="recipient-name" class="col-form-label">Serial</label>
-                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="text" name="serial" placeholder="Ingrese su serial" class="form-control" id="recipient-name" value="">
-                                                                    </div>
-
-                                                                     <div class="mb-3">
-                                                                        <label for="recipient-name" class="col-form-label">Cliente</label>
-                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="text" name="cliente" placeholder="Cliente" class="form-control"  id="recipient-name" value="" readonly>
-                                                                    </div>
-
-                                                                     <div class="mb-3">
-                                                                        <label for="recipient-name" class="col-form-label">RIF</label>
-                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="text" name="rif" placeholder="Rif del Cliente" class="form-control" id="recipient-name" value="" readonly>
-                                                                    </div>
-
-                                                                     <div class="mb-3">
-                                                                        <label for="recipient-name" class="col-form-label">Modelo</label>
-                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="text" name="model" placeholder="Modelo del equipo" class="form-control" id="recipient-name" value="" readonly>
-                                                                    </div>
-
-                                                                     <div class="mb-3">
-                                                                        <label for="recipient-name" class="col-form-label">N# Contrato</label>
-                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="text" name="n_contract" placeholder="N# Contrato" class="form-control" id="recipient-name" value="" readonly>
-                                                                    </div>
-
-                                                                     <div class="mb-3">
-                                                                        <label for="recipient-name" class="col-form-label">Mes</label>
-                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="text" name="mes" placeholder="Mes de Carga" class="form-control" id="recipient-name" value="{{ $mesLM }}" readonly>
-                                                                    </div>
-
-                                                                     <div class="mb-3">
-                                                                        <label for="recipient-name" class="col-form-label">Fecha</label>
-                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="text" name="date" placeholder="Fecha de carga" class="form-control" id="recipient-name" value="{{ $dateLM->format('Y-m-d') }}" readonly>
-                                                                    </div>
-
-                                                                    <div class="mb-3">
-                                                                        <label for="recipient-name" class="col-form-label">Cont. Ante. B/N</label>
-                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="number" placeholder="Ingrese el contador anterior B/N" name="cont_ante_bn" class="form-control" id="cont_ante_bn" value="0">
-                                                                    </div>
-
-                                                                    <div class="mb-3">
-                                                                        <label for="recipient-name" class="col-form-label">Cont. Actu. B/N</label>
-                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="number" placeholder="Ingrese el contador actual B/N" name="cont_actu_bn" class="form-control" id="cont_actu_bn" value="0">
-                                                                    </div>
-
-                                                                    <div class="mb-3">
-                                                                        <label for="recipient-name" class="col-form-label">Volum. B/N</label>
-                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="number" name="volum_bn" placeholder="Calculo de volumen B/N" class="form-control" id="volum_bn" value="">
-                                                                    </div>
-
-                                                                    <div class="mb-3">
-                                                                        <label for="recipient-name" class="col-form-label">Cont. Ante. Color</label>
-                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="number" placeholder="Ingrese el contador anterior color" name="cont_ante_color" class="form-control" id="cont_ante_color" value="0">
-                                                                    </div>
-
-                                                                    <div class="mb-3">
-                                                                        <label for="recipient-name" class="col-form-label">Cont. Actu. Color</label>
-                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="number" placeholder="Ingrese el contador actual color" name="cont_actu_color" class="form-control" id="cont_actu_color" value="0">
-                                                                    </div>
-                                                                    
-                                                                    <div class="mb-3">
-                                                                        <label for="recipient-name" class="col-form-label">Volum. Color</label>
-                                                                        <input style="border: solid 1px rgba(99, 97, 97, 0.6);" type="number" placeholder="Calculo de volumen Color" name="volum_color" class="form-control" id="volum_color" value="">
-                                                                    </div>
-                                                                    
-
-                                                                    
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                                                    <button type="submit" name="loadManual" value="submit" class="btn btn-primary">Cargar</button>
-                                                                </div>
-                                                                </div>
-                                                            </div>
                                                             </div>
                                                             <!--BODY MODAL CARGAS MANUALES-->
                                                             <!--MODAL CARGAS MANUALES-->
-
-
-                                                            </div>
-
-                                                            <div style="font-size: 13px; height: auto; padding: 10px;" class="card-footer text-muted">
-                                                                Ideal para equipos en localidades foráneas cuyo acceso sea limitado
-                                                            </div>
 
 
                                                         </div>
+
+                                                        <div style="font-size: 13px; height: auto; padding: 10px;"
+                                                            class="card-footer text-muted">
+                                                            Ideal para equipos en localidades foráneas cuyo acceso sea
+                                                            limitado
+                                                        </div>
+
+
                                                     </div>
-                                                </div>  
+                                                </div>
                                             </div>
-
-
                                         </div>
-                                        <!--LECTURAS-->
-                                        
-                                      
+
 
                                     </div>
+                                    <!--LECTURAS-->
+
+
+
+                                </div>
 
                             </div>
                             <!--body resumen-->
@@ -611,131 +787,289 @@
                 <!--TABLE ORDEN-->
                 <div class="col-md-15 mb-lg-0 mb-4">
                     <div class="card mt-4">
-                        <div class="card-header pb-0 p-3">
-                            <div class="row">
-                                <div class="col-6 d-flex align-items-center">
-                                    <h4 class="mb-3 text-secondary font-weight-bolder opacity-7">Customer's:
-                                        <small>Load</small>
-                                    </h4>
+
+                        <!--TABLE ORDEN-->
+                        <div class="main p-5">
+                            <div class="col-md-12 mb-md-0 mb-4">
+                                <div class="col-md-">
+
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link active" id="simple-tab-0" data-bs-toggle="tab"
+                                                href="#simple-tabpanel-0" role="tab" aria-controls="simple-tabpanel-0"
+                                                aria-selected="true">Historial de Volumen Printer</a>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link" id="simple-tab-1" data-bs-toggle="tab"
+                                                href="#simple-tabpanel-1" role="tab" aria-controls="simple-tabpanel-1"
+                                                aria-selected="false">Historial de Volumen digitization</a>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link" id="simple-tab-1" data-bs-toggle="tab"
+                                                href="#simple-tabpanel-2" role="tab" aria-controls="simple-tabpanel-1"
+                                                aria-selected="false">Resumen de Facturas</a>
+                                        </li>
+                                    </ul>
+
+                                    <div class="tab-content pt-5" id="tab-content">
+
+                                        <!--vista printer-->
+                                        <div class="tab-pane active" id="simple-tabpanel-0" role="tabpanel"
+                                            aria-labelledby="simple-tab-0">
+
+                                            <div class="content-table">
+                                                <h4 class="mb-4">Lecturas Copiado</h4>
+                                                <table id="myTable" class="table align-items-center mb-0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th
+                                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                Serial</th>
+                                                            <th
+                                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                Modelo</th>
+                                                            <th
+                                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                Mes</th>
+                                                            <th
+                                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                Fecha</th>
+                                                            <th
+                                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                Cont. Anterior B/N</th>
+                                                            <th
+                                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                Cont. Actual B/N</th>
+                                                            <th
+                                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                Volum B/N</th>
+                                                            <th
+                                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                Cont. Anterior Color</th>
+                                                            <th
+                                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                Cont. Actual Color</th>
+                                                            <th
+                                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                Volum Color</th>
+                                                        </tr>
+                                                    </thead>
+
+                                                    <tbody>
+                                                        @foreach ($load as $row_load)
+
+                                                            <tr>
+                                                                <td
+                                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                    {{ $row_load->serial }}
+                                                                </td>
+                                                                <td
+                                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                    {{ $row_load->model }}
+                                                                </td>
+                                                                <td
+                                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                    {{ $row_load->mes }}
+                                                                </td>
+                                                                <td
+                                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                    {{ $row_load->date }}
+                                                                </td>
+                                                                <td
+                                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                    {{ $row_load->cont_ante_bn }}
+                                                                </td>
+                                                                <td
+                                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                    {{ $row_load->cont_actu_bn }}
+                                                                </td>
+                                                                <td
+                                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                    {{ $row_load->volum_bn }}
+                                                                </td>
+                                                                <td
+                                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                    {{ $row_load->cont_ante_color }}
+                                                                </td>
+                                                                <td
+                                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                    {{ $row_load->cont_actu_color }}
+                                                                </td>
+                                                                <td
+                                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                    {{ $row_load->volum_color }}
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                        </div>
+                                        <!--vista printer-->
+
+
+                                        <!--vista digitalizacion-->
+                                        <div class="tab-pane" id="simple-tabpanel-1" role="tabpanel"
+                                            aria-labelledby="simple-tab-1">
+
+                                            <div class="content-table">
+                                                <h4 class="mb-4">Lecturas Digitalización</h4>
+
+
+                                                <table id="myTable_scan" class="table align-items-center mb-0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th
+                                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                Serial</th>
+                                                            <th
+                                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                Modelo</th>
+                                                            <th
+                                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                Mes</th>
+                                                            <th
+                                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                Fecha</th>
+                                                            <th
+                                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                Cont. Ant. ScanImages</th>
+                                                            <th
+                                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                Cont. Act. ScanImages</th>
+                                                            <th
+                                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                Volum ScanImages</th>
+                                                            <th
+                                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                Cont. Ante. ScanJobs</th>
+                                                            <th
+                                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                Cont. Actu. ScanJobs</th>
+                                                            <th
+                                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                Volum ScanJobs</th>
+                                                        </tr>
+                                                    </thead>
+
+                                                    <tbody>
+                                                        @foreach ($load as $row_load_scan)
+
+                                                            <tr>
+                                                                <td
+                                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                    {{ $row_load_scan->serial }}
+                                                                </td>
+                                                                <td
+                                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                    {{ $row_load_scan->model }}
+                                                                </td>
+                                                                <td
+                                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                    {{ $row_load_scan->mes }}
+                                                                </td>
+                                                                <td
+                                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                    {{ $row_load_scan->date }}
+                                                                </td>
+                                                                <td
+                                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                    {{ $row_load_scan->cont_ante_scan_images }}
+                                                                </td>
+                                                                <td
+                                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                    {{ $row_load_scan->cont_actu_scan_images }}
+                                                                </td>
+                                                                <td
+                                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                    {{ $row_load_scan->volum_scan_images }}
+                                                                </td>
+                                                                <td
+                                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                    {{ $row_load_scan->cont_ante_scan_jobs }}
+                                                                </td>
+                                                                <td
+                                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                    {{ $row_load_scan->cont_actu_scan_jobs }}
+                                                                </td>
+                                                                <td
+                                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                    {{ $row_load_scan->volum_scan_jobs }}
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!--vista digitalizacion-->
+
+                                        <!--vista cotizacion-->
+                                        <div class="tab-pane" id="simple-tabpanel-2" role="tabpanel"
+                                            aria-labelledby="simple-tab-2">
+
+                                            <table id="myTable_fact" class="table align-items-center mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th
+                                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                            N# Factura</th>
+                                                        <th
+                                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                            Mes</th>
+                                                        <th
+                                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                            N# Contrato</th>
+                                                        <th
+                                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                            RIF</th>
+                                                        <th
+                                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                            Total Facturado</th>
+                                                    </tr>
+                                                </thead>
+
+
+                                                <tbody>
+                                                    @foreach ($ordens as $row_ordens)
+                                                        <tr>
+                                                            <td
+                                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                {{ $row_ordens->n_fact }}
+                                                            </td>
+                                                            <td
+                                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                {{ $row_ordens->mes }}
+                                                            </td>
+                                                            <td
+                                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                {{ $row_ordens->n_contract }}
+                                                            </td>
+                                                            <td
+                                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                {{ $row_ordens->rif }}
+                                                            </td>
+                                                            <td
+                                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                {{ $row_ordens->base_imponible }} $
+                                                            </td>
+
+                                                        </tr>
+                                                    @endforeach
+
+
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                        <!--vista cotizacion-->
+                                    </div>
+
                                 </div>
 
                             </div>
-                        </div>
-                        
-                        <!--TABLE ORDEN-->
-                        <div class="main p-5">
 
-                            <div class="content-table">
-                                <table id="myTable" class="table align-items-center mb-0">
-                                    <thead>
-                                        <tr style="font-size: 13px;">
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                Cliente</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                RIF</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                Serial</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                Modelo</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                N# Contrato</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                Activo</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                Localidad</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                Mes</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                Date</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                Cont. Anterior B/N</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                Cont. Actual B/N</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                Volum. B/N</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                AMCV_bn</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                Cont. Anterior Color</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                Cont. Actual Color</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                Volum. Color</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                AMCV_color</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                Cont. Anterior ScanImages</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                Cont. Actual ScanImages</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                Volum. Scan Images</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                Cont. Anterior ScanJobs</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                Cont. Actual ScanJobs</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                Volum. Scan Jobs</th>
-                                        </tr>
-                                    </thead>
-
-
-                                        <tbody>
-                                            @foreach ($load as $row)
-                                            <tr style="font-size: 12px;">
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                    {{ $row->cliente }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                    {{ $row->rif }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                    {{ $row->serial }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                    {{ $row->model }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                    {{ $row->n_contract }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                    {{ $row->activo }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                    {{ $row->location }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                    {{ $row->mes }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                    {{ $row->date }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                    {{ $row->cont_ante_bn }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                    {{ $row->cont_actu_bn }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                    {{ $row->volum_bn }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                    {{ $row->AMCV_bn }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                    {{ $row->cont_ante_color }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                    {{ $row->cont_actu_color }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                    {{ $row->volum_color }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                    {{ $row->AMCV_color }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                    {{ $row->cont_ante_scan_images }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                    {{ $row->cont_actu_scan_images }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                    {{ $row->volum_scan_images }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                    {{ $row->cont_ante_scan_jobs }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                    {{ $row->cont_actu_scan_jobs }}</td>
-                                                <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                    {{ $row->volum_scan_jobs }}</td>
-
-                                            </tr>
-                                            @endforeach
-                                        </tbody>
-
-
-                                </table>
-                            </div>
                         </div>
 
                     </div>

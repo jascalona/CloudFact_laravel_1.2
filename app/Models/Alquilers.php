@@ -28,4 +28,10 @@ class Alquilers extends Model
         return $this->belongsTo(ordens::class, 'n_contract', 'n_contract');
     }
 
+    
+    /**Function for references table ordens */
+    public function parks(){
+        return $this->belongsTo(parks::class, 'n_contract', 'n_contract');
+    }
+
 }
