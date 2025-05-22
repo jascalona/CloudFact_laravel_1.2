@@ -309,16 +309,16 @@
 
                                                     <button style="" href="" class="btn btn-link"><i
                                                             style="font-size: 20px; padding: 6px;" class='bx bx-edit'
-                                                            data-bs-toggle="modal" data-bs-target="#exampleModal"></i></button>
+                                                            data-bs-toggle="modal" data-bs-target="#modal_fact_odoo"></i></button>
 
                                                     <!-- Modal -->
-                                                    <div class="modal fade" id="exampleModal" tabindex="-1"
+                                                    <div class="modal fade" id="modal_fact_odoo" tabindex="-1"
                                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
-                                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Cargar
-                                                                        Numero de Factura</h1>
+                                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">
+                                                                        N# Factura (Odoo)</h1>
                                                                     <button type="button" class="btn-close"
                                                                         data-bs-dismiss="modal" aria-label="Close"></button>
                                                                 </div>
