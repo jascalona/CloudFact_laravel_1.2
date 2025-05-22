@@ -307,7 +307,48 @@
                                                         class="btn btn- text-dark text-sm mb-0 px-0 ms-4">
                                                         <i style="font-size: 16px" class='bx bxs-file-pdf'></i> PDF</a>
 
-                                                    <a stype="" href="" class=""><i style="font-size: 20px; padding: 6px;" class='bx bx-edit'></i></a>
+                                                    <button style="" href="" class="btn btn-link"><i
+                                                            style="font-size: 20px; padding: 6px;" class='bx bx-edit'
+                                                            data-bs-toggle="modal" data-bs-target="#exampleModal"></i></button>
+
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="exampleModal" tabindex="-1"
+                                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Cargar
+                                                                        Numero de Factura</h1>
+                                                                    <button type="button" class="btn-close"
+                                                                        data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+
+                                                                    <form action="{{ route('LCustomer.factOdoo') }}" method="get">
+                                                                        @csrf
+
+                                                                        <input type="text" name="n_fact_odoo"
+                                                                            class="form-control w-100"
+                                                                            placeholder="Ingrese el N# de factura (Odoo)"
+                                                                            aria-label="Username"
+                                                                            aria-describedby="basic-addon1" value="{{ $ListOrden->factOdoo }}" required>
+
+                                                                </div>
+
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-bs-dismiss="modal">Cerrar</button>
+
+                                                                    <button type="submit" name="n_factOdoo" value="submit"
+                                                                        class="btn btn-primary">Cargar</button>
+
+                                                                    </form>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
                                                 </div>
                                             </li>
                                         </ul>
@@ -1038,6 +1079,7 @@
                                                 <tbody>
                                                     @foreach ($ordens as $row_ordens)
                                                         <tr>
+
                                                             <td
                                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
                                                                 {{ $row_ordens->n_fact }}

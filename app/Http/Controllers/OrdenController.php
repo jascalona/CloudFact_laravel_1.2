@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\lgenals;
 use App\Models\Ordens;
+use App\Models\parks;
 use Illuminate\Http\Request;
 use App\Models\Alquilers;
 use Carbon\Carbon;
@@ -185,6 +186,18 @@ class OrdenController extends Controller
 
         // And return invoice itself to browser or have a different view
         return $invoice->stream();
+    }
+
+    public function factOdoo(Request $request){
+
+        //NUEVA INSTANCIA
+        $fact_Odoo = new Ordens();
+
+        $fact_Odoo->factOdoo = $request->get('factOdoo');
+        $fact_Odoo->save();
+
+        return redirect()->back()->with('success', 'Numero de factura (Odoo) Agregado!');
+
     }
 
 }

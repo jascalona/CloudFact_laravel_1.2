@@ -113,4 +113,6 @@ ROute::get('Orden/{ordens}/generateInvoice', [App\Http\Controllers\OrdenControll
 
 
 /**ruta RFLTQ */
-Route::get('RFLTQ', [App\Http\Controllers\RFController::class,'index'])->name('RFLTQ');
+Route::get('RFLTQ', [App\Http\Controllers\RFController::class,'index'])->name('RFLTQ'); 
+
+Route::get('LCustomer', [App\Http\Controllers\OrdenController::class,'factOdoo'])->name('LCustomer.factOdoo');
