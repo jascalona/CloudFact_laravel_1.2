@@ -55,6 +55,16 @@ Route::get('/Lgeneral', [App\Http\Controllers\ScreensController::class,'Lgeneral
  
 Route::resource('Lgenals', App\Http\Controllers\ScreensController::class)->names('Lgenal');
 
+
+
+
+/**CARGA LECTURAS MANUALES */
+Route::post('Lcustomer', [App\Http\Controllers\LecturaManualController::class, 'store'])->name('LCustomer.lecturaManual.store');
+
+
+
+
+
 //Route::get('/LCustomer', [App\Http\Controllers\ScreensController::class,'LCustomer'])->name('LCustomer');
 
 Route::get('/LCustomer{show}', [App\Http\Controllers\ScreensController::class,'show'])->name('LCustomer');
@@ -84,6 +94,8 @@ Route::get('contract', [App\Http\Controllers\ScreensController::class,'contract'
 Route::get('/install', [App\Http\Controllers\ScreensController::class,'install'])->name('install');
 
 Route::post('install', [App\Http\Controllers\ParkController::class,'store'])->name('install.store');
+
+
 
 
 /**NEW CONTRACT ALQUILER */

@@ -309,7 +309,8 @@
 
                                                     <button style="" href="" class="btn btn-link"><i
                                                             style="font-size: 20px; padding: 6px;" class='bx bx-edit'
-                                                            data-bs-toggle="modal" data-bs-target="#modal_fact_odoo"></i></button>
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#modal_fact_odoo"></i></button>
 
                                                     <!-- Modal -->
                                                     <div class="modal fade" id="modal_fact_odoo" tabindex="-1"
@@ -324,14 +325,16 @@
                                                                 </div>
                                                                 <div class="modal-body">
 
-                                                                    <form action="{{ route('LCustomer.factOdoo') }}" method="get">
+                                                                    <form action="{{ route('LCustomer.factOdoo') }}"
+                                                                        method="get">
                                                                         @csrf
 
                                                                         <input type="text" name="n_fact_odoo"
                                                                             class="form-control w-100"
                                                                             placeholder="Ingrese el N# de factura (Odoo)"
                                                                             aria-label="Username"
-                                                                            aria-describedby="basic-addon1" value="{{ $ListOrden->factOdoo }}" required>
+                                                                            aria-describedby="basic-addon1"
+                                                                            value="{{ $ListOrden->factOdoo }}" required>
 
                                                                 </div>
 
@@ -535,158 +538,259 @@
                                                                         </div>
 
                                                                         <div class="modal-body">
-                                                                            <div class="mb-3">
-                                                                                <label for="recipient-name"
-                                                                                    class="col-form-label">Serial</label>
-                                                                                <input
-                                                                                    style="border: solid 1px rgba(99, 97, 97, 0.6);"
-                                                                                    type="text" name="serial"
-                                                                                    placeholder="Ingrese su serial"
-                                                                                    class="form-control" id="recipient-name"
-                                                                                    value="">
-                                                                            </div>
 
-                                                                            <div class="mb-3">
-                                                                                <label for="recipient-name"
-                                                                                    class="col-form-label">Cliente</label>
-                                                                                <input
-                                                                                    style="border: solid 1px rgba(99, 97, 97, 0.6);"
-                                                                                    type="text" name="cliente"
-                                                                                    placeholder="Cliente"
-                                                                                    class="form-control" id="recipient-name"
-                                                                                    value="" readonly>
-                                                                            </div>
+                                                                            <form
+                                                                                action="{{ route('LCustomer.lecturaManual.store') }}"
+                                                                                method="post">
+                                                                                @csrf
 
-                                                                            <div class="mb-3">
-                                                                                <label for="recipient-name"
-                                                                                    class="col-form-label">RIF</label>
-                                                                                <input
-                                                                                    style="border: solid 1px rgba(99, 97, 97, 0.6);"
-                                                                                    type="text" name="rif"
-                                                                                    placeholder="Rif del Cliente"
-                                                                                    class="form-control" id="recipient-name"
-                                                                                    value="" readonly>
-                                                                            </div>
 
-                                                                            <div class="mb-3">
-                                                                                <label for="recipient-name"
-                                                                                    class="col-form-label">Modelo</label>
-                                                                                <input
-                                                                                    style="border: solid 1px rgba(99, 97, 97, 0.6);"
-                                                                                    type="text" name="model"
-                                                                                    placeholder="Modelo del equipo"
-                                                                                    class="form-control" id="recipient-name"
-                                                                                    value="" readonly>
-                                                                            </div>
+                                                                                <div class="mb-3">
+                                                                                    <label for="recipient-name"
+                                                                                        class="col-form-label">Cliente</label>
+                                                                                    <input
+                                                                                        style="border: solid 1px rgba(99, 97, 97, 0.6);"
+                                                                                        type="text" name="cliente"
+                                                                                        placeholder="Cliente"
+                                                                                        class="form-control" id="cliente"
+                                                                                        value="{{ $clienteL->cliente }}"
+                                                                                        readonly required>
+                                                                                </div>
 
-                                                                            <div class="mb-3">
-                                                                                <label for="recipient-name"
-                                                                                    class="col-form-label">N#
-                                                                                    Contrato</label>
-                                                                                <input
-                                                                                    style="border: solid 1px rgba(99, 97, 97, 0.6);"
-                                                                                    type="text" name="n_contract"
-                                                                                    placeholder="N# Contrato"
-                                                                                    class="form-control" id="recipient-name"
-                                                                                    value="" readonly>
-                                                                            </div>
+                                                                                <div class="mb-3">
+                                                                                    <label for="recipient-name"
+                                                                                        class="col-form-label">RIF</label>
+                                                                                    <input
+                                                                                        style="border: solid 1px rgba(99, 97, 97, 0.6);"
+                                                                                        type="text" name="rif"
+                                                                                        placeholder="Rif del Cliente"
+                                                                                        class="form-control" id="rif"
+                                                                                        value="{{ $clienteL->rif }}"
+                                                                                        readonly required>
+                                                                                </div>
 
-                                                                            <div class="mb-3">
-                                                                                <label for="recipient-name"
-                                                                                    class="col-form-label">Mes</label>
-                                                                                <input
-                                                                                    style="border: solid 1px rgba(99, 97, 97, 0.6);"
-                                                                                    type="text" name="mes"
-                                                                                    placeholder="Mes de Carga"
-                                                                                    class="form-control" id="recipient-name"
-                                                                                    value="{{ $mesLM }}" readonly>
-                                                                            </div>
+                                                                                <div class="mb-3">
+                                                                                    <label for="recipient-name"
+                                                                                        class="col-form-label">N#
+                                                                                        Contrato</label>
+                                                                                    <input
+                                                                                        style="border: solid 1px rgba(99, 97, 97, 0.6);"
+                                                                                        type="text" name="n_contract"
+                                                                                        placeholder="N# Contrato"
+                                                                                        class="form-control" id="n_contract"
+                                                                                        value="{{ $clienteL->n_contract }}"
+                                                                                        readonly>
+                                                                                </div>
 
-                                                                            <div class="mb-3">
-                                                                                <label for="recipient-name"
-                                                                                    class="col-form-label">Fecha</label>
-                                                                                <input
-                                                                                    style="border: solid 1px rgba(99, 97, 97, 0.6);"
-                                                                                    type="text" name="date"
-                                                                                    placeholder="Fecha de carga"
-                                                                                    class="form-control" id="recipient-name"
-                                                                                    value="{{ $dateLM->format('Y-m-d') }}"
-                                                                                    readonly>
-                                                                            </div>
+                                                                                <div class="mb-3">
+                                                                                    <label for="recipient-name"
+                                                                                        class="col-form-label">Serial</label>
+                                                                                    <select class="form-select"
+                                                                                        aria-label="Default select example"
+                                                                                        name="serial" id="device" required>
+                                                                                        <option selected></option>
+                                                                                        @foreach ($devicePark as $dev)
+                                                                                            <option value="{{ $dev->model }}">
+                                                                                                {{ $dev->serial }}
+                                                                                            </option>
+                                                                                        @endforeach
+                                                                                    </select>
+                                                                                </div>
 
-                                                                            <div class="mb-3">
-                                                                                <label for="recipient-name"
-                                                                                    class="col-form-label">Cont. Ante.
-                                                                                    B/N</label>
-                                                                                <input
-                                                                                    style="border: solid 1px rgba(99, 97, 97, 0.6);"
-                                                                                    type="number"
-                                                                                    placeholder="Ingrese el contador anterior B/N"
-                                                                                    name="cont_ante_bn" class="form-control"
-                                                                                    id="cont_ante_bn" value="0">
-                                                                            </div>
 
-                                                                            <div class="mb-3">
-                                                                                <label for="recipient-name"
-                                                                                    class="col-form-label">Cont. Actu.
-                                                                                    B/N</label>
-                                                                                <input
-                                                                                    style="border: solid 1px rgba(99, 97, 97, 0.6);"
-                                                                                    type="number"
-                                                                                    placeholder="Ingrese el contador actual B/N"
-                                                                                    name="cont_actu_bn" class="form-control"
-                                                                                    id="cont_actu_bn" value="0">
-                                                                            </div>
+                                                                                <script>
+                                                                                    $("#device").change(function () {
+                                                                                        var selectValues = $(this).val();
+                                                                                        $("#model").val(selectValues);
+                                                                                    });
+                                                                                </script>
 
-                                                                            <div class="mb-3">
-                                                                                <label for="recipient-name"
-                                                                                    class="col-form-label">Volum.
-                                                                                    B/N</label>
-                                                                                <input
-                                                                                    style="border: solid 1px rgba(99, 97, 97, 0.6);"
-                                                                                    type="number" name="volum_bn"
-                                                                                    placeholder="Calculo de volumen B/N"
-                                                                                    class="form-control" id="volum_bn"
-                                                                                    value="">
-                                                                            </div>
+                                                                                <div class="mb-3">
+                                                                                    <label for="recipient-name"
+                                                                                        class="col-form-label">Modelo</label>
+                                                                                    <input
+                                                                                        style="border: solid 1px rgba(99, 97, 97, 0.6);"
+                                                                                        type="text" name="model"
+                                                                                        placeholder="Modelo del equipo"
+                                                                                        class="form-control" id="model"
+                                                                                        readonly required>
+                                                                                </div>
 
-                                                                            <div class="mb-3">
-                                                                                <label for="recipient-name"
-                                                                                    class="col-form-label">Cont. Ante.
-                                                                                    Color</label>
-                                                                                <input
-                                                                                    style="border: solid 1px rgba(99, 97, 97, 0.6);"
-                                                                                    type="number"
-                                                                                    placeholder="Ingrese el contador anterior color"
-                                                                                    name="cont_ante_color"
-                                                                                    class="form-control"
-                                                                                    id="cont_ante_color" value="0">
-                                                                            </div>
 
-                                                                            <div class="mb-3">
-                                                                                <label for="recipient-name"
-                                                                                    class="col-form-label">Cont. Actu.
-                                                                                    Color</label>
-                                                                                <input
-                                                                                    style="border: solid 1px rgba(99, 97, 97, 0.6);"
-                                                                                    type="number"
-                                                                                    placeholder="Ingrese el contador actual color"
-                                                                                    name="cont_actu_color"
-                                                                                    class="form-control"
-                                                                                    id="cont_actu_color" value="0">
-                                                                            </div>
+                                                                                <div class="mb-3">
+                                                                                    <label for="recipient-name"
+                                                                                        class="col-form-label">Localidad</label>
+                                                                                    <input
+                                                                                        style="border: solid 1px rgba(99, 97, 97, 0.6);"
+                                                                                        type="text" name="location"
+                                                                                        placeholder="Localidad"
+                                                                                        class="form-control" value=""
+                                                                                        required>
+                                                                                </div>
 
-                                                                            <div class="mb-3">
-                                                                                <label for="recipient-name"
-                                                                                    class="col-form-label">Volum.
-                                                                                    Color</label>
-                                                                                <input
-                                                                                    style="border: solid 1px rgba(99, 97, 97, 0.6);"
-                                                                                    type="number"
-                                                                                    placeholder="Calculo de volumen Color"
-                                                                                    name="volum_color" class="form-control"
-                                                                                    id="volum_color" value="">
-                                                                            </div>
+                                                                                <div class="mb-3">
+                                                                                    <label for="recipient-name"
+                                                                                        class="col-form-label">Mes</label>
+                                                                                    <input
+                                                                                        style="border: solid 1px rgba(99, 97, 97, 0.6);"
+                                                                                        type="text" name="mes"
+                                                                                        placeholder="Mes de Carga"
+                                                                                        class="form-control"
+                                                                                        id="recipient-name"
+                                                                                        value="{{ $mesLM }}" readonly
+                                                                                        required>
+                                                                                </div>
+
+                                                                                <div class="mb-3">
+                                                                                    <label for="recipient-name"
+                                                                                        class="col-form-label">Fecha</label>
+                                                                                    <input
+                                                                                        style="border: solid 1px rgba(99, 97, 97, 0.6);"
+                                                                                        type="text" name="date"
+                                                                                        placeholder="Fecha de carga"
+                                                                                        class="form-control"
+                                                                                        id="recipient-name"
+                                                                                        value="{{ $dateLM->format('Y-m-d') }}"
+                                                                                        readonly required>
+                                                                                </div>
+
+                                                                                <div class="mb-3">
+                                                                                    <label for="recipient-name"
+                                                                                        class="col-form-label">Cont. Ante.
+                                                                                        B/N</label>
+                                                                                    <input
+                                                                                        style="border: solid 1px rgba(99, 97, 97, 0.6);"
+                                                                                        type="number"
+                                                                                        placeholder="Por ejemplo: 2650"
+                                                                                        name="cont_ante_bn"
+                                                                                        class="form-control"
+                                                                                        id="cont_ante_bn" value="0"
+                                                                                        required>
+                                                                                </div>
+
+                                                                                <div class="mb-3">
+                                                                                    <label for="recipient-name"
+                                                                                        class="col-form-label">Cont. Actu.
+                                                                                        B/N</label>
+                                                                                    <input
+                                                                                        style="border: solid 1px rgba(99, 97, 97, 0.6);"
+                                                                                        type="number"
+                                                                                        placeholder="Por ejemplo: 3000"
+                                                                                        name="cont_actu_bn"
+                                                                                        class="form-control"
+                                                                                        id="cont_actu_bn" value="0"
+                                                                                        required>
+                                                                                </div>
+
+                                                                                <div class="mb-3">
+                                                                                    <label for="recipient-name"
+                                                                                        class="col-form-label">Volum.
+                                                                                        B/N</label>
+                                                                                    <input
+                                                                                        style="border: solid 1px rgba(99, 97, 97, 0.6);"
+                                                                                        type="number" name="volum_bn"
+                                                                                        placeholder="Calculo de volumen B/N"
+                                                                                        class="form-control" id="volum_bn"
+                                                                                        value="0" readonly required>
+                                                                                </div>
+
+                                                                                <div class="mb-3">
+                                                                                    <label for="recipient-name"
+                                                                                        class="col-form-label">Cont. Ante.
+                                                                                        Color</label>
+                                                                                    <input
+                                                                                        style="border: solid 1px rgba(99, 97, 97, 0.6);"
+                                                                                        type="number"
+                                                                                        placeholder="Por ejemplo: 600"
+                                                                                        name="cont_ante_color"
+                                                                                        class="form-control"
+                                                                                        id="cont_ante_color" value="0"
+                                                                                        required>
+                                                                                </div>
+
+                                                                                <div class="mb-3">
+                                                                                    <label for="recipient-name"
+                                                                                        class="col-form-label">Cont. Actu.
+                                                                                        Color</label>
+                                                                                    <input
+                                                                                        style="border: solid 1px rgba(99, 97, 97, 0.6);"
+                                                                                        type="number"
+                                                                                        placeholder="Por ejemplo: 750"
+                                                                                        name="cont_actu_color"
+                                                                                        class="form-control"
+                                                                                        id="cont_actu_color" value="0"
+                                                                                        required>
+                                                                                </div>
+
+                                                                                <div class="mb-3">
+                                                                                    <label for="recipient-name"
+                                                                                        class="col-form-label">Volum.
+                                                                                        Color</label>
+                                                                                    <input
+                                                                                        style="border: solid 1px rgba(99, 97, 97, 0.6);"
+                                                                                        type="number"
+                                                                                        placeholder="Calculo de volumen Color"
+                                                                                        name="volum_color"
+                                                                                        class="form-control"
+                                                                                        id="volum_color" value="0" readonly
+                                                                                        required>
+                                                                                </div>
+
+
+                                                                                <div class="mb-3">
+                                                                                    <label for="recipient-name"
+                                                                                        class="col-form-label">Cont. Ante.
+                                                                                        Scaner</label>
+                                                                                    <input
+                                                                                        style="border: solid 1px rgba(99, 97, 97, 0.6);"
+                                                                                        type="number"
+                                                                                        placeholder="Por ejemplo: 300"
+                                                                                        name="cont_ante_scan_images"
+                                                                                        class="form-control"
+                                                                                        id="cont_ante_scan_images" value="0"
+                                                                                        required>
+                                                                                </div>
+
+                                                                                <div class="mb-3">
+                                                                                    <label for="recipient-name"
+                                                                                        class="col-form-label">Cont. Actu.
+                                                                                        Scaner</label>
+                                                                                    <input
+                                                                                        style="border: solid 1px rgba(99, 97, 97, 0.6);"
+                                                                                        type="number"
+                                                                                        placeholder="Por ejemplo: 350"
+                                                                                        name="cont_actu_scan_images"
+                                                                                        class="form-control"
+                                                                                        id="cont_actu_scan_images" value="0"
+                                                                                        required>
+                                                                                </div>
+
+                                                                                <div class="mb-3">
+                                                                                    <label for="recipient-name"
+                                                                                        class="col-form-label">Volum
+                                                                                        Scaner</label>
+                                                                                    <input
+                                                                                        style="border: solid 1px rgba(99, 97, 97, 0.6);"
+                                                                                        type="number"
+                                                                                        placeholder="Calculo de volumen Scaner"
+                                                                                        name="volum_scan_images"
+                                                                                        class="form-control"
+                                                                                        id="volum_scan_images" value="0"
+                                                                                        readonly required>
+                                                                                </div>
+
+                                                                                <div class="mb-3">
+                                                                                    <label for="recipient-name"
+                                                                                        class="col-form-label">Anexar
+                                                                                        Comprobante</label>
+                                                                                    <input
+                                                                                        style="border: solid 1px rgba(99, 97, 97, 0.6);"
+                                                                                        type="file" placeholder=""
+                                                                                        name="comprobante"
+                                                                                        class="form-control"
+                                                                                        id="comprobante" value="">
+                                                                                </div>
+
 
                                                                         </div>
 
@@ -698,6 +802,9 @@
                                                                                 value="submit"
                                                                                 class="btn btn-primary">Cargar</button>
                                                                         </div>
+
+                                                                        </form>
+
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -873,6 +980,10 @@
                                                                 Modelo</th>
                                                             <th
                                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                Localidad</th>
+
+                                                            <th
+                                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
                                                                 Mes</th>
                                                             <th
                                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
@@ -910,6 +1021,12 @@
                                                                     class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
                                                                     {{ $row_load->model }}
                                                                 </td>
+
+                                                                <td
+                                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                                    {{ $row_load->location }}
+                                                                </td>
+
                                                                 <td
                                                                     class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
                                                                     {{ $row_load->mes }}
