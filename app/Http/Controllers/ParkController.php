@@ -68,17 +68,25 @@ class ParkController extends Controller
 
       //dd($request->selected_id); // Debe mostrar el ID seleccionado
 
-      $request->validate([
-         'selected_id' => 'required|integer|exists:parks,id'
-      ]);
+      if (!empty($_POST['procesarBtn'])) {
 
-      // Obtener el item completo
-      $device = parks::findOrFail($request->selected_id);
 
-      $AlquilerContrato = alquilers::all();
+         $request->validate([
+            'selected_id' => 'required|integer|exists:parks,id'
+         ]);
 
-      // Opción 1: Pasar directamente a una vista
-      return view('logic.Upark', compact('device', 'AlquilerContrato'));
+         // Obtener el item completo
+         $device = parks::findOrFail($request->selected_id);
+
+         $AlquilerContrato = alquilers::all();
+
+         // Opción 1: Pasar directamente a una vista
+         return view('logic.Upark', compact('device', 'AlquilerContrato'));
+
+
+      } else {
+         return redirect()->route('.park')->with('alert_message', 'Lo siento, debes seleccionar al menos un elemento!');
+      }
 
    }
 

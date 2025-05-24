@@ -159,9 +159,14 @@
                         </div>
                     @endif
 
+                    @if(session('alert_message'))
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function () {
+                                alert('{{ session('alert_message') }}');
+                            });
+                        </script>
+                    @endif
 
-
-                                            
                     <!--TABLE ORDEN-->
                     <div class="col-md-15 mb-lg-0 mb-4">
                         <div class="card mt-4">
@@ -169,24 +174,25 @@
                                 <div class="row">
                                     <div style="justify-content: space-between;" class="col-12 d-flex align-items-center">
                                         <h4 class="mb-3 text-secondary font-weight-bolder opacity-7">Customer's:
-                                            <small>Park</small></h4>
+                                            <small>Park</small>
+                                        </h4>
 
 
 
 
 
-                                    <script>
-                                        // Asegúrate de que el formulario no se detenga por JS
-                                        document.getElementById('singleRowForm').addEventListener('submit', function(e) {
-                                            e.preventDefault(); // <-- Elimina esta línea si existe
-                                            this.submit();
-                                        });
-                                    </script>
-                                    
-                                          
+                                        <script>
+                                            // Asegúrate de que el formulario no se detenga por JS
+                                            document.getElementById('singleRowForm').addEventListener('submit', function (e) {
+                                                e.preventDefault(); // <-- Elimina esta línea si existe
+                                                this.submit();
+                                            });
+                                        </script>
+
+
                                     </div>
 
-                                   
+
 
                                 </div>
                             </div>
@@ -194,10 +200,11 @@
                             <form method="get" action="{{ route('park.process.single') }}">
                                 @csrf
 
-                                <div style="" class="btns">
-                                    <button name="submit-selected" id="submit-selected" class="btn btn-dark">Editar</button>
+                                <div style="margin-right: 50px;" class="btns text-end mt-3">
+                                    <button name="submit-selected" id="submit-selected" class="btn btn-dark"
+                                        name="procesarBtn">Editar</button>
                                 </div>
-                                             
+
 
                                 <div class="main p-5">
 
@@ -205,9 +212,11 @@
                                         <table id="myTable" class="table align-items-center mb-0">
                                             <thead>
                                                 <tr style="font-size: 13px;">
-                                                    
-                                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-">Option</th>
-                                                    
+
+                                                    <th
+                                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
+                                                        Option</th>
+
                                                     <th
                                                         class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
                                                         Cliente</th>
@@ -262,67 +271,97 @@
                                                 @foreach ($parks as $row_park)
                                                     <tr style="font-size: 12px;">
 
-                                                        <td  class="text-center">
-                                                            <input type="checkbox" name="selected_id" value="{{ $row_park->id }}" onclick="seleccionarUnico(this)">
+                                                        <td class="text-center">
+                                                            <input type="checkbox" name="selected_id"
+                                                                value="{{ $row_park->id }}" onclick="seleccionarUnico(this)">
                                                         </td>
 
                                                         <td
                                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                            {{ $row_park->cliente }}</td>
+                                                            {{ $row_park->cliente }}
+                                                        </td>
                                                         <td
                                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                            {{ $row_park->rif }}</td>
+                                                            {{ $row_park->rif }}
+                                                        </td>
                                                         <td
                                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                            {{ $row_park->serial }}</td>
+                                                            {{ $row_park->serial }}
+                                                        </td>
                                                         <td
                                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                            {{ $row_park->model }}</td>
+                                                            {{ $row_park->model }}
+                                                        </td>
                                                         <td
                                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                            {{ $row_park->n_contract }}</td>
+                                                            {{ $row_park->n_contract }}
+                                                        </td>
                                                         <td class=""><span
                                                                 class="badge bg-primary rounded-pill d-inline">{{ $row_park->activo }}</span>
                                                         </td>
                                                         <td
                                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                            {{ $row_park->location }}</td>
+                                                            {{ $row_park->location }}
+                                                        </td>
                                                         <td
                                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                            {{ $row_park->city }}</td>
+                                                            {{ $row_park->city }}
+                                                        </td>
                                                         <td
                                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                            {{ $row_park->estado }}</td>
+                                                            {{ $row_park->estado }}
+                                                        </td>
                                                         <td
                                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                            {{ $row_park->date_insta }}</td>
+                                                            {{ $row_park->date_insta }}
+                                                        </td>
                                                         <td
                                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                            {{ $row_park->n_port }}</td>
+                                                            {{ $row_park->n_port }}
+                                                        </td>
                                                         <td
                                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                            {{ $row_park->cont_insta_bn }}</td>
+                                                            {{ $row_park->cont_insta_bn }}
+                                                        </td>
                                                         <td
                                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                            {{ $row_park->cont_insta_color }}</td>
+                                                            {{ $row_park->cont_insta_color }}
+                                                        </td>
                                                         <td
                                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                            {{ $row_park->obser }}</td>
+                                                            {{ $row_park->obser }}
+                                                        </td>
                                                         <td
                                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-">
-                                                            {{ $row_park->doc }}</td>
+                                                            {{ $row_park->doc }}
+                                                        </td>
                                                     </tr>
                                                 @endforeach
 
-                                            <script>
-                                            // Función para asegurar selección única con checkboxes
-                                            function seleccionarUnico(checkbox) {
-                                                const checkboxes = document.querySelectorAll('input[type="checkbox"][name="selected_id"]');
-                                                checkboxes.forEach((cb) => {
-                                                    if(cb !== checkbox) cb.checked = false;
-                                                });
-                                            }
-                                            </script>
+                                                <script>
+
+
+                                                    // Manejar clic en el botón
+                                                    procesarBtn.addEventListener('click', function () {
+                                                        const selectedCheckbox = document.querySelector('.producto-checkbox:checked');
+
+                                                        if (!selectedCheckbox) {
+                                                            alert('Por favor selecciona un producto');
+                                                            return;
+                                                        }
+                                                        // Función para asegurar selección única con checkboxes
+                                                        function seleccionarUnico(checkbox) {
+                                                            const checkboxes = document.querySelectorAll('input[type="checkbox"][name="selected_id"]');
+                                                            checkboxes.forEach((cb) => {
+                                                                if (cb !== checkbox) cb.checked = false;
+                                                            });
+                                                        }
+
+                                                    // Manejar clic en el botón
+
+
+
+                                                </script>
 
                                             </tbody>
                                         </table>
@@ -358,237 +397,237 @@
 
 
         <script>
-            var ctx = document.getElementById("chart-bars").getContext("2d");
+                                                            var ctx = document.getElementById("chart-bars").getContext("2d");
 
-            new Chart(ctx, {
-                type: "bar",
-                data: {
-                    labels: ["M", "T", "W", "T", "F", "S", "S"],
-                    datasets: [{
-                        label: "Views",
-                        tension: 0.4,
-                        borderWidth: 0,
-                        borderRadius: 4,
-                        borderSkipped: false,
-                        backgroundColor: "#43A047",
-                        data: [50, 45, 22, 28, 50, 60, 76],
-                        barThickness: 'flex'
-                    },],
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            display: false,
-                        }
-                    },
-                    interaction: {
-                        intersect: false,
-                        mode: 'index',
-                    },
-                    scales: {
-                        y: {
-                            grid: {
-                                drawBorder: false,
-                                display: true,
-                                drawOnChartArea: true,
-                                drawTicks: false,
-                                borderDash: [5, 5],
-                                color: '#e5e5e5'
-                            },
-                            ticks: {
-                                suggestedMin: 0,
-                                suggestedMax: 500,
-                                beginAtZero: true,
-                                padding: 10,
-                                font: {
-                                    size: 14,
-                                    lineHeight: 2
-                                },
-                                color: "#737373"
-                            },
-                        },
-                        x: {
-                            grid: {
-                                drawBorder: false,
-                                display: false,
-                                drawOnChartArea: false,
-                                drawTicks: false,
-                                borderDash: [5, 5]
-                            },
-                            ticks: {
-                                display: true,
-                                color: '#737373',
-                                padding: 10,
-                                font: {
-                                    size: 14,
-                                    lineHeight: 2
-                                },
-                            }
-                        },
-                    },
-                },
-            });
+                                                            new Chart(ctx, {
+                                                                type: "bar",
+                                                                data: {
+                                                                    labels: ["M", "T", "W", "T", "F", "S", "S"],
+                                                                    datasets: [{
+                                                                        label: "Views",
+                                                                        tension: 0.4,
+                                                                        borderWidth: 0,
+                                                                        borderRadius: 4,
+                                                                        borderSkipped: false,
+                                                                        backgroundColor: "#43A047",
+                                                                        data: [50, 45, 22, 28, 50, 60, 76],
+                                                                        barThickness: 'flex'
+                                                                    },],
+                                                                },
+                                                                options: {
+                                                                    responsive: true,
+                                                                    maintainAspectRatio: false,
+                                                                    plugins: {
+                                                                        legend: {
+                                                                            display: false,
+                                                                        }
+                                                                    },
+                                                                    interaction: {
+                                                                        intersect: false,
+                                                                        mode: 'index',
+                                                                    },
+                                                                    scales: {
+                                                                        y: {
+                                                                            grid: {
+                                                                                drawBorder: false,
+                                                                                display: true,
+                                                                                drawOnChartArea: true,
+                                                                                drawTicks: false,
+                                                                                borderDash: [5, 5],
+                                                                                color: '#e5e5e5'
+                                                                            },
+                                                                            ticks: {
+                                                                                suggestedMin: 0,
+                                                                                suggestedMax: 500,
+                                                                                beginAtZero: true,
+                                                                                padding: 10,
+                                                                                font: {
+                                                                                    size: 14,
+                                                                                    lineHeight: 2
+                                                                                },
+                                                                                color: "#737373"
+                                                                            },
+                                                                        },
+                                                                        x: {
+                                                                            grid: {
+                                                                                drawBorder: false,
+                                                                                display: false,
+                                                                                drawOnChartArea: false,
+                                                                                drawTicks: false,
+                                                                                borderDash: [5, 5]
+                                                                            },
+                                                                            ticks: {
+                                                                                display: true,
+                                                                                color: '#737373',
+                                                                                padding: 10,
+                                                                                font: {
+                                                                                    size: 14,
+                                                                                    lineHeight: 2
+                                                                                },
+                                                                            }
+                                                                        },
+                                                                    },
+                                                                },
+                                                            });
 
 
-            var ctx2 = document.getElementById("chart-line").getContext("2d");
+                                                            var ctx2 = document.getElementById("chart-line").getContext("2d");
 
-            new Chart(ctx2, {
-                type: "line",
-                data: {
-                    labels: ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"],
-                    datasets: [{
-                        label: "Sales",
-                        tension: 0,
-                        borderWidth: 2,
-                        pointRadius: 3,
-                        pointBackgroundColor: "#43A047",
-                        pointBorderColor: "transparent",
-                        borderColor: "#43A047",
-                        backgroundColor: "transparent",
-                        fill: true,
-                        data: [120, 230, 130, 440, 250, 360, 270, 180, 90, 300, 310, 220],
-                        maxBarThickness: 6
+                                                            new Chart(ctx2, {
+                                                                type: "line",
+                                                                data: {
+                                                                    labels: ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"],
+                                                                    datasets: [{
+                                                                        label: "Sales",
+                                                                        tension: 0,
+                                                                        borderWidth: 2,
+                                                                        pointRadius: 3,
+                                                                        pointBackgroundColor: "#43A047",
+                                                                        pointBorderColor: "transparent",
+                                                                        borderColor: "#43A047",
+                                                                        backgroundColor: "transparent",
+                                                                        fill: true,
+                                                                        data: [120, 230, 130, 440, 250, 360, 270, 180, 90, 300, 310, 220],
+                                                                        maxBarThickness: 6
 
-                    }],
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            display: false,
-                        },
-                        tooltip: {
-                            callbacks: {
-                                title: function (context) {
-                                    const fullMonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-                                    return fullMonths[context[0].dataIndex];
-                                }
-                            }
-                        }
-                    },
-                    interaction: {
-                        intersect: false,
-                        mode: 'index',
-                    },
-                    scales: {
-                        y: {
-                            grid: {
-                                drawBorder: false,
-                                display: true,
-                                drawOnChartArea: true,
-                                drawTicks: false,
-                                borderDash: [4, 4],
-                                color: '#e5e5e5'
-                            },
-                            ticks: {
-                                display: true,
-                                color: '#737373',
-                                padding: 10,
-                                font: {
-                                    size: 12,
-                                    lineHeight: 2
-                                },
-                            }
-                        },
-                        x: {
-                            grid: {
-                                drawBorder: false,
-                                display: false,
-                                drawOnChartArea: false,
-                                drawTicks: false,
-                                borderDash: [5, 5]
-                            },
-                            ticks: {
-                                display: true,
-                                color: '#737373',
-                                padding: 10,
-                                font: {
-                                    size: 12,
-                                    lineHeight: 2
-                                },
-                            }
-                        },
-                    },
-                },
-            });
+                                                                    }],
+                                                                },
+                                                                options: {
+                                                                    responsive: true,
+                                                                    maintainAspectRatio: false,
+                                                                    plugins: {
+                                                                        legend: {
+                                                                            display: false,
+                                                                        },
+                                                                        tooltip: {
+                                                                            callbacks: {
+                                                                                title: function (context) {
+                                                                                    const fullMonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                                                                                    return fullMonths[context[0].dataIndex];
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    interaction: {
+                                                                        intersect: false,
+                                                                        mode: 'index',
+                                                                    },
+                                                                    scales: {
+                                                                        y: {
+                                                                            grid: {
+                                                                                drawBorder: false,
+                                                                                display: true,
+                                                                                drawOnChartArea: true,
+                                                                                drawTicks: false,
+                                                                                borderDash: [4, 4],
+                                                                                color: '#e5e5e5'
+                                                                            },
+                                                                            ticks: {
+                                                                                display: true,
+                                                                                color: '#737373',
+                                                                                padding: 10,
+                                                                                font: {
+                                                                                    size: 12,
+                                                                                    lineHeight: 2
+                                                                                },
+                                                                            }
+                                                                        },
+                                                                        x: {
+                                                                            grid: {
+                                                                                drawBorder: false,
+                                                                                display: false,
+                                                                                drawOnChartArea: false,
+                                                                                drawTicks: false,
+                                                                                borderDash: [5, 5]
+                                                                            },
+                                                                            ticks: {
+                                                                                display: true,
+                                                                                color: '#737373',
+                                                                                padding: 10,
+                                                                                font: {
+                                                                                    size: 12,
+                                                                                    lineHeight: 2
+                                                                                },
+                                                                            }
+                                                                        },
+                                                                    },
+                                                                },
+                                                            });
 
-            var ctx3 = document.getElementById("chart-line-tasks").getContext("2d");
+                                                            var ctx3 = document.getElementById("chart-line-tasks").getContext("2d");
 
-            new Chart(ctx3, {
-                type: "line",
-                data: {
-                    labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-                    datasets: [{
-                        label: "Tasks",
-                        tension: 0,
-                        borderWidth: 2,
-                        pointRadius: 3,
-                        pointBackgroundColor: "#43A047",
-                        pointBorderColor: "transparent",
-                        borderColor: "#43A047",
-                        backgroundColor: "transparent",
-                        fill: true,
-                        data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
-                        maxBarThickness: 6
+                                                            new Chart(ctx3, {
+                                                                type: "line",
+                                                                data: {
+                                                                    labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                                                                    datasets: [{
+                                                                        label: "Tasks",
+                                                                        tension: 0,
+                                                                        borderWidth: 2,
+                                                                        pointRadius: 3,
+                                                                        pointBackgroundColor: "#43A047",
+                                                                        pointBorderColor: "transparent",
+                                                                        borderColor: "#43A047",
+                                                                        backgroundColor: "transparent",
+                                                                        fill: true,
+                                                                        data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
+                                                                        maxBarThickness: 6
 
-                    }],
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            display: false,
-                        }
-                    },
-                    interaction: {
-                        intersect: false,
-                        mode: 'index',
-                    },
-                    scales: {
-                        y: {
-                            grid: {
-                                drawBorder: false,
-                                display: true,
-                                drawOnChartArea: true,
-                                drawTicks: false,
-                                borderDash: [4, 4],
-                                color: '#e5e5e5'
-                            },
-                            ticks: {
-                                display: true,
-                                padding: 10,
-                                color: '#737373',
-                                font: {
-                                    size: 14,
-                                    lineHeight: 2
-                                },
-                            }
-                        },
-                        x: {
-                            grid: {
-                                drawBorder: false,
-                                display: false,
-                                drawOnChartArea: false,
-                                drawTicks: false,
-                                borderDash: [4, 4]
-                            },
-                            ticks: {
-                                display: true,
-                                color: '#737373',
-                                padding: 10,
-                                font: {
-                                    size: 14,
-                                    lineHeight: 2
-                                },
-                            }
-                        },
-                    },
-                },
-            });
+                                                                    }],
+                                                                },
+                                                                options: {
+                                                                    responsive: true,
+                                                                    maintainAspectRatio: false,
+                                                                    plugins: {
+                                                                        legend: {
+                                                                            display: false,
+                                                                        }
+                                                                    },
+                                                                    interaction: {
+                                                                        intersect: false,
+                                                                        mode: 'index',
+                                                                    },
+                                                                    scales: {
+                                                                        y: {
+                                                                            grid: {
+                                                                                drawBorder: false,
+                                                                                display: true,
+                                                                                drawOnChartArea: true,
+                                                                                drawTicks: false,
+                                                                                borderDash: [4, 4],
+                                                                                color: '#e5e5e5'
+                                                                            },
+                                                                            ticks: {
+                                                                                display: true,
+                                                                                padding: 10,
+                                                                                color: '#737373',
+                                                                                font: {
+                                                                                    size: 14,
+                                                                                    lineHeight: 2
+                                                                                },
+                                                                            }
+                                                                        },
+                                                                        x: {
+                                                                            grid: {
+                                                                                drawBorder: false,
+                                                                                display: false,
+                                                                                drawOnChartArea: false,
+                                                                                drawTicks: false,
+                                                                                borderDash: [4, 4]
+                                                                            },
+                                                                            ticks: {
+                                                                                display: true,
+                                                                                color: '#737373',
+                                                                                padding: 10,
+                                                                                font: {
+                                                                                    size: 14,
+                                                                                    lineHeight: 2
+                                                                                },
+                                                                            }
+                                                                        },
+                                                                    },
+                                                                },
+                                                            });
         </script>
 
 

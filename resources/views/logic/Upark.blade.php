@@ -256,7 +256,7 @@
                                         <div class="form-group">
                                             <input type="number"
                                                 class="form-control bg-transparent text-dark border-dark p-4"
-                                                placeholder="Contador Inicial Color" value="cont_insta_color"
+                                                placeholder="Contador Inicial Color" value="{{ $device->cont_insta_color }}"
                                                 name="cont_insta_color" />
                                         </div>
 
