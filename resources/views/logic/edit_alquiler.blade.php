@@ -275,7 +275,7 @@
                                                                         <input type="number" class="form"
                                                                             placeholder="450,00" aria-label="Username"
                                                                             aria-describedby="basic-addon1" name="label"
-                                                                            value="{{ $alquiler->label }}" >
+                                                                            value="{{ $alquiler->label }}" required>
                                                                     </div>
 
                                                                 </div>

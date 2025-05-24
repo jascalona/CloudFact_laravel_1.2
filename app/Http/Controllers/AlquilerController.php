@@ -32,16 +32,7 @@ class AlquilerController extends Controller
 
             #Vista 01
             if (!empty($_POST['cliente']) and !empty($_POST['date_init_contract'])
-                
-            /**Precio y copiado minimo */
-                and !empty($_POST['P_CLICK_BN_USD'])  
-                and !empty($_POST['PCM'])
-
-            /**Datos primarios */ 
-                and !empty($_POST['rif']) and !empty($_POST['n_contract']) 
-                
-            #Vista 02   
-               and !empty($_POST['moneda']) ) {
+                 ) {
 
                 /**Modificacion */
                 $alquilerU = Alquilers::findOrFail($id);
