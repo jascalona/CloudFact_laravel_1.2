@@ -25,7 +25,7 @@ class ParkController extends Controller
 
             /**CREAR INSTANCIA DEL  MODELO*/
             $install = new Park();
-            
+
             $install->cliente = $request->post('cliente');
             $install->rif = $request->post('rif');
             $install->serial = $request->post('serial');
@@ -61,15 +61,37 @@ class ParkController extends Controller
    }
 
 
-   /**Metodo show-edit */
-   public function edit($id)
-   {
-      $device = parks::findOrFail($id);
-      $AlquilerContrato = Alquilers::all();
 
-      return view("logic.Upark", compact("device", "AlquilerContrato"));
+   // CONTROLADOR DE SELECCION ATRAVEZ DE INPUT SIN AJAX
+   public function processSingle(Request $request)
+   {
+
+      //dd($request->selected_id); // Debe mostrar el ID seleccionado
+
+      $request->validate([
+         'selected_id' => 'required|integer|exists:parks,id'
+      ]);
+
+      // Obtener el item completo
+      $device = parks::findOrFail($request->selected_id);
+
+      $AlquilerContrato = alquilers::all();
+
+      // Opción 1: Pasar directamente a una vista
+      return view('logic.Upark', compact('device', 'AlquilerContrato'));
+
    }
 
+
+   /**Metodo show-edit 
+      public function edit($id)
+      {
+         $device = parks::findOrFail($id);
+         $AlquilerContrato = Alquilers::all();
+
+         return view("logic.Upark", compact("device", "AlquilerContrato"));
+      }
+   */
 
    /**Metodo Update */
    public function update(Request $request, $id)
@@ -105,7 +127,7 @@ class ParkController extends Controller
 
 
          } else {
-            return redirect()->route('Upark.edit', $id)->with('warning', 'Los Campos primarios no pueden quedar vacios. ¡Por favor inserte los datos solicitados!');
+            return redirect()->route('park.process.single', $id)->with('warning', 'Los Campos primarios no pueden quedar vacios. ¡Por favor inserte los datos solicitados!');
          }
 
 

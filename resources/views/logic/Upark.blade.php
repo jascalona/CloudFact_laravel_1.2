@@ -141,20 +141,23 @@
                                             </div>
 
 
-                                            <label for="recipient-name" class="col-form-label text-white">N# Contrato</label>
+                                            <label for="recipient-name" class="col-form-label text-white">N#
+                                                Contrato</label>
                                             <select class="form-select form-select-lg mb-3"
                                                 aria-label="Large select example" name="n_contract">
                                                 <option selected>{{ $device->n_contract }}</option>
                                                 @foreach ($AlquilerContrato as $contract)
-                                                    <option value="{{ $contract->n_contract }}">{{ $contract->n_contract }}</option>
+                                                    <option value="{{ $contract->n_contract }}">{{ $contract->n_contract }}
+                                                    </option>
                                                 @endforeach
                                             </select>
 
                                             <label for="recipient-name" class="col-form-label text-white">Estado del
                                                 Equipo</label>
-                                            
-                                                
-                                            <label for="recipient-name" class="col-form-label text-white">Estado del Equipo</label>
+
+
+                                            <label for="recipient-name" class="col-form-label text-white">Estado del
+                                                Equipo</label>
                                             <select class="form-select form-select-lg mb-3"
                                                 aria-label="Large select example" name="activo">
                                                 <option selected>{{ $device->activo }}</option>

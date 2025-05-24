@@ -109,7 +109,7 @@
                     <div class="item-install-right">
                         <div class="cont-top">
                             <h6>Registro de Instalación</h6>
-                            <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, aliquid!</small>
+                            <small>Por favor ingrese los datos del equipo en el siguiente formulario!</small>
                         </div>
                         <!--INPUT GROUP FORM-->
 
@@ -123,7 +123,7 @@
                                     aria-label="Large select example" name="cliente" required>
                                     <option>Seleccione un Cliente</option>
                                     @foreach ($customers as $select)
-                                        <option value="{{ $select->rif }}">{{ $select->name }}</option>
+                                        <option value="{{ $select->name }}" data-rif="{{ $select->rif }}" >{{ $select->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -138,8 +138,10 @@
 
                             <script>
                                 $("#customer").change(function () {
-                                    var selectedValue = $(this).val();
-                                    $("#rif").val(selectedValue);
+                                    //Obtener el valor del atributo data-rif del option Seleccionado 
+                                    var rif = $(this).find("option:selected").data("rif");
+                                    $("#rif").val(rif);
+                                
                                 });
                             </script>
 

@@ -29,7 +29,9 @@ Route::get('/dashboard', [App\Http\Controllers\CustomerController::class, 'index
 
  Route::resource('/customers',CustomerController::class)->names('customer');
 
- Route::PATCH('/Upark{edit}', [App\Http\Controllers\ParkController::class, 'edit'])->name('Upark.edit');
+ //Route::PATCH('/Upark{edit}', [App\Http\Controllers\ParkController::class, 'edit'])->name('Upark.edit');
+
+Route::post('/Upark/show-single-row', [ParkController::class, 'processSingle'])->name('park.process.single');
 
  Route::put('/Upark{edit}', [App\Http\Controllers\ParkController::class,'update'])->name('Upark.update');
 
