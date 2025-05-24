@@ -32,7 +32,16 @@ class AlquilerController extends Controller
 
             #Vista 01
             if (!empty($_POST['cliente']) and !empty($_POST['date_init_contract'])
-                 ) {
+                
+            /**Precio y copiado minimo */
+                and !empty($_POST['P_CLICK_BN_USD'])  
+                and !empty($_POST['PCM'])
+
+            /**Datos primarios */ 
+                and !empty($_POST['rif']) and !empty($_POST['n_contract']) 
+                
+            #Vista 02   
+               and !empty($_POST['moneda']) ) {
 
                 /**Modificacion */
                 $alquilerU = Alquilers::findOrFail($id);
@@ -109,6 +118,15 @@ class AlquilerController extends Controller
             /**DATOS VALIDACION DATOS DE CLIENTE */
             if (
                 !empty($_POST['name_c']) and !empty($_POST['cliente']) and !empty($_POST['date_init_contract']) and !empty($_POST['date_close_contract'])
+
+                #02
+                and !empty($_POST['rif']) and !empty($_POST['n_contract']) and !empty($_POST['d_contract']) and !empty($_POST['tipo_c']) and !empty($_POST['vendedor']) and !empty($_POST['administrador_01'])
+
+                #PRECIOS
+                and !empty($_POST['P_CLICK_BN_USD']) and !empty($_POST['P_CLICK_COLOR_USD'])
+
+                /**VALIDACION INFORMACION DETALLADA */
+                and !empty($_POST['moneda']) and !empty($_POST['tipo_cambio'])
 
             ) {
                 /**Instancia Eloquent para alquiler */
