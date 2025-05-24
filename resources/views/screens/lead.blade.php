@@ -107,7 +107,7 @@
                     @foreach ($customers as $row)
                         <!--CARDS-->
                         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-                            <div class="card">
+                            <div style=" height: 190px; " class="card">
                                 <div class="card-header p-2 ps-3">
                                     <div class="d-flex justify-content-between">
                                         <div>

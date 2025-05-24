@@ -170,7 +170,7 @@
 
                             <div style="display: flex; align-items: center;" class="form-check ">
                                 <input class="form-check- w-auto" type="radio" name="activo"
-                                    id="radioDefault1" value="Si" >
+                                    id="radioDefault1" value="Si" checked >
                                 <label class="form-check-label mt-2" for="radioDefault1">Si</label>
                             </div>
                             <div style="display: flex; align-items: center;" class="form-check">
