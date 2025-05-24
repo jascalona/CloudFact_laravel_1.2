@@ -126,7 +126,7 @@
                                 <div class="form-text" id="basic-addon4">Nombre del Contrato:</div>
                                 <input style="font-size: 38px" type="text" class="form-"
                                     placeholder="Por ejemplo: 056JE22K Xerox Corporation, C.A" aria-label="Username"
-                                    aria-describedby="basic-addon1" value="" name="name_c">
+                                    aria-describedby="basic-addon1" value="" name="name_c" required>
                             </div>
 
                             <div class="col-12 text-end">
@@ -171,14 +171,16 @@
                                                         name="cliente">
                                                         <option>Seleccione un Cliente</option>
                                                         @foreach ($customers as $select)
-                                                            <option value="{{ $select->rif }}">{{ $select->name }}</option>
+                                                            <option value="{{ $select->name }}"  data-rif="{{ $select->rif }}" >{{ $select->name }}</option>
                                                         @endforeach
                                                     </select>
 
                                                     <script>
                                                         $("#customer").change(function () {
-                                                            var selectedValue = $(this).val();
-                                                            $("#rif").val(selectedValue);
+                                                            //Obtener el valor del atributo data-model del option select
+                                                            var rif = $(this).find("option:selected").data("rif");
+                                                            $("#rif").val(rif);
+                                                        
                                                         });
                                                     </script>
 
@@ -188,14 +190,14 @@
                                                         <div class="input-group mb-3">
                                                             <input type="date" class="form" placeholder="Emision"
                                                                 aria-label="Username" aria-describedby="basic-addon1"
-                                                                value="" name="date_init_contract">
+                                                                value="" name="date_init_contract" required >
                                                         </div>
 
                                                         <div class="form-text mt-4" id="basic-addon4">Fecha de Final</div>
                                                         <div class="input-group mb-3">
                                                             <input type="date" class="form" placeholder="Emision"
                                                                 aria-label="Username" aria-describedby="basic-addon1"
-                                                                value="" name="date_close_contract">
+                                                                value="" name="date_close_contract" required>
                                                         </div>
 
                                                         <ul class="nav nav-fill nav-tabs w-90 mt-6" role="tablist">
@@ -245,7 +247,7 @@
                                                                         <input type="text" class="form"
                                                                             placeholder="0.00" aria-label="Username"
                                                                             aria-describedby="basic-addon1" value="0.00"
-                                                                            name="P_CLICK_COLOR_USD">
+                                                                            name="P_CLICK_COLOR_USD" required>
                                                                     </div>
 
 
@@ -255,7 +257,7 @@
                                                                         <input type="number" class="form" placeholder="2500"
                                                                             aria-label="Username"
                                                                             aria-describedby="basic-addon1" value="0"
-                                                                            name="copi_minimo_bn">
+                                                                            name="copi_minimo_bn" required>
                                                                     </div>
 
                                                                     <div class="form-text" id="basic-addon4">Copiado Minimo
@@ -264,7 +266,7 @@
                                                                         <input type="number" class="form" placeholder="2500"
                                                                             aria-label="Username"
                                                                             aria-describedby="basic-addon1" value="0"
-                                                                            name="copi_minimo_color">
+                                                                            name="copi_minimo_color" required>
                                                                     </div>
 
                                                                     <div class="form-text" id="basic-addon4">Precio Cargo
@@ -274,15 +276,15 @@
                                                                         <input type="text" class="form"
                                                                             placeholder="1000.84" aria-label="Username"
                                                                             aria-describedby="basic-addon1" value=""
-                                                                            name="PCM">
+                                                                            name="PCM" required>
                                                                     </div>
 
                                                                     <div class="form-text" id="basic-addon4">Label</div>
                                                                     <div class="input-group mb-3">
                                                                         <input type="text" class="form"
                                                                             placeholder="450.00" aria-label="Username"
-                                                                            aria-describedby="basic-addon1" value=""
-                                                                            name="label">
+                                                                            aria-describedby="basic-addon1" value="0"
+                                                                            name="label" required>
                                                                     </div>
                                                                 </div>
                                                                 <!--show click Global-->
@@ -319,7 +321,7 @@
                                                     <div class="input-group mb-3">
                                                         <input type="text" class="form" placeholder="Por ejemplo: 056JE22K"
                                                             aria-label="Username" aria-describedby="basic-addon1"
-                                                            name="n_contract">
+                                                            name="n_contract" required>
                                                     </div>
 
 
@@ -328,12 +330,12 @@
                                                     <div class="input-group mb-3">
                                                         <input type="number" class="form" placeholder="Por ejemplo: 12"
                                                             aria-label="Username" aria-describedby="basic-addon1" value="0"
-                                                            name="d_contract">
+                                                            name="d_contract" required>
                                                     </div>
 
                                                     <div class="form-text mt-4" id="basic-addon4">Tipo de Contrato</div>
                                                     <select class="form-select bb form-select-sm mb- mt-3"
-                                                        aria-label="Large select example" name="tipo_c">
+                                                        aria-label="Large select example" name="tipo_c" required>
                                                         <option selected></option>
                                                         <option value="FSMA">FSMA</option>
                                                         <option value="Renta - TCO">Renta - TCO</option>
@@ -345,7 +347,7 @@
 
                                                     <div class="form-text mt-4" id="basic-addon4">Vendedor Eje.</div>
                                                     <select class="form-select bb form-select-sm mb-3 mt-3"
-                                                        aria-label="Large select example" name="vendedor">
+                                                        aria-label="Large select example" name="vendedor" required>
                                                         <option selected></option>
                                                         <option value="Jose Escalona">Jose Escalona</option>
                                                         <option value="Abraham Blanco">Abraham Blanco</option>
@@ -353,7 +355,7 @@
 
                                                     <div class="form-text mt-4" id="basic-addon4">Administrador</div>
                                                     <select class="form-select bb form-select-sm mb-3 mt-3"
-                                                        aria-label="Large select example" name="administrador_01">
+                                                        aria-label="Large select example" name="administrador_01" required>
                                                         <option selected></option>
                                                         <option value="Jose Escalona">Jose Escalona</option>
                                                         <option value="Abraham Blanco">Abraham Blanco</option>
@@ -386,7 +388,7 @@
                                                     <div class="form-text mt-2" id="basic-addon4">Información Monetarea
                                                     </div>
                                                     <select class="form-select bb form-select-sm mb-4 mt-3 w-50"
-                                                        aria-label="Large select example" name="moneda">
+                                                        aria-label="Large select example" name="moneda" required>
                                                         <option selected></option>
                                                         <option value="Bolivares">Bolivares</option>
                                                         <option value="Dolares">Dolares</option>
@@ -398,7 +400,7 @@
                                                         <div class="input-group mb-3">
                                                             <input type="text" class="form"
                                                                 placeholder="Por ejemplo: Paralelo" aria-label="Username"
-                                                                aria-describedby="basic-addon1" value="" name="tipo_cambio">
+                                                                aria-describedby="basic-addon1" value="" name="tipo_cambio" required>
                                                         </div>
 
 
@@ -528,59 +530,59 @@
 
 
                                                     <!--inputs show-->
-                                                    <div style="display: none;" id="InputAdministrador"
+                                                    <div id="InputAdministrador"
                                                         class="input-hidden mt-5">
                                                         <div class="form-text mt-4">Candidad
                                                             Administrador</div>
                                                         <div class="input-group mb-3">
                                                             <input type="Number" class="form"
                                                                 placeholder="Unidades Administrador" aria-label="Username"
-                                                                aria-describedby="basic-addon1" value="" name="n_admin">
+                                                                aria-describedby="basic-addon1" value="1" name="n_admin">
                                                         </div>
                                                     </div>
                                                     <!--inputs show-->
 
                                                     <!--inputs show-->
-                                                    <div style="display: none;" id="InputAsesor" class="input-hidden">
+                                                    <div id="InputAsesor" class="input-hidden">
                                                         <div class="form-text mt-4">Candidad Asesor</div>
                                                         <div class="input-group mb-3">
                                                             <input type="Number" class="form"
                                                                 placeholder="Unidades Administrador" aria-label="Username"
-                                                                aria-describedby="basic-addon1" value="" name="n_asesor">
+                                                                aria-describedby="basic-addon1" value="0" name="n_asesor">
                                                         </div>
                                                     </div>
                                                     <!--inputs show-->
 
                                                     <!--inputs show-->
-                                                    <div style="display: none;" id="InputOperador" class="input-hidden">
+                                                    <div id="InputOperador" class="input-hidden">
                                                         <div class="form-text mt-4">Candidad Operador</div>
                                                         <div class="input-group mb-3">
                                                             <input type="Number" class="form"
                                                                 placeholder="Unidades Operador" aria-label="Username"
-                                                                aria-describedby="basic-addon1" value="" name="n_operador">
+                                                                aria-describedby="basic-addon1" value="0" name="n_operador">
                                                         </div>
                                                     </div>
                                                     <!--inputs show-->
 
 
                                                     <!--inputs show-->
-                                                    <div style="display: none;" id="InputAnalista" class="input-hidden">
+                                                    <div id="InputAnalista" class="input-hidden">
                                                         <div class="form-text mt-4">Candidad Analista</div>
                                                         <div class="input-group mb-3">
                                                             <input type="Number" class="form"
                                                                 placeholder="Unidades Analista" aria-label="Username"
-                                                                aria-describedby="basic-addon1" value="" name="n_analista">
+                                                                aria-describedby="basic-addon1" value="0" name="n_analista">
                                                         </div>
                                                     </div>
                                                     <!--inputs show-->
 
                                                     <!--inputs show-->
-                                                    <div style="display: none;" id="InputSupervisor" class="input-hidden">
+                                                    <div id="InputSupervisor" class="input-hidden">
                                                         <div class="form-text mt-4">Candidad Supervisor</div>
                                                         <div class="input-group mb-3">
                                                             <input type="Number" class="form"
                                                                 placeholder="Unidades Supervisor" aria-label="Username"
-                                                                aria-describedby="basic-addon1" value=""
+                                                                aria-describedby="basic-addon1" value="0"
                                                                 name="n_supervisor">
                                                         </div>
                                                     </div>

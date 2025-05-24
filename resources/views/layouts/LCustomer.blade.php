@@ -590,7 +590,7 @@
                                                                                         name="serial" id="device" required>
                                                                                         <option selected></option>
                                                                                         @foreach ($devicePark as $dev)
-                                                                                            <option value="{{ $dev->model }}">
+                                                                                            <option value="{{ $dev->serial }}" data-model="{{ $dev->model }}" >
                                                                                                 {{ $dev->serial }}
                                                                                             </option>
                                                                                         @endforeach
@@ -600,8 +600,9 @@
 
                                                                                 <script>
                                                                                     $("#device").change(function () {
-                                                                                        var selectValues = $(this).val();
-                                                                                        $("#model").val(selectValues);
+                                                                                        // Obtiene el valor del atributo data-model del option seleccionado
+                                                                                        var model = $(this).find("option:selected").data("model");
+                                                                                        $("#model").val(model);
                                                                                     });
                                                                                 </script>
 
