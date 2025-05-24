@@ -127,7 +127,7 @@ class ParkController extends Controller
 
 
          } else {
-            return redirect()->route('park.process.single', $id)->with('warning', 'Los Campos primarios no pueden quedar vacios. ¡Por favor inserte los datos solicitados!');
+            return redirect()->back()->with('warning', 'Los Campos primarios no pueden quedar vacios. ¡Por favor inserte los datos solicitados!');
          }
 
 

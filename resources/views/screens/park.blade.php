@@ -191,7 +191,7 @@
                                 </div>
                             </div>
 
-                            <form method="POST" action="{{ route('park.process.single') }}">
+                            <form method="get" action="{{ route('park.process.single') }}">
                                 @csrf
 
                                 <div style="" class="btns">

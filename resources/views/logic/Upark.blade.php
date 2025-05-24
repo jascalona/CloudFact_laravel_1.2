@@ -124,7 +124,7 @@
                                             <label for="recipient-name" class="col-form-label text-white">Rif</label>
                                             <div class="form-group">
                                                 <input type="text" class="form-control bg-transparent border-white p-4"
-                                                    value="{{ $device->rif }}" placeholder="RIF" name="rif" />
+                                                    value="{{ $device->rif }}" placeholder="RIF" name="rif"  />
                                             </div>
 
                                             <label for="recipient-name" class="col-form-label text-white">Serial</label>
